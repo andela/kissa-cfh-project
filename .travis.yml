@@ -1,0 +1,31 @@
+# the language the application was built with and what to run it with
+language: node_js
+
+# node version to use // checks for any of the versions
+node_js:
+  - 6
+  - 5
+  - 4
+
+install:
+  - npm install
+
+services:
+  - mongodb
+
+notifications:
+  - slack: andela:FzLbplkwSghKxRUKKqTyvBpd
+
+# install gulp globally so that it can be used to run the test
+# and start the server.
+before_script:
+  - npm install -g gulp
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+
+# start server and run test with the gulp command
+script:
+  - gulp mochaTest
+
+after_script:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
