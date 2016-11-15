@@ -1,12 +1,9 @@
-language:
-	- node_js
+language: node_js
 
-node:
-	- 6
-	- 5
+node_js: stable
 
 notifications:
-	- slack: andela:FzLbplkwSghKxRUKKqTyvBpd
+	slack: andela:FzLbplkwSghKxRUKKqTyvBpd
 
 services:
   - mongodb
