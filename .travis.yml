@@ -2,20 +2,20 @@ language: node_js
 
 node_js: stable
 
-notifications:
-	slack: andela:FzLbplkwSghKxRUKKqTyvBpd
-
 services:
   - mongodb
 
-before_script: 
-	- npm install
-	- npm install -g gulp
-	- export CHROME_BIN=chromium-browser
+before_script:
+  - npm install
+  - npm install -g gulp
+  - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
 
+notifications:
+   slack: andela:FzLbplkwSghKxRUKKqTyvBpd
+
 script:
-	- gulp
+  - gulp
 
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
