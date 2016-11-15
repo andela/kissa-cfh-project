@@ -9,6 +9,7 @@ services:
   - mongodb
 
 before_script: 
+	- npm install
 	- npm install -g gulp
 	- export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
