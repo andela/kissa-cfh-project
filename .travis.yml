@@ -1,0 +1,27 @@
+# the language the application was built with and what to run it with
+language: node_js
+
+# node version to use // checks for any of the versions
+node_js:
+  - "6"
+  - "6.1"
+  - "iojs"
+  - "stable"
+
+install:
+  - npm install 
+
+notifications:
+  - slack: andela:FzLbplkwSghKxRUKKqTyvBpd
+
+# install gulp globally so that it can be used to run the test
+# and start the server.
+before_script:
+  - npm install -g gulp
+
+# start server and run test with the gulp command
+script:
+  - gulp mochaTest
+
+after_script:
+  - process.exit()
