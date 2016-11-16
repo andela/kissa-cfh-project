@@ -50,14 +50,17 @@ gulp.task('pre-test',function(){
 
 
 gulp.task('mochaTest',['pre-test'],function(){
-  return gulp.src(['./test/**/*.js'])
+  return gulp.src(['./test/**/*.js'],
+    {
+      read: false
+    })
   .pipe(mocha({reporter: 'spec'}))
   .pipe(istanbul.writeReports({
     dir: './coverage',
     reporters: [ 'lcov' ],
     reportOpts: { dir: './coverage' },
   }))
-  .once('end', function() {
+  .on('end', function() {
     process.exit();
   })
 });
