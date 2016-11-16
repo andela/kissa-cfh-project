@@ -50,13 +50,22 @@ gulp.task('pre-test',function(){
 
 
 gulp.task('mochaTest',['pre-test'],function(){
-  return gulp.src(['./test/**/*.js'])
+  return gulp.src(['./test/**/*.js'],
+    {
+      read: false
+    })
   .pipe(mocha({reporter: 'spec'}))
   .pipe(istanbul.writeReports({
     dir: './coverage',
     reporters: [ 'lcov' ],
     reportOpts: { dir: './coverage' },
   }))
+  .once('error', function() {
+    process.exit(1);
+  })
+  .once('end', function() {
+    process.exit();
+  })
 });
 
 gulp.task('bower', function() {
@@ -75,7 +84,7 @@ gulp.task('serve', ['nodemon'], function(){
   });
 });
 
-gulp.task('default', ['watch', 'serve', 'mochaTest'])
+gulp.task('default', ['watch', 'serve'])
 
 gulp.task('lint',function(){
   var jsFilter = filter(['gruntfile.js', 'public/js/**/*.js',
