@@ -60,7 +60,10 @@ gulp.task('mochaTest',['pre-test'],function(){
     reporters: [ 'lcov' ],
     reportOpts: { dir: './coverage' },
   }))
-  .on('end', function() {
+  .once('error', function() {
+    process.exit(1);
+  })
+  .once('end', function() {
     process.exit();
   })
 });
