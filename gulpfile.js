@@ -57,6 +57,9 @@ gulp.task('mochaTest',['pre-test'],function(){
     reporters: [ 'lcov' ],
     reportOpts: { dir: './coverage' },
   }))
+  .once('end', function() {
+    process.exit();
+  })
 });
 
 gulp.task('bower', function() {
@@ -75,7 +78,7 @@ gulp.task('serve', ['nodemon'], function(){
   });
 });
 
-gulp.task('default', ['watch', 'serve', 'mochaTest'])
+gulp.task('default', ['watch', 'serve'])
 
 gulp.task('lint',function(){
   var jsFilter = filter(['gruntfile.js', 'public/js/**/*.js',
