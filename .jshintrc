@@ -6,6 +6,7 @@
   "curly": true,
   "eqeqeq": true,
   "immed": true,
+  "esversion": 6,
   "indent": 2,
   "newcap": true,
   "noarg": true,
