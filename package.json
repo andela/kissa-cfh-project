@@ -13,8 +13,8 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "start": "node node_modules/gulp/bin/gulp",
-    "test": "node node_modules/gulp/bin/gulp mochaTest"
+    "start": "node node_modules/gulp-cli/bin/gulp",
+    "test": "node node_modules/gulp-cli/bin/gulp mochaTest"
   },
   "dependencies": {
     "async": "~0.2.9",
