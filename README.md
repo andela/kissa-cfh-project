@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andela/kissa-cfh-project.svg?branch=master)](https://travis-ci.org/andela/kissa-cfh-project.svg?branch=master)
+
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
 [![codebeat badge](https://codebeat.co/badges/209f8245-b1c2-4a49-8a53-1b33b5d0d1a9)](https://codebeat.co/projects/github-com-andela-kissa-cfh-project)
