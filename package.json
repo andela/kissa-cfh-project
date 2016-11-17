@@ -23,6 +23,7 @@
     "connect-flash": "~0.1.1",
     "connect-mongo": "~0.3.3",
     "console-stamp": "~0.1.1",
+    "eslint-import-resolver-node": "^0.2.3",
     "express": "~3.4.0",
     "forever": "latest",
     "gulp": "^3.9.1",

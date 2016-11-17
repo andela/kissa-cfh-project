@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const port = process.env.PORT;
 const gulp = require('gulp');
+const plugins = require('gulp-load-plugins')();
 const mocha = require('gulp-mocha');
 const nodemon = require('gulp-nodemon');
 const bower = require('gulp-bower');
@@ -9,8 +10,6 @@ const browserSync = require('browser-sync');
 const istanbul = require('gulp-istanbul');
 const eslint = require('gulp-eslint');
 const filter = require('gulp-filter');
-
-const plugins = require('gulp-load-plugins')();
 
 const src = {
   scss: './public/css/common.scss'
