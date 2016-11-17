@@ -1,3 +1,5 @@
+/* eslint-env amd */
+
 require('dotenv').config();
 
 const port = process.env.PORT;
