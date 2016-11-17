@@ -1,4 +1,4 @@
-/* eslint global-require */
+/* eslint amd:true */
 
 require('dotenv').config();
 
