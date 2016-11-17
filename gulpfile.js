@@ -3,13 +3,7 @@ require('dotenv').config();
 const port = process.env.PORT;
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
-const mocha = require('gulp-mocha');
-const nodemon = require('gulp-nodemon');
-const bower = require('gulp-bower');
 const browserSync = require('browser-sync');
-const istanbul = require('gulp-istanbul');
-const eslint = require('gulp-eslint');
-const filter = require('gulp-filter');
 
 const src = {
   scss: './public/css/common.scss'
@@ -26,15 +20,15 @@ gulp.task('sass', () => {
 });
 
 gulp.task('lint', () => {
-  const jsFilter = filter(['gulpfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']);
+  const jsFilter = plugins.filter(['gulpfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']);
   gulp.src('./**/*.js')
   .pipe(jsFilter)
-  .pipe(eslint())
-  .pipe(eslint.format());
+  .pipe(plugins.eslint())
+  .pipe(plugins.eslint.format());
 });
 
 gulp.task('nodemon', () => {
-  nodemon({
+  plugins.nodemon({
     script: 'server.js',
     ext: 'js',
     env: { NODE_ENV: 'development' }
@@ -43,14 +37,14 @@ gulp.task('nodemon', () => {
 
 gulp.task('pre-test', () => {
   gulp.src(['test/**/*.js'])
-    .pipe(istanbul({ includeUntested: true }))
-    .pipe(istanbul.hookRequire());
+    .pipe(plugins.istanbul({ includeUntested: true }))
+    .pipe(plugins.istanbul.hookRequire());
 });
 
 gulp.task('mochaTest', ['pre-test'], () => {
   gulp.src(['./test/**/*.js'], { read: false })
-    .pipe(mocha({ reporter: 'spec' }))
-    .pipe(istanbul.writeReports({
+    .pipe(plugins.mocha({ reporter: 'spec' }))
+    .pipe(plugins.istanbul.writeReports({
       dir: './coverage',
       reporters: ['lcov'],
       reportOpts: { dir: './coverage' },
@@ -64,7 +58,7 @@ gulp.task('mochaTest', ['pre-test'], () => {
 });
 
 gulp.task('bower', () => {
-  bower('./bower_components')
+  plugins.bower('./bower_components')
     .pipe(gulp.dest('./public/lib'));
 });
 
