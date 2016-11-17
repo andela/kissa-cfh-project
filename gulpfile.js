@@ -1,70 +1,77 @@
 require('dotenv').config();
-var port = process.env.PORT;
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var nodemon = require('gulp-nodemon');
-var sequence = require('run-sequence');
-var bower = require('gulp-bower');
-var browserSync = require('browser-sync');
-var istanbul = require('gulp-istanbul');
-var jshint = require('gulp-jshint');
-var filter = require('gulp-filter');
 
-var plugins = require('gulp-load-plugins')();
+const port = process.env.PORT;
+const gulp = require('gulp');
+const mocha = require('gulp-mocha');
+const nodemon = require('gulp-nodemon');
+const bower = require('gulp-bower');
+const browserSync = require('browser-sync');
+const istanbul = require('gulp-istanbul');
+const eslint = require('gulp-eslint');
+const filter = require('gulp-filter');
 
-var src = {
+const plugins = require('gulp-load-plugins')();
+
+const src = {
   scss: './public/css/common.scss'
 };
 
-var out = { 
+const out = {
   css: './public/css/'
 };
 
-gulp.task('sass', function(){
-  return gulp.src(src.scss)
+gulp.task('sass', () => {
+  gulp.src(src.scss)
     .pipe(plugins.sass())
     .pipe(gulp.dest(out.css));
-});   
+});
 
-gulp.task('nodemon', function () {
+gulp.task('lint', () => {
+  const jsFilter = filter(['gulpfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']);
+  gulp.src('./**/*.js')
+  .pipe(jsFilter)
+  .pipe(eslint())
+  .pipe(eslint.format());
+});
+
+gulp.task('nodemon', () => {
   nodemon({
     script: 'server.js',
     ext: 'js',
-    env: { 'NODE_ENV': 'development' }
+    env: { NODE_ENV: 'development' }
   });
 });
 
-gulp.task('pre-test',function(){
-  return gulp.src(['test/**/*.js'])
-    .pipe(istanbul({includeUntested: true}))
+gulp.task('pre-test', () => {
+  gulp.src(['test/**/*.js'])
+    .pipe(istanbul({ includeUntested: true }))
     .pipe(istanbul.hookRequire());
 });
 
-
-gulp.task('mochaTest',['pre-test'],function(){
-  return gulp.src(['./test/**/*.js'],{read: false})
-    .pipe(mocha({reporter: 'spec'}))
+gulp.task('mochaTest', ['pre-test'], () => {
+  gulp.src(['./test/**/*.js'], { read: false })
+    .pipe(mocha({ reporter: 'spec' }))
     .pipe(istanbul.writeReports({
       dir: './coverage',
-      reporters: [ 'lcov' ],
+      reporters: ['lcov'],
       reportOpts: { dir: './coverage' },
     }))
-    .once('error', function() {
+    .once('error', () => {
       process.exit(1);
     })
-    .once('end', function() {
+    .once('end', () => {
       process.exit();
     });
 });
 
-gulp.task('bower', function() {
-  return bower('./bower_components')
+gulp.task('bower', () => {
+  bower('./bower_components')
     .pipe(gulp.dest('./public/lib'));
 });
 
-gulp.task('serve', ['nodemon'], function(){
+gulp.task('serve', ['nodemon'], () => {
   browserSync({
-    proxy: 'localhost:' + port,
+    proxy: `localhost:${port}`,
     port: 5000,
     ui: {
       port: 5001
@@ -73,20 +80,12 @@ gulp.task('serve', ['nodemon'], function(){
   });
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', () => {
   gulp.watch('app/views/**', browserSync.reload);
   gulp.watch(['public/js/**', 'app/**/*.js'], browserSync.reload);
   gulp.watch('public/views/**', browserSync.reload);
   gulp.watch(src.scss, ['sass']);
-  gulp.watch('public/css/**', browserSync.reload); 
+  gulp.watch('public/css/**', browserSync.reload);
 });
 
-gulp.task('default', ['watch', 'serve']);
-
-gulp.task('lint',function(){
-  var jsFilter = filter(['gulpfile.js', 'public/js/**/*.js',
-   'test/**/*.js', 'app/**/*.js']);
-  return gulp.src('./**/*.js')
-  .pipe(jsFilter)
-  .pipe(jshint());
-});
+gulp.task('default', ['watch', 'serve', 'lint']);
