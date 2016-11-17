@@ -1,7 +1,6 @@
 const path = require('path');
 
 const rootPath = path.normalize(path.join(__dirname, '/../..'));
-const keys = path.join(rootPath, '/keys.txt');
 
 module.exports = {
   root: rootPath,
