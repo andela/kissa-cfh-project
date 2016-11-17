@@ -2,9 +2,7 @@
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
-[![codebeat badge](https://codebeat.co/badges/209f8245-b1c2-4a49-8a53-1b33b5d0d1a9)](https://codebeat.co/projects/github-com-andela-kissa-cfh-project)
 [![Slack](http://slack.houndci.com/badge.svg)](http://slack.houndci.com)
-[![Build Status](https://circleci.com/gh/houndci/hound.svg?style=svg)](https://circleci.com/gh/houndci/hound)
 
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
 
