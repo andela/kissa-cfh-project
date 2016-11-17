@@ -1,6 +1,7 @@
-var path = require('path'),
-  rootPath = path.normalize(__dirname + '/../..');
-var keys = rootPath + '/keys.txt';
+var path = require('path');
+
+var rootPath = path.normalize(__dirname + '/../..'),
+  keys = rootPath + '/keys.txt';
 
 module.exports = {
   root: rootPath,
