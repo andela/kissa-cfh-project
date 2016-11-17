@@ -12,6 +12,7 @@ before_script:
 
 notifications:
    slack: andela:FzLbplkwSghKxRUKKqTyvBpd
-
+   
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+after_success: 'npm run coveralls'
