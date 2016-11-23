@@ -1,11 +1,13 @@
+/* eslint amd:true */
 /**
  * Module dependencies.
  */
 var express = require('express'),
-    fs = require('fs'),
-    passport = require('passport'),
-    logger = require('mean-logger'),
-    io = require('socket.io');
+  fs = require('fs'),
+  passport = require('passport'),
+  logger = require('mean-logger'),
+  io = require('socket.io');
+require('dotenv').config({ silent: true });
 
 /**
  * Main application entry file.
@@ -20,6 +22,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     mongoose = require('mongoose');
 
 //Bootstrap db connection
+console.log("This is the database url", config.db);
 var db = mongoose.connect(config.db);
 
 //Bootstrap models
