@@ -43,12 +43,15 @@ module.exports = function(app, passport, mongoose) {
         app.use(express.methodOverride());
 
         //express/mongo session storage
+        console.log("This is the mongoose connection +++++++++++++++++", mongoose.connection);
+        console.log("This is the Config  database ----------------", config.db);
         app.use(express.session({
             secret: 'MEAN',
             store: new mongoStore({
                 url: config.db,
                 collection: 'sessions',
-                mongoose_connection: mongoose.connection
+                mongoose_connection: mongoose.connection,
+                auto_reconnect: true
             })
         }));
 
