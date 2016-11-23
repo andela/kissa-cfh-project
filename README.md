@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/andela/kissa-cfh-project.svg?branch=master)](https://travis-ci.org/andela/kissa-cfh-project.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/andela/kissa-cfh-project/badge.svg?branch=master)](https://coveralls.io/github/andela/kissa-cfh-project?branch=master)
+[![Code Climate](https://codeclimate.com/github/andela/kissa-cfh-project/membrane.png)](https://codeclimate.com/github/andela/kissa-cfh-project/membrane)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
