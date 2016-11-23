@@ -1,11 +1,13 @@
+/* eslint amd:true */
 /**
  * Module dependencies.
  */
 var express = require('express'),
-    mongoStore = require('connect-mongo')(express),
-    flash = require('connect-flash'),
-    helpers = require('view-helpers'),
-    config = require('./config');
+  session = require('express-session'),
+  mongoStore = require('connect-mongo')(session),
+  flash = require('connect-flash'),
+  helpers = require('view-helpers'),
+  config = require('./config');
 
 module.exports = function(app, passport, mongoose) {
     app.set('showStackError', true);
@@ -43,8 +45,6 @@ module.exports = function(app, passport, mongoose) {
         app.use(express.methodOverride());
 
         //express/mongo session storage
-        console.log("This is the mongoose connection +++++++++++++++++", mongoose.connection);
-        console.log("This is the Config  database ----------------", config.db);
         app.use(express.session({
             secret: 'MEAN',
             store: new mongoStore({

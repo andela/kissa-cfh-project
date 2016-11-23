@@ -1,11 +1,13 @@
+/* eslint amd:true */
 /**
  * Module dependencies.
  */
 var express = require('express'),
-    fs = require('fs'),
-    passport = require('passport'),
-    logger = require('mean-logger'),
-    io = require('socket.io');
+  fs = require('fs'),
+  passport = require('passport'),
+  logger = require('mean-logger'),
+  io = require('socket.io');
+require('dotenv').config({ silent: true });
 
 /**
  * Main application entry file.
