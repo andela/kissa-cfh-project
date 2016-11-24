@@ -7,6 +7,7 @@ var browserSync = require('browser-sync');
 var istanbul = require('gulp-istanbul');
 var jshint = require('gulp-jshint');
 var filter = require('gulp-filter');
+var gulpBowerFiles = require ('gulp-bower-files');
 require('dotenv').config();
 var port = process.env.PORT;
 
@@ -69,7 +70,7 @@ gulp.task('mochaTest',['pre-test'],function(){
 });
 
 gulp.task('bower', function() {
-  return bower('./bower_components')
+  return gulpBowerFiles()
     .pipe(gulp.dest('./public/lib'));
 });
 
