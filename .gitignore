@@ -6,4 +6,4 @@ c4h_keys.txt
 .env
 npm-debug.log
 coverage
-bower
+bower_components
