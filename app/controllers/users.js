@@ -186,3 +186,30 @@ exports.user = function(req, res, next, id) {
       next();
     });
 };
+
+/**
+ * Gets all users from the database
+ */
+exports.search = function (req, res) {
+  var email = req.body.email;
+  var findEmail = {
+    $term: {
+      $search: email
+    }
+  };
+  User.find(findEmail, {
+    field: {
+      score: { $meta: 'textScore' },
+      email: 1
+    }
+  })
+  .exec(function (err, result) {
+    if (err) {
+      console.log(err);
+      return;
+    } else if (!result) {
+      console.log("I did not find any data")
+    }
+    res.jsonp(result);
+  });
+}
