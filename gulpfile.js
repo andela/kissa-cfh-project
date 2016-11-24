@@ -7,7 +7,7 @@ var browserSync = require('browser-sync');
 var istanbul = require('gulp-istanbul');
 var jshint = require('gulp-jshint');
 var filter = require('gulp-filter');
-var gulpBowerFiles = require ('gulp-bower-files');
+var mainBowerFiles = require ('main-bower-files');
 require('dotenv').config();
 var port = process.env.PORT;
 
@@ -32,7 +32,7 @@ gulp.task('watch', function(){
     gulp.watch(['public/js/**', 'app/**/*.js'], browserSync.reload);
     gulp.watch('public/views/**', browserSync.reload);
     gulp.watch(src.sass, ['sass']);
-    gulp.watch('public/css/**', browserSync.reload); 
+    gulp.watch('public/css/**', browserSync.reload);
 });
 
 gulp.task('nodemon', function () {
@@ -70,11 +70,14 @@ gulp.task('mochaTest',['pre-test'],function(){
 });
 
 gulp.task('bower', function() {
-  return gulpBowerFiles()
-    .pipe(gulp.dest('./public/lib'));
+  return bower({
+    'cmd': 'install',
+    'directory': './public/lib',
+    'verbosity': 2
+  });
 });
 
-gulp.task('serve', ['nodemon'], function(){
+gulp.task('serve', ['build', 'watch'], function(){
     browserSync({
     proxy: 'localhost:'+port,
     port: 5000,
@@ -85,7 +88,9 @@ gulp.task('serve', ['nodemon'], function(){
   });
 });
 
-gulp.task('default', ['watch', 'serve'])
+gulp.task('default', ['serve']);
+
+gulp.task('build', ['sass', 'nodemon', 'bower']);
 
 gulp.task('lint',function(){
   var jsFilter = filter(['gruntfile.js', 'public/js/**/*.js',
