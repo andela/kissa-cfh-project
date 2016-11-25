@@ -64,6 +64,7 @@
     "gulp-bower": "0.0.13",
     "gulp-bower-files": "^0.2.7",
     "gulp-build": "^0.5.3",
+    "gulp-eslint": "^3.0.1",
     "gulp-istanbul": "^1.1.1",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.4.0",
