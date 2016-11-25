@@ -1,16 +1,16 @@
-/* eslint amd:true */
+
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
 const nodemon = require('gulp-nodemon');
 const bower = require('gulp-bower');
 const browserSync = require('browser-sync');
 const istanbul = require('gulp-istanbul');
-const jshint = require('gulp-jshint');
+const eslint = require('gulp-eslint');
 const filter = require('gulp-filter');
-require('dotenv').config();
-const port = process.env.PORT;
-
 const plugins = require('gulp-load-plugins')();
+require('dotenv').config();
+
+const port = process.env.PORT;
 
 const src = {
   scss: './public/css/common.scss'
@@ -92,9 +92,10 @@ gulp.task('default', ['serve']);
 gulp.task('build', ['sass', 'nodemon', 'bower']);
 
 gulp.task('lint', () => {
-  const jsFilter = filter(['gruntfile.js', 'public/js/**/*.js',
-    'test/**/*.js', 'app/**/*.js']);
+  const jsFilter = filter(['gulpfile.js', 'public/js/**/*.js',
+    'test/**/*.js', 'app/**/*.js', 'public/lib/**/*.js']);
   return gulp.src('./**/*.js')
   .pipe(jsFilter)
-  .pipe(jshint());
+  .pipe(eslint())
+  .pipe(eslint.format());
 });
