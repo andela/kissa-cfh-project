@@ -22,7 +22,6 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     mongoose = require('mongoose');
 
 //Bootstrap db connection
-console.log("This is the database url ", config.db);
 var db = mongoose.connect(config.db);
 
 //Bootstrap models
