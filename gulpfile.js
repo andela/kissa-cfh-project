@@ -78,7 +78,7 @@ gulp.task('bower', () => {
 
 gulp.task('serve', ['build', 'watch'], () => {
   browserSync({
-    proxy: `localhost: ${port}`,
+    proxy: `localhost:${port}`,
     port: 5000,
     ui: {
       port: 5001
