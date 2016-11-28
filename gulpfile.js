@@ -7,7 +7,7 @@ const browserSync = require('browser-sync');
 const istanbul = require('gulp-istanbul');
 const eslint = require('gulp-eslint');
 const filter = require('gulp-filter');
-const plugins = require('gulp-load-plugins')();
+const sass = require('gulp-sass');
 require('dotenv').config();
 
 const port = process.env.PORT;
@@ -21,7 +21,7 @@ const out = {
 };
 
 gulp.task('sass', () => gulp.src(src.scss)
-  .pipe(plugins.sass())
+  .pipe(sass())
   .pipe(gulp.dest(out.css)));
 
 gulp.task('watch', () => {
