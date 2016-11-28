@@ -16,7 +16,7 @@
     "start": "node node_modules/gulp-cli/bin/gulp",
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha ./test/**/*.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "bower install && gulp bower"
   },
   "dependencies": {
     "async": "~0.2.9",
