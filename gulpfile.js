@@ -43,7 +43,6 @@ gulp.task('pre-test', () => gulp.src(['test/**/*.js'])
   .pipe(istanbul({ includeUntested: true }))
   .pipe(istanbul.hookRequire()));
 
-
 gulp.task('mochaTest', ['pre-test'], () => gulp.src(['./test/**/*.js'],
   {
     read: false
