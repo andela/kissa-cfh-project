@@ -1,3 +1,4 @@
+/* eslint amd:true */
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
 const nodemon = require('gulp-nodemon');
