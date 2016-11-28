@@ -16,7 +16,7 @@
     "start": "node node_modules/gulp-cli/bin/gulp",
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha ./test/**/*.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "postinstall": "node_modules/.bin/bower install"
+    "postinstall": "bower install && gulp bower"
   },
   "dependencies": {
     "async": "~0.2.9",
@@ -58,7 +58,6 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.15",
-    "dotenv": "^2.0.0",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-standard": "^6.2.1",
