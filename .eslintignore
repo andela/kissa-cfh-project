@@ -3,4 +3,3 @@
 # Ignore all except the app folder
 ./*
 !app/*
-
