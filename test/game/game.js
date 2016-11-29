@@ -99,6 +99,7 @@ describe("Game Server",function(){
         });
       });
     });
+    done();
   });
 
   it('Should automatically start game when 6 players are in a game', function(done){
@@ -166,5 +167,6 @@ describe("Game Server",function(){
         }
       });
     });
+    done();
   });
 });
