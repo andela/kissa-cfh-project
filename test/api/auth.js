@@ -21,7 +21,7 @@ describe('Login', () => {
       username: 'jjjk',
       email : 'kissa@andela',
       password : '123456',
-    })
+    }) 
     user.save((err) => {
       if(err) {
         throw err
@@ -31,7 +31,7 @@ describe('Login', () => {
   })
   
 
-  it('Should return an error on wrong email address', () => {
+  it('Should return an error on wrong email address', (done) => {
     const user = {
       email: 'kissass@andela',
       password: '123456'
@@ -44,13 +44,14 @@ describe('Login', () => {
       res.body.should.have.property('message');
       res.body.should.have.property('success');
       res.body.should.have.property('message').eql('Authentication failed. User not found');
+      done();
     });
 
   });
 
-  it('Should return an error if password is invalid', () => {
+  it('Should return an error if password is invalid', (done) => {
     const user = {
-      email: 'kissa@andela.com',
+      email: 'kissa@andela',
       password: 'pass'
     };
     chai.request(server)
@@ -61,10 +62,11 @@ describe('Login', () => {
       res.body.should.have.property('message');
       res.body.should.have.property('success');
       res.body.should.have.property('message').eql('Authentication failed. Invalid Password');
+      done();
     });
   });
 
-  it('Should return an error on wrong email address and password', () => {
+  it('Should return an error on wrong email address and password', (done) => {
     const user = {
       email: 'kissass@andela',
       password: '1234s'
@@ -77,12 +79,13 @@ describe('Login', () => {
       res.body.should.have.property('message');
       res.body.should.have.property('success');
       res.body.should.have.property('message').eql('Authentication failed. User not found');
+      done();
     });
   });
 
-  it('Should return JWT on successful login', () => {
+  it('Should return JWT on successful login', (done) => {
     const user = {
-      email: 'kissa@andela.com',
+      email: 'kissa@andela',
       password: '123456'
     };
     chai.request(server)
@@ -93,6 +96,7 @@ describe('Login', () => {
       res.body.should.have.property('message');
       res.body.should.have.property('success');
       res.body.should.have.property('token');
+      done();
     });
   });
 
