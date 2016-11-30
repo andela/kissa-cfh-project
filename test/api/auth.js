@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 
 const chai = require ('chai');
 
-const chai_http = require('chai-http'),
+const chai_http = require('chai-http');
 const server = require('../../server');
 
 const mongoose = require('mongoose');
