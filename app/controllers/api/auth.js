@@ -1,4 +1,4 @@
-'use strict'
+
 /**
  * Module dependencies.
  */
@@ -8,7 +8,6 @@ const jwt = require('jsonwebtoken');
 
 
 const User = mongoose.model('User');
-const bcrypt = require('bcryptjs');
 
 /**
  * @class Auth
@@ -16,7 +15,7 @@ const bcrypt = require('bcryptjs');
 class Auth {
 
   login(req, res) {
-    User.findOne( { email: req.body.email }, (err, user) => {
+    User.findOne({ email: req.body.email }, (err, user) => {
       if (err) {
         res.status(500).send(err);
       }
@@ -33,7 +32,7 @@ class Auth {
             message: 'Authentication failed. Invalid Password'
           });
         } else {
-          const token = jwt.sign (user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
+          const token = jwt.sign(user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
             expiresIn: '24h'
           });
           res.status(200).json({

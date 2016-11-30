@@ -3,11 +3,9 @@ process.env.NODE_ENV = 'test';
 
 const chai = require ('chai');
 
-const chai_http = require('chai-http');
-
+const chai_http = require('chai-http'),
 const server = require('../../server');
 
-const should = chai.should();
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User')
@@ -21,7 +19,7 @@ describe('Login', () => {
       username: 'jjjk',
       email : 'kissa@andela',
       password : '123456',
-    }) 
+    })
     user.save((err) => {
       if(err) {
         throw err
@@ -30,7 +28,6 @@ describe('Login', () => {
     })
   })
   
-
   it('Should return an error on wrong email address', (done) => {
     const user = {
       email: 'kissass@andela',
@@ -46,7 +43,6 @@ describe('Login', () => {
       res.body.should.have.property('message').eql('Authentication failed. User not found');
       done();
     });
-
   });
 
   it('Should return an error if password is invalid', (done) => {
@@ -99,6 +95,4 @@ describe('Login', () => {
       done();
     });
   });
-
-  
 });
