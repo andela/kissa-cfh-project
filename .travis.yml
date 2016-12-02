@@ -9,6 +9,7 @@ services:
 before_script:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
+  - bower install && gulp bower
 
 notifications:
    slack: andela:FzLbplkwSghKxRUKKqTyvBpd
