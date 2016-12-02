@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$http', '$timeout', 'userFactory', '$location', '$modal', 'MakeAWishFactsService', function ($scope, game, $http, $timeout, userFactory, $location, $modal, MakeAWishFactsService) {
+.controller('GameController', ['$scope', 'game', '$http', '$timeout', '$location', '$modal', 'MakeAWishFactsService', function ($scope, game, $http, $timeout, $location, $modal, MakeAWishFactsService) {
   $scope.hasPickedCards = false;
   $scope.winningCardPicked = false;
   $scope.showTable = false;
