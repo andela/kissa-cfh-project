@@ -15,6 +15,16 @@
    top: -65px;
 }
 
+
+.margin-left-20{
+   margin-left: 20%;
+}
+
+.pad-top-2{
+   padding-top: 2%
+}
+
+
 #tweet-container-index{
    margin-top: 10px;
    display: inline-block;
