@@ -80,7 +80,7 @@ gulp.task('serve', ['build', 'watch'], () => {
 
 gulp.task('default', ['serve']);
 
-gulp.task('build', ['sass', 'nodemon', 'bower']);
+gulp.task('build', ['sass','nodemon', 'bower']);
 
 gulp.task('lint', () => {
   const jsFilter = filter(['gulpfile.js', 'public/js/**/*.js',
