@@ -17,9 +17,9 @@ angular.module('mean.directives', [])
             let curQ = scope.game.curQuestion;
             let curQuestionArr = curQ.text.split('_');
             let startStyle = `<span style='color: ${scope.colors[scope.game.players[scope.game.winningCardPlayer].color]}'>`;
-            let endStyle = '</span>';
+            const endStyle = '</span>';
             let shouldRemoveQuestionPunctuation = false;
-            let removePunctuation = function (cardIndex) {
+            const removePunctuation = function removePunctuation(cardIndex) {
               let cardText = scope.game.table[scope.game.winningCard].card[cardIndex].text;
               if (cardText.indexOf('.', cardText.length - 2) === cardText.length - 1) {
                 cardText = cardText.slice(0, cardText.length - 1);
