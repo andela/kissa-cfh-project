@@ -1,4 +1,4 @@
-//auth.js app
+/* eslint amd:true */
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User');

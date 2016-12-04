@@ -1,4 +1,5 @@
 /*  eslint-disable no-unused-vars*/
+/*  eslint amd:true */
 const server = require('../../server');
 
 const chai = require('chai');
