@@ -1,0 +1,28 @@
+{
+  "name": "kissa-cfh-project",
+  "scripts": {},
+  "env": {
+    "MONGOHQ_URL": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "PORT": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
