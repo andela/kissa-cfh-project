@@ -1,7 +1,7 @@
 /**
  * module dependencies
  */
-process.env.NODE_ENV = 'test';
+process.env.NODE_ENV = 'development';
 
 const chai = require ('chai');
 
