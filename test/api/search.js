@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 /* eslint strict:0 */
 /* eslint amd:true */
 
 'use strict';
 
+=======
+/* eslint amd:true */
+>>>>>>> b0e3e77... test(search-user): create search user test suite
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
@@ -48,4 +52,8 @@ describe('Search api', () => {
         .expect(404, done());
     });
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> b0e3e77... test(search-user): create search user test suite
