@@ -16,11 +16,19 @@ angular.module('mean.system')
   };
 
   $scope.showEmail = $location.search().email;
+<<<<<<< HEAD
 
   $scope.avatars = [];
   AvatarService.getAvatars()
     .then((data) => {
       $scope.avatars = data;
     });
+=======
+>>>>>>> 3dc3a20cae22c3b2397a41260a0903d411dfa38e
 
+  $scope.avatars = [];
+  AvatarService.getAvatars()
+    .then(function(data) {
+        $scope.avatars = data;
+    });
 }]);

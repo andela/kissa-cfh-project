@@ -7,7 +7,7 @@ angular.module('mean.system')
   $scope.game = game;
   $scope.inviteList = [];
   $scope.pickedCards = [];
-  let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+  var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
 
   $scope.pickCard = function (card) {
@@ -223,21 +223,18 @@ angular.module('mean.system')
       $location.path('/signup');
     }
   } else if ($location.search().custom) {
-    game.joinGame('joinGame', null, true);
+    game.joinGame('joinGame',null,true);
   } else {
     game.joinGame();
   }
 
   $scope.searchUsers = function () {
-    console.log($scope.email);
     $http.get(`/api/search/users/${$scope.email}`)
       .success(function(data, status, headers, config) {
         $scope.searchResult = data;
-        console.log($scope.searchResult);
       })
       .error(function (data, status, headers, config) {
         $scope.noResult = status;
-        console.log($scope.noResult);
       });
   };
 
@@ -269,10 +266,7 @@ angular.module('mean.system')
         $scope.modalInstance.result.then(function (selectedItem) {
           $scope.select = selectedItem;
         }, function () {
-          console.log('Modal dismissed at: ' + new Date());
         });
-        console.log('You have exceeded the maximum amount of invite for this game');
-        console.log($scope.email);
         return;
       }
       $http({
@@ -287,15 +281,10 @@ angular.module('mean.system')
       .success(function(response) {
         $scope.model = '';
         $scope.inviteList.push($scope.email);
-        console.log(response.status)
       })
       .error(function (response) {
         console.log(response.status);
-      })
-      console.log($scope.email);
-      console.log('User has been invited');
-    } else {
-      console.log('This is not a valid email');
+      });
     }
   };
 }]);

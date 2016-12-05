@@ -1,3 +1,4 @@
+/* eslint no_unused_vars:off */
 angular.module('mean.directives', [])
   .directive('player', function () {
     return {
