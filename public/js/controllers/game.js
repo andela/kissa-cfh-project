@@ -1,13 +1,14 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog) {
-    $scope.hasPickedCards = false;
-    $scope.winningCardPicked = false;
-    $scope.showTable = false;
-    $scope.modalShown = false;
-    $scope.game = game;
-    $scope.pickedCards = [];
-    var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
-    $scope.makeAWishFact = makeAWishFacts.pop();
+.controller('GameController', ['$scope', 'game', '$http', '$timeout', '$location', '$modal', 'MakeAWishFactsService', function ($scope, game, $http, $timeout, $location, $modal, MakeAWishFactsService) {
+  $scope.hasPickedCards = false;
+  $scope.winningCardPicked = false;
+  $scope.showTable = false;
+  $scope.modalShown = false;
+  $scope.game = game;
+  $scope.inviteList = [];
+  $scope.pickedCards = [];
+  var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+  $scope.makeAWishFact = makeAWishFacts.pop();
 
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
@@ -120,9 +121,51 @@ angular.module('mean.system')
       return game.winningCard !== -1;
     };
 
-    $scope.startGame = function() {
-      game.startGame();
-    };
+    $scope.customCreator = function () {
+    if (game.players[0] === undefined) {
+      return false;
+    } else if (window.user === null) {
+      return false;
+    }
+    return game.players[0].id === window.user._id;
+  };
+
+  $scope.isUser = window.user;
+
+  $scope.userEmail = $location.search().email;
+
+  $scope.startGame = function () {
+    if (game.players.length < game.playerMinLimit) {
+      $scope.animationsEnabled = true;
+      $scope.errorBody = `You need at least ${game.playerMinLimit} players to start the game`;
+      $scope.modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        ariaLabelledBy: 'modal-title',
+        scope: $scope,
+        ariaDescribedBy: 'modal-body',
+        templateUrl: '/views/popup.html',
+        controller: 'GameController',
+        size: 'sm',
+        appendTo: angular.element(document).find('#gameplay-container'),
+        resolve: {
+          items: function () {
+            return $scope.errorBody;
+          }
+        }
+      })
+      $scope.modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        // Do nothing
+      });
+      return;
+    }
+    game.startGame();
+  };
+
+  $scope.closeModal = function () {
+    $scope.modalInstance.close();
+  };
 
     $scope.abandonGame = function() {
       game.leaveGame();
@@ -172,13 +215,76 @@ angular.module('mean.system')
       }
     });
 
-    if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
+  if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
+    if (!!window.user) {
       console.log('joining custom game');
-      game.joinGame('joinGame',$location.search().game);
-    } else if ($location.search().custom) {
-      game.joinGame('joinGame',null,true);
+      game.joinGame('joinGame', $location.search().game);
     } else {
-      game.joinGame();
+      $location.path('/signup');
     }
+  } else if ($location.search().custom) {
+    game.joinGame('joinGame',null,true);
+  } else {
+    game.joinGame();
+  }
 
+  $scope.searchUsers = function () {
+    $http.get(`/api/search/users/${$scope.email}`)
+      .success(function(data, status, headers, config) {
+        $scope.searchResult = data;
+      })
+      .error(function (data, status, headers, config) {
+        $scope.noResult = status;
+      });
+  };
+
+  $scope.selectList = function (word) {
+    $scope.email = word;
+  };
+
+  $scope.sendInvites = function () {
+    const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
+    if (regex.test($scope.email) && !$scope.inviteList.includes($scope.email)) {
+      if ($scope.inviteList.length > game.playerMaxLimit) {
+        $scope.animationsEnabled = true;
+        $scope.errorBody = `You have exceeded ${game.playerMaxLimit}, the  maximum amount of invite for this game.`;
+        $scope.modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          scope: $scope,
+          ariaDescribedBy: 'modal-body',
+          templateUrl: '/views/popup.html',
+          controller: 'GameController',
+          size: 'sm',
+          appendTo: angular.element(document).find('#gameplay-container'),
+          resolve: {
+            items: function () {
+              return $scope.errorBody;
+            }
+          }
+        });
+        $scope.modalInstance.result.then(function (selectedItem) {
+          $scope.select = selectedItem;
+        }, function () {
+        });
+        return;
+      }
+      $http({
+        method: 'POST',
+        url: '/api/invite/user',
+        headers: { 'Content-Type': 'application/json' },
+        data: {
+          email: $scope.email,
+          link: document.URL
+        }
+      })
+      .success(function(response) {
+        $scope.model = '';
+        $scope.inviteList.push($scope.email);
+      })
+      .error(function (response) {
+        console.log(response.status);
+      });
+    }
+  };
 }]);
