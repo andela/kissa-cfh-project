@@ -98,5 +98,3 @@ module.exports = function(app, passport, auth) {
     // Invite users with nodemailer route
     app.post('/api/invite/user', invite.emailinvite);
 };
-
-module.exports = routes;

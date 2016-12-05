@@ -1,18 +1,10 @@
+/* eslint amd:true */
 /**
  * Module dependencies
  */
-<<<<<<< HEAD
-/* eslint amd:true */
-
 const nodemailer = require('nodemailer');
 require('dotenv').config({ silent: true });
 
-
-=======
-const nodemailer = require('nodemailer');
-require('dotenv').config({ silent: true });
-
->>>>>>> 3dc3a20cae22c3b2397a41260a0903d411dfa38e
 exports.emailinvite = (req, res) => {
   const gameLink = req.body.link;
   const email = req.body.email;

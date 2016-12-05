@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 /* eslint amd:true */
-=======
 /* eslint strict:0 */
 
 'use strict';
 
->>>>>>> 3dc3a20cae22c3b2397a41260a0903d411dfa38e
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
