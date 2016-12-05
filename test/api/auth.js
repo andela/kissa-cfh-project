@@ -25,7 +25,7 @@ describe('Login', () => {
       if (error) throw error;
       done();
     })
-  })
+  });
 
   it('Should return an error on wrong email address', (done) => {
     const user = {
@@ -39,7 +39,7 @@ describe('Login', () => {
       response.should.have.status(401);
       response.body.should.have.property('message');
       response.body.should.have.property('success');
-      response.body.should.have.property('message').eql('Authentication failed. User not found');
+      response.body.should.have.property('message').eql('Authentication failed');
       done();
     });
   });
@@ -73,7 +73,7 @@ describe('Login', () => {
       response.should.have.status(401);
       response.body.should.have.property('message');
       response.body.should.have.property('success');
-      response.body.should.have.property('message').eql('Authentication failed. User not found');
+      response.body.should.have.property('message').eql('Authentication failed');
       done();
     });
   });
