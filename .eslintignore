@@ -1,5 +1,0 @@
-# /node_modules/* and /bower_components/* ignored by default
-
-# Ignore all except the app folder
-./*
-!app/*
