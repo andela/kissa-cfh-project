@@ -39,7 +39,7 @@
       </div>
       <p id="create">Or create a username/password and select an avatar:</p>
 
-      <div class="sign-body">
+      <div class="sign-body" ng-controller="IndexController">
         <div class="more-sign">
           <form class="signup form-horizontal" action="/users" method="post">
             <div class="control-group">
@@ -51,7 +51,7 @@
             <div class="control-group">
               <label for="email" class="control-label"></label>
               <div class="controls">
-                <input class="input-info" id="email" type="email" name="email" placeholder="Email" required novalidate />
+                <input class="input-info" id="email" type="email" name="email" ng-model="showEmail" placeholder="Email" required novalidate />
               </div>
             </div>
             <div class="control-group">
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div id="contain-avatars">
-              <ul ng-controller="IndexController" class="avatar-list">
+              <ul class="avatar-list">
                 <li ng-repeat="avatar in avatars" class="avatars ng-scope">
                   <input name="avatar" type='radio' value="{{$index}}">
                     <img ng-src="{{avatar}}">
@@ -80,6 +80,3 @@
     </div>
   </div>
 </div>
-
-
-

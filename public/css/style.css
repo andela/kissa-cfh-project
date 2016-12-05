@@ -1255,3 +1255,50 @@
       margin: 0 0 0 4px;
    }
  }
+ 
+.active {
+  background-color: #c44741;
+  color: #f2f2f2;
+}
+
+#search-area {
+  width: 50%;
+  height: auto;
+  background-color: #fff;
+  margin: auto;
+}
+
+.modal {
+  display: block;
+}
+
+#invite-container {
+  padding: 10px;
+}
+
+#inviteList {
+  background-color: #fff;
+}
+
+.invite-list{
+  font-color: blue;
+  background-color: #fff;
+
+}
+
+.search-result {
+  position: static;
+  float: none;
+  display: block;
+  min-width: 160px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1000;
+}
+
+.item-focus {
+  background-color: blue;
+  color: white;
+}

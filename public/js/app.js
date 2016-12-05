@@ -6,10 +6,10 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
             templateUrl: 'views/index.html'
           }).
           when('/app', {
-            templateUrl: '/views/app.html',
+            templateUrl: '/views/app.html'
           }).
           when('/privacy', {
-            templateUrl: '/views/privacy.html',
+            templateUrl: '/views/privacy.html'
           }).
           when('/bottom', {
             templateUrl: '/views/bottom.html'
@@ -42,7 +42,8 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
         this.$apply(fn);
       }
     };
-  }]).run(['DonationService', function (DonationService) {
+  }])
+  .run(['DonationService', function (DonationService) {
     window.userDonationCb = function (donationObject) {
       DonationService.userDonated(donationObject);
     };
