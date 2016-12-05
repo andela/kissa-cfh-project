@@ -1295,9 +1295,12 @@
   border-radius: 0;
   box-shadow: none;
   z-index: 1000;
+<<<<<<< HEAD
   color: #333333;
   height: 100px;
   overflow-y: scroll;
+=======
+>>>>>>> 3dc3a20... feature(styling): write style code for search UI
 }
 
 .item-focus {
