@@ -1,6 +1,8 @@
 /**
  * Module dependencies
  */
+/* eslint amd:true */
+
 const nodemailer = require('nodemailer');
 require('dotenv').config({ silent: true });
 
