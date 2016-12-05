@@ -1,4 +1,5 @@
 /* eslint strict:0 */
+/* eslint amd:true */
 
 'use strict';
 
