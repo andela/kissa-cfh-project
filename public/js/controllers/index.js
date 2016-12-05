@@ -15,10 +15,11 @@ angular.module('mean.system')
       }
     };
 
-    $scope.avatars = [];
-    AvatarService.getAvatars()
-      .then(function(data) {
-        $scope.avatars = data;
-      });
+  $scope.showEmail = $location.search().email;
 
+  $scope.avatars = [];
+  AvatarService.getAvatars()
+    .then(function(data) {
+        $scope.avatars = data;
+    });
 }]);
