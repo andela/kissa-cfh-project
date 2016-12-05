@@ -3,6 +3,9 @@
 /* eslint strict:0 */
 /* eslint amd:true */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c50c211... fix(eslint): set eslint configuration
 
 'use strict';
 
@@ -64,7 +67,11 @@ describe('Search api', () => {
     });
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 =======
 });
 >>>>>>> b0e3e77... test(search-user): create search user test suite
+=======
+});
+>>>>>>> c50c211... fix(eslint): set eslint configuration

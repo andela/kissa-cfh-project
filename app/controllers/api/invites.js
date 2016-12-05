@@ -2,10 +2,15 @@
  * Module dependencies
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* eslint amd:true */
 
 =======
 >>>>>>> 7042034... feature(nodemailer):send invites using nodemailer
+=======
+/* eslint amd:true */
+
+>>>>>>> c50c211... fix(eslint): set eslint configuration
 const nodemailer = require('nodemailer');
 require('dotenv').config({ silent: true });
 

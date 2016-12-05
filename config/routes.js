@@ -95,6 +95,7 @@ module.exports = function(app, passport, auth) {
 
     // Search users route
 <<<<<<< HEAD
+<<<<<<< HEAD
   app.get('/api/search/users/:email', search.users);
 
     // Invite users with nodemailer route
@@ -105,4 +106,10 @@ module.exports = function(app, passport, auth) {
     // Invite users with nodemailer route
     app.post('/api/invite/user', invite.emailinvite);
 >>>>>>> fc8a0a6... feature: create search and invite route
+=======
+  app.get('/api/search/users/:email', search.users);
+
+    // Invite users with nodemailer route
+  app.post('/api/invite/user', invite.emailinvite);
+>>>>>>> c50c211... fix(eslint): set eslint configuration
 };
