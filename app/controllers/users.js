@@ -19,7 +19,8 @@ exports.signin = function(req, res) {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
-    res.redirect('/#!/app');
+    const back = req.header('Referer');
+    res.redirect(back);
   }
 };
 
@@ -30,7 +31,8 @@ exports.signup = function(req, res) {
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
-    res.redirect('/#!/app');
+    const back = req.header('Referer');
+    res.redirect(back);
   }
 };
 
