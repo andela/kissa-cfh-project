@@ -1,9 +1,9 @@
 angular.module('mean.directives', [])
-  .directive('player', function() {
+  .directive('player', function () {
     return {
       restrict: 'EA',
       templateUrl: '/views/player.html',
-      link (scope, elem, attr) {
+      link(scope, elem, attr) {
         scope.colors = ['#7CE4E8', '#FFFFa5', '#FC575E', '#F2ADFF', '#398EC4', '#8CFF95'];
       }
     };
@@ -11,11 +11,11 @@ angular.module('mean.directives', [])
     return {
       restrict: 'EA',
       templateUrl: '/views/answers.html',
-      link (scope, elem, attr) {
+      link(scope, elem, attr) {
         scope.$watch('game.state', function () {
           if (scope.game.state === 'winner has been chosen') {
-            let curQ = scope.game.curQuestion;
-            let curQuestionArr = curQ.text.split('_');
+            const curQ = scope.game.curQuestion;
+            const curQuestionArr = curQ.text.split('_');
             let startStyle = `<span style='color: ${scope.colors[scope.game.players[scope.game.winningCardPlayer].color]}'>`;
             const endStyle = '</span>';
             let shouldRemoveQuestionPunctuation = false;
@@ -55,10 +55,10 @@ angular.module('mean.directives', [])
     return {
       restrict: 'EA',
       templateUrl: '/views/question.html',
-      link (scope, elem, attr) {}
+      link(scope, elem, attr) {}
     };
   })
-  .directive('timer', function() {
+  .directive('timer', function () {
     return {
       restrict: 'EA',
       templateUrl: '/views/timer.html',
@@ -67,7 +67,7 @@ angular.module('mean.directives', [])
   }).directive('landing', function() {
     return {
       restrict: 'EA',
-      link (scope, elem, attr) {
+      link(scope, elem, attr) {
         scope.showOptions = true;
 
         if (scope.$$childHead.global.authenticated === true) {
@@ -80,6 +80,6 @@ angular.module('mean.directives', [])
     return {
       restrict: 'EA',
       templateUrl: '/views/invite-list.html',
-      link (scope, elem, attr) {}
+      link(scope, elem, attr) {}
     };
   });
