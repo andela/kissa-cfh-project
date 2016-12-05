@@ -1,5 +1,8 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
+<<<<<<< HEAD
 /* eslint amd:true */
+=======
+>>>>>>> dd0c68b... feature(search-users): create route that searches for users
 /**
  * Module dependencies.
  */
