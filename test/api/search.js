@@ -1,5 +1,7 @@
-/* eslint amd:true */
+/* eslint strict:0 */
+
 'use strict';
+
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
