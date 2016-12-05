@@ -27,7 +27,7 @@ function Game(gameID, io) {
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
-  this.playerMaxLimit = 6;
+  this.playerMaxLimit = 12;
   this.pointLimit = 5;
   this.state = "awaiting players";
   this.round = 0;
@@ -61,7 +61,8 @@ Game.prototype.payload = function() {
       avatar: player.avatar,
       premium: player.premium,
       socketID: player.socket.id,
-      color: player.color
+      color: player.color,
+      id: player.id
     });
   });
   return {
@@ -120,7 +121,7 @@ Game.prototype.prepareGame = function() {
   async.parallel([
     this.getQuestions,
     this.getAnswers
-    ],
+  ],
     function(err, results){
       if (err) {
         console.log(err);
@@ -338,8 +339,6 @@ Game.prototype.getPlayer = function(thisPlayer) {
   var playerIndex = this._findPlayerIndexBySocket(thisPlayer);
   if (playerIndex > -1) {
     return this.players[playerIndex];
-  } else {
-    return {};
   }
 };
 
