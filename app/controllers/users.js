@@ -1,3 +1,6 @@
+/* eslint no_unused_vars:off */
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
+/* eslint amd:off */
 /**
  * Module dependencies.
  */
