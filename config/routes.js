@@ -94,8 +94,15 @@ module.exports = function(app, passport, auth) {
     app.get('/', index.render);
 
     // Search users route
+<<<<<<< HEAD
   app.get('/api/search/users/:email', search.users);
 
     // Invite users with nodemailer route
   app.post('/api/invite/user', invite.emailinvite);
+=======
+    app.get('/api/search/users/:email', search.users);
+
+    // Invite users with nodemailer route
+    app.post('/api/invite/user', invite.emailinvite);
+>>>>>>> fc8a0a6... feature: create search and invite route
 };
