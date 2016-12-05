@@ -3,4 +3,8 @@
 # Ignore all except the app folder
 ./*
 !app/*
+<<<<<<< HEAD
 public/js/*
+=======
+public/js/*
+>>>>>>> 970d169... chore(modules): add public/js folder to eslintignore
