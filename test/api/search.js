@@ -30,7 +30,7 @@ describe('Search api', () => {
     it('should login for valid user', (done) => {
       request(app).post('/users/session')
         .send({ email: user.email, password: user.password })
-        .expect(302, done);
+        .expect(302, done());
     });
   });
 
