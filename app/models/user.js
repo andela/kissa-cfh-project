@@ -1,6 +1,6 @@
 /* eslint func-names: ["error", "never"]*/
 /* eslint no-underscore-dangle: ["error", { "allow": ["_password"] }]*/
-/* eslint amd:off */
+/* eslint amd:true */
 /**
  * Module dependencies.
  */
