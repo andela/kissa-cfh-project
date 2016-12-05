@@ -1,10 +1,11 @@
+/* eslint func-names: ["error", "never"]*/
+/* eslint no-underscore-dangle: ["error", { "allow": ["_password"] }]*/
 /**
  * Module dependencies.
  */
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   bcrypt = require('bcryptjs'),
-  _ = require('underscore'),
   authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 
@@ -30,10 +31,10 @@ const UserSchema = new Schema({
  * Virtuals
  */
 UserSchema.virtual('password').set(function (password) {
-    this._password = password;
-    this.hashed_password = this.encryptPassword(password);
-}).get(function() {
-    return this._password;
+  this._password = password;
+  this.hashed_password = this.encryptPassword(password);
+}).get(function () {
+  return this._password;
 });
 
 /**
@@ -56,23 +57,23 @@ UserSchema.path('email').validate(function (email) {
   return email.length;
 }, 'Email cannot be blank');
 
-UserSchema.path('username').validate(function(username) {
+UserSchema.path('username').validate(function (username) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true;
   return username.length;
 }, 'Username cannot be blank');
 
-UserSchema.path('hashed_password').validate(function(hashed_password) {
+UserSchema.path('hashed_password').validate(function (hashedPassword) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true;
-  return hashed_password.length;
+  return hashedPassword.length;
 }, 'Password cannot be blank');
 
 
 /**
  * Pre-save hook
  */
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
   if (!this.isNew) return next();
   if (!validatePresenceOf(this.password) && authTypes.indexOf(this.provider) === -1) {
     next(new Error('Invalid password'));
@@ -92,11 +93,11 @@ UserSchema.methods = {
    * @return {Boolean}
    * @api public
    */
-  authenticate: function(plainText) {
+  authenticate(plainText) {
     if (!plainText || !this.hashed_password) {
-        return false;
+      return false;
     }
-    return bcrypt.compareSync(plainText,this.hashed_password);
+    return bcrypt.compareSync(plainText, this.hashed_password);
   },
 
   /**
@@ -106,7 +107,7 @@ UserSchema.methods = {
    * @return {String}
    * @api public
    */
-  encryptPassword: function(password) {
+  encryptPassword(password) {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   }
