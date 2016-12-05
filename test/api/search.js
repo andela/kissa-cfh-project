@@ -1,12 +1,16 @@
 <<<<<<< HEAD
 /* eslint strict:0 */
 /* eslint amd:true */
+<<<<<<< HEAD
 
 'use strict';
 
 =======
 /* eslint amd:true */
 >>>>>>> b0e3e77... test(search-user): create search user test suite
+=======
+'use strict';
+>>>>>>> 63ec263... fix(mocha-error): add use strict to search.js test file
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
