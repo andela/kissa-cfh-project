@@ -1295,6 +1295,9 @@
   border-radius: 0;
   box-shadow: none;
   z-index: 1000;
+  color: #333333;
+  height: 100px;
+  overflow-y: scroll;
 }
 
 .item-focus {
