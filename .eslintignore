@@ -4,7 +4,23 @@
 ./*
 !app/*
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 public/js/*
 =======
 public/js/*
 >>>>>>> 970d169... chore(modules): add public/js folder to eslintignore
+=======
+public/js/*
+>>>>>>> ec78cd7... Revert "fix(merge-conflict): fix merge conflict on eslintignore file"
+=======
+public/js/*
+>>>>>>> 339e64a... Revert "Revert "fix(merge-conflict): fix merge conflict on eslintignore file""
+=======
+public/js/*
+>>>>>>> 6c02490... Revert "fix(merge-conflict): fix merge conflict on eslintignore file"
+=======
+public/js/*
+>>>>>>> cd9d78b... Revert "Revert "fix(merge-conflict): fix merge conflict on eslintignore file""
