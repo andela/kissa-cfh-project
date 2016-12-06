@@ -1,4 +1,7 @@
+/* eslint amd:true */
 var async = require('async');
+const search = require('../app/controllers/api/search');
+const invite = require('../app/controllers/api/invites');
 
 module.exports = function(app, passport, auth) {
     //User Routes
@@ -89,5 +92,10 @@ module.exports = function(app, passport, auth) {
     var index = require('../app/controllers/index');
     app.get('/play', index.play);
     app.get('/', index.render);
+
+    // Search users route
+  app.get('/api/search/users/:email', search.users);
+    // Invite users with nodemailer route
+  app.post('/api/invite/user', invite.emailinvite);
 
 };

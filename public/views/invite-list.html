@@ -1,0 +1,6 @@
+<div id="invite-container" ng-repeat="invite in inviteList" style="font-size: 16px;">
+	<p>{{invite}}</p>
+	<div ng-repeat="key in users | filter: invite">
+		<p>{{key.name}}</p>
+	</div>
+</div>
