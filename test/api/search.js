@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /* eslint strict:0 */
 /* eslint amd:true */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c50c211... fix(eslint): set eslint configuration
 
 'use strict';
 
-=======
-/* eslint amd:true */
->>>>>>> b0e3e77... test(search-user): create search user test suite
-=======
-'use strict';
->>>>>>> 63ec263... fix(mocha-error): add use strict to search.js test file
-=======
-/* eslint strict:0 */
-
-'use strict';
-
->>>>>>> 2890315... fix(eslint): edit search file
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
@@ -66,12 +48,4 @@ describe('Search api', () => {
         .expect(404, done());
     });
   });
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> b0e3e77... test(search-user): create search user test suite
-=======
-});
->>>>>>> c50c211... fix(eslint): set eslint configuration

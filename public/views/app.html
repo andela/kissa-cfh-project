@@ -13,30 +13,6 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </span>
     </div>
-<<<<<<< HEAD
-=======
-  </div>
-  <div class="container-fluid typeahead-demo">
-  <div id="search-area" ng-show="isCustomGame() === true">
-    <div id="show-search" ng-show="customCreator() === true">
-      <h4>Search users to invite to this game</h4>
-      <p style="font-color: 10px; color: red">{{message}}</p>
-      <div class="search-box">
-        <div class="row">
-          <div class="col-md-8">
-            <input type="text" class="form-control" ng-model="email" ng-keyup="searchUsers()" placeholder="Search and enter an email address to invite">
-          </div>
-          <div class="col-sm-4">
-            <button class="btn btn-primary" ng-click="sendInvites()">Send Invite</button>
-          </div>
-        </div>
-        <div class="search-result" ng-if="email !== ''">
-           <div ng-class="{'item-focus': hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" ng-repeat="result in searchResult" ng-click="selectList(result.email)" ng-model="email">{{result.email}}</div>
-        </div>
-      </div>
-    </div>
-  </div>
->>>>>>> 0094fc7... feature(search): add search box and invite button to game screen UI
   </div>
   <div id="gameplay-container">
     <div id="upper-gameplay-container">
