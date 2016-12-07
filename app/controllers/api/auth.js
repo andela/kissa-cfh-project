@@ -4,45 +4,43 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
 
-//  signup method
-module.exports.signUp = (request, response) => {
-  //  json data to be sent to user
-  function responseData(success, message, token) {
-    response.json({
+const Auth = {
+  responseData: (res, status, success, message, token) => {
+    res.status(status).json({
       success,
       message,
       token
     });
-  }
-
-  //  save the user in the database
-  function saveUser(user) {
+  },
+  saveUser: (res, status, user) => {
     user.save((err, newUser) => {
       if (err) return err;
       const token = jwt.sign(newUser, process.env.secret, {
         expiresIn: '24h'
       });
-      responseData(true, 'You have successfully signed up!', token);
+      Auth.responseData(res, status, true, 'You have successfully signed up!', token);
+    });
+  },
+  signUp: (req, res) => {
+    User.findOne({ email: req.body.email }, (error, registeredUser) => {
+      if (error) return error;
+      // Check if email does not exists
+      if (!registeredUser) {
+        const body = req.body;
+        if (body.email && body.name && body.password) {
+          const user = new User();
+          user.email = body.email;
+          user.name = body.name;
+          user.password = body.password;
+          user.avatar = body.avatar;
+          Auth.saveUser(res, 200,user);
+        } else {
+          Auth.responseData(res, 400, false, 'Authentication failed. No field can be empty!');
+        }
+      } else {
+        Auth.responseData(res, 409, false, 'User already exists');
+      }
     });
   }
-
-  User.findOne({ email: request.body.email }, (error, registeredUser) => {
-    if (error) return error;
-    // Check if email does not exists
-    if (!registeredUser) {
-      const body = request.body;
-      if (body.email && body.name && body.password) {
-        const user = new User();
-        user.email = body.email;
-        user.name = body.name;
-        user.password = body.password;
-        user.avatar = body.avatar;
-        saveUser(user);
-      } else {
-        responseData(false, 'Authentication failed. No field can be empty!');
-      }
-    } else {
-      responseData(false, 'User already available');
-    }
-  });
 };
+module.exports = Auth;

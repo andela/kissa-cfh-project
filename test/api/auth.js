@@ -29,6 +29,7 @@ describe('Authenticate', () => {
       .post('/api/auth/signup')
       .send(user)
       .end((error, response) => {
+        response.should.have.status(400);
         response.body.should.have.property('message');
         response.body.message.should.equal('Authentication failed. No field can be empty!');
         done();
@@ -65,8 +66,9 @@ describe('Authenticate', () => {
       .post('/api/auth/signup')
       .send(user)
       .end((error, response) => {
+        response.should.have.status(409);
         response.body.should.have.property('message');
-        response.body.message.should.equal('User already available');
+        response.body.message.should.equal('User already exists');
         done();
       });
     });
