@@ -1,6 +1,4 @@
-
-'use strict';
-
+/*  eslint amd:0 */
 /**
  * Module dependencies.
  */
@@ -11,34 +9,34 @@ const User = mongoose.model('User');
 
 const Auth = {
   responseData: (res, status, success, message, token) => {
-   res.status(status).json({
-     success,
-     message,
-     token
-   });
- },
+    res.status(status).json({
+      success,
+      message,
+      token
+    });
+  },
 
   login: (req, res) => {
-  User.findOne({
-    email: req.body.email
-  }, (error, user) => {
-    if (error) {
-      res.status(500).send(error);
-    }
-    if (!user) {
-      Auth.responseData(res, 401, false, 'Authentication failed')
-    } else if (user) {
-      if (!user.authenticate(req.body.password)) {
-        Auth.responseData(res, 401,false,'Authentication failed. Invalid Password')
-      } else {
-        const token = jwt.sign(user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
-          expiresIn: '24h'
-        });
-        Auth.responseData(res,200,true,'Authentication successful. User logged in')
+    User.findOne({
+      email: req.body.email
+    }, (error, user) => {
+      if (error) {
+        res.status(500).send(error);
       }
-    }
-  });
-}
+      if (!user) {
+        Auth.responseData(res, 401, false, 'Authentication failed');
+      } else if (user) {
+        if (!user.authenticate(req.body.password)) {
+          Auth.responseData(res, 401, false, 'Authentication failed. Invalid Password');
+        } else {
+          const token = jwt.sign(user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
+            expiresIn: '24h'
+          });
+          Auth.responseData(res, 200, true, 'Authentication successful. User logged in', token);
+        }
+      }
+    });
+  }
 
-}
+};
 module.exports = Auth;
