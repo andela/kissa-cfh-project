@@ -34,14 +34,14 @@ describe('<Unit Test>', function() {
         });
 
         describe('Method Save', function() {
-            it('should be able to save without problems', (done) => {
+          it('should be able to save without problems', (done) => {
               article.save((err) => {
                     should.not.exist(err);
                     done();
                 });
             });
 
-            it('should throw an error when trying to save without a title', (done) => {
+          it('should throw an error when trying to save without a title', (done) => {
                 article.title = '';
 
               article.save((err) => {
