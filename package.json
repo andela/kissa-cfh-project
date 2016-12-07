@@ -52,7 +52,7 @@
     "passport-twitter": "~1.0.2",
     "sinon": "~1.7.3",
     "socket.io": "~1.4.5",
-    "socket.io-client": "~0.9.16",
+    "socket.io-client": "~1.4.5",
     "underscore": "~1.5.2",
     "view-helpers": "~0.1.3"
   },
