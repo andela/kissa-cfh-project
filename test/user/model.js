@@ -25,7 +25,7 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
           it('should be able to save without problems', (done) => {
-              user.save((err) => {
+            user.save((err) => {
                     should.not.exist(err);
                     done();
                 });
@@ -33,7 +33,7 @@ describe('<Unit Test>', function() {
 
           it('should throw an error when trying to save without a name', (done) => {
                 user.name = '';
-              user.save((err) => {
+            user.save((err) => {
                     should.exist(err);
                     done();
                 });

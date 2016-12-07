@@ -35,7 +35,7 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
           it('should be able to save without problems', (done) => {
-              article.save((err) => {
+            article.save((err) => {
                     should.not.exist(err);
                     done();
                 });
@@ -44,7 +44,7 @@ describe('<Unit Test>', function() {
           it('should throw an error when trying to save without a title', (done) => {
                 article.title = '';
 
-              article.save((err) => {
+            article.save((err) => {
                     should.exist(err);
                     done();
                 });
