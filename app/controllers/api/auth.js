@@ -9,34 +9,36 @@ const jwt = require('jsonwebtoken');
 
 const User = mongoose.model('User');
 
-exports.login = (request, response) => {
+const Auth = {
+  responseData: (res, status, success, message, token) => {
+   res.status(status).json({
+     success,
+     message,
+     token
+   });
+ },
+
+  login: (req, res) => {
   User.findOne({
-    email: request.body.email
+    email: req.body.email
   }, (error, user) => {
     if (error) {
-      response.status(500).send(error);
+      res.status(500).send(error);
     }
     if (!user) {
-      response.status(401).json({
-        success: false,
-        message: 'Authentication failed'
-      });
+      Auth.responseData(res, 401, false, 'Authentication failed')
     } else if (user) {
-      if (!user.authenticate(request.body.password)) {
-        response.status(401).json({
-          success: false,
-          message: 'Authentication failed. Invalid Password'
-        });
+      if (!user.authenticate(req.body.password)) {
+        Auth.responseData(res, 401,false,'Authentication failed. Invalid Password')
       } else {
         const token = jwt.sign(user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
           expiresIn: '24h'
         });
-        response.status(200).json({
-          success: true,
-          message: 'Authentication successful. User logged in',
-          token
-        });
+        Auth.responseData(res,200,true,'Authentication successful. User logged in')
       }
     }
   });
-};
+}
+
+}
+module.exports = Auth;
