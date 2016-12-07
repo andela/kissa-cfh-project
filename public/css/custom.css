@@ -1,0 +1,302 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+#how-to-plays .how-to-play-item {
+  margin: 0 0 15px;
+  right: 0;
+}
+
+#how-to-plays .how-to-play-item .how-to-play-link {
+  display: block;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#how-to-plays .how-to-play-item .how-to-play-link .caption {
+  background: rgba(24, 188, 156, 0.9);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+}
+
+#how-to-plays .how-to-play-item .how-to-play-link .caption:hover {
+  opacity: 1;
+}
+
+#how-to-plays .how-to-play-item .-link .caption .caption-content {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+  top: 50%;
+  margin-top: -12px;
+  color: white;
+}
+
+#how-to-plays .how-to-play-item .how-to-play-link .caption .caption-content i {
+  margin-top: -12px;
+}
+#how-to-plays .how-to-play-item .how-to-play-link .caption .caption-content h3,
+#how-to-play .how-to-play-item .how-to-play-link .caption .caption-content h4 {
+  margin: 0;
+}
+#how-to-plays * {
+  z-index: 2;
+}
+@media (min-width: 767px) {
+  #how-to-plays .how-to-play-item {
+    margin: 0 0 30px;
+  }
+}
+
+
+
+.custom-button {
+  padding-top: 5px;
+  margin-top: 0px;
+}
+
+header {
+  text-align: center;
+  background:linear-gradient(rgba(0, 0, 0, 0.45),  rgba(0, 0, 0, 0.65)
+    ), url('../img/LandingPhoto.jpg') no-repeat center center;
+  height: 800px;
+  color: white;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+header .container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 50px;
+}
+header img {
+  display: block;
+  margin: 0 auto 20px;
+}
+header .intro-text .name {
+  display: block;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 1000;
+  font-size: 2em;
+  color: white;
+}
+header .intro-text .skills {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  header .container {
+    padding-top: 200px;
+    padding-bottom: 100px;
+  }
+  header .intro-text .name {
+    font-size: 4.75em;
+  }
+  header .intro-text .skills {
+    font-size: 1.75em;
+  }
+}
+
+.navbar-custom {
+  background: #2c5043;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 5px;
+  border: none;
+}
+.navbar-custom a:focus {
+  outline: none;
+}
+.navbar-custom .navbar-brand {
+  color: white;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand.active {
+  color: white;
+}
+.navbar-custom .navbar-nav {
+  letter-spacing: 1px;
+}
+.navbar-custom .navbar-nav li a {
+  color: white;
+}
+.navbar-custom .navbar-nav li a:hover {
+  color: #18BC9C;
+  outline: none;
+}
+.navbar-custom .navbar-nav li a:focus,
+.navbar-custom .navbar-nav li a:active {
+  color: white;
+}
+.navbar-custom .navbar-nav li.active a {
+  color: white;
+  background: #18BC9C;
+}
+.navbar-custom .navbar-nav li.active a:hover,
+.navbar-custom .navbar-nav li.active a:focus,
+.navbar-custom .navbar-nav li.active a:active {
+  color: white;
+  background: #18BC9C;
+}
+.navbar-custom .navbar-toggle {
+  color: white;
+  text-transform: uppercase;
+  font-size: 10px;
+  border-color: white;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #18BC9C;
+  color: white;
+  border-color: #18BC9C;
+}
+@media (min-width: 768px) {
+  .navbar-custom {
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+  }
+  .navbar-custom .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-custom.affix {
+    padding: 10px 0;
+  }
+  .navbar-custom.affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+section {
+  padding: 30px 0;
+}
+section h2 {
+  margin: 0;
+}
+section.success {
+  background: #C8E6C9 ;
+  color: black;
+}
+section.donate {
+  background:white;
+  color: black;
+}
+@media (max-width: 767px) {
+  section {
+    padding: 75px 0;
+  }
+  section.first {
+    padding-top: 75px;
+  }
+}
+
+footer {
+  color: white;
+}
+footer h3 {
+  margin-bottom: 30px;
+}
+footer .footer-above {
+  padding-top: 50px;
+  background-color: #2C3E50;
+}
+footer .footer-col {
+  margin-bottom: 50px;
+}
+footer .footer-below {
+  padding: 25px 0;
+  background-color: #233140;
+}
+
+.padding {
+  padding-bottom: 5px;
+}
+
+.instruction {
+    height: 100%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    background-color: #C8E6C9;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.instruction-card {
+    background-color: rgb(1, 40, 6);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.instruction-text {
+    top: 50%;
+    margin-top: 20%;
+    font-size: 1.2em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.card-shadow {
+    -webkit-box-shadow: -20px -24px 36px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px -24px 36px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 20px 34px -16px rgba(0, 0, 0, 0.75);
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.2em;
+    padding: 0px;
+    height: 300px;
+}
+
+.instruction-title {
+    padding-bottom: 3%;
+}
+
+.play-button {
+    padding-top: 3%;
+}
+
+.charity-img {
+    padding-left: 15%;
+}
+
+#landing-charity {
+    width: 300px !important;
+    margin-left: 15px !important;
+    max-width: 100% !important;
+    position: relative !important;
+    float: left !important;
+    top: -65px;
+}
+
+.charity-sub {
+    padding: 40 40 40 30;
+}
+
+.footer-custom {
+    padding-top: 2%;
+    padding-bottom: 3%;
+    background: #2C3E50;
+    color: white;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 5px;
+  border: none;
+}
+.navbar-brand-custom {
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+}
