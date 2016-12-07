@@ -15,9 +15,13 @@
    top: -65px;
 }
 
+.facebook-like-container{
+padding-top: 3% 
+}
+
 .facebook-like{
-   margin-left: 20%;
    padding-top: 2%;
+   background-color: white;
 }
 
 #tweet-container-index{
