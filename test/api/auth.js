@@ -1,4 +1,4 @@
-/*  eslint amd:true */
+/* eslint-disable global-require, no-unused-vars,  import/no-unresolved */
 /**
  * module dependencies
  */

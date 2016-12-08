@@ -1,6 +1,4 @@
-/* eslint global-require: 0*/
-/* eslint-env es6*/
-/* eslint no-unused-vars: 0*/
+/* eslint-disable global-require, no-unused-vars,  import/no-unresolved */
 const async = require('async');
 
 module.exports = (app, passport, auth) => {
