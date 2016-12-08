@@ -1,3 +1,4 @@
+/* eslint no_unused_vars:off */
 angular.module('mean.directives', [])
   .directive('player', function (){
     return{
@@ -75,5 +76,12 @@ angular.module('mean.directives', [])
           scope.showOptions = false;
         }
       }
+    };
+  })
+  .directive('invites', () => {
+    return {
+      restrict: 'EA',
+      templateUrl: '/views/invite-list.html',
+      link(scope, elem, attr) {}
     };
   });
