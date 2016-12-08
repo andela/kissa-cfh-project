@@ -26,7 +26,7 @@ describe('Search api', () => {
     it('should login for valid user', (done) => {
       request(app).post('/users/session')
         .send({ email: user.email, password: user.password })
-        .expect(302, done);
+        .expect(302, done());
     });
   });
 
@@ -34,14 +34,22 @@ describe('Search api', () => {
     it('routes successfully', (done) => {
       request(app)
         .get('/api/search/users/search@search.com')
-        .send(user)
-        .expect(200, done());
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end(function(err, res){
+          if (err) return done(err);
+        });
+      done();
     });
     it('returns not found when no word is entered', (done) => {
       request(app)
         .get('/api/search/users/')
-        .send(user)
-        .expect(404, done());
+        .set('Accept', 'application/json')
+        .expect(404)
+        .end(function(err, res) {
+          if (err) return done(err);
+        });
+      done();
     });
   });
 });
