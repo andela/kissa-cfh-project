@@ -1,3 +1,4 @@
+/*  eslint amd:true */
 /**
  * module dependencies
  */
