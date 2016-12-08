@@ -1,3 +1,4 @@
+/* eslint amd:true */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');
