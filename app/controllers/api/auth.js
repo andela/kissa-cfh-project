@@ -16,7 +16,7 @@ const Auth = {
     });
   },
 
-  login: (req, res) => {
+  login(req, res) {
     User.findOne({
       email: req.body.email
     }, (error, user) => {
@@ -29,7 +29,7 @@ const Auth = {
         if (!user.authenticate(req.body.password)) {
           Auth.responseData(res, 401, false, 'Authentication failed. Invalid Password');
         } else {
-          const token = jwt.sign(user, 'kjzdfhkjhfghzkjvhkashd,hdjgvmbxmvzbvbc', {
+          const token = jwt.sign(user, process.env.secret, {
             expiresIn: '24h'
           });
           Auth.responseData(res, 200, true, 'Authentication successful. User logged in', token);
