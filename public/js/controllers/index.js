@@ -16,6 +16,7 @@ angular.module('mean.system')
   };
 
   $scope.showEmail = $location.search().email;
+  $scope.gameId = $location.search().game;
 
   $scope.avatars = [];
   AvatarService.getAvatars()

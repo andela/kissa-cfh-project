@@ -43,6 +43,12 @@
         <div class="more-sign">
           <form class="signup form-horizontal" action="/users" method="post">
             <div class="control-group">
+              <label for="game" class="control-label"></label>
+              <div class="controls">
+                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
+              </div>
+            </div>
+            <div class="control-group">
               <label for="name" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="name" type="text" name="name" placeholder="Full name" required novalidate />
@@ -71,6 +77,7 @@
             </div>
             <div class="form-actions">
               <button id="sign-up-btn-other" type='submit'>Sign Up</button>
+              <a href="/#!/signin?game={{gameId}}&email={{showEmail}}">Go to signin</a>
             </div>
           </form>
         </div>

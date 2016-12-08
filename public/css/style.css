@@ -1253,3 +1253,7 @@
   background-color: blue;
   color: white;
 }
+
+.hide-game {
+    display:none;
+}
