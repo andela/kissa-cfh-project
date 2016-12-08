@@ -276,7 +276,8 @@ angular.module('mean.system')
         headers: { 'Content-Type': 'application/json' },
         data: {
           email: $scope.email,
-          link: document.URL
+          link: document.URL,
+          sender: window.user.name
         }
       })
       .success(function(response) {
