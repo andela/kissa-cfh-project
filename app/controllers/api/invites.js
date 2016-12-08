@@ -15,7 +15,7 @@ exports.emailinvite = (req, res) => {
   const transporter = nodemailer.createTransport(process.env.EMAIL_SERVICES);
 
   const mailOptions = {
-    from: 'victor.nwaiwu9@gmail.com',
+    from: process.env.EMAIL_OWNER,
     to: req.body.email,
     subject: 'Invitation to join Game',
     html: `<h3> Cards for Humanity </h3><br/>
