@@ -71,7 +71,7 @@ html, body, .main-container, .cont, #first-section, #inner-container {
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
   background: transparent;
-  margin: 10px; }
+   }
   @media only screen and (min-width: 521px) and (max-width: 768px) {
     body {
       margin: 5px; } }

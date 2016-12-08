@@ -18,10 +18,14 @@
 </script>
 
 <script></script>
+<div ng-controller="IndexController">
+    
 
 <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container custom-container">
+
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" landing>
+        <div class="container custom-container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -39,24 +43,26 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#home">HOME</a>
+                        <a href="#">HOME</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">ABOUT THE GAME</a>
+                        <a href="#">ABOUT THE GAME</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#charity">CHARITY</a>
+                        <a href="#">CHARITY</a>
                     </li>
-                    <li class="page-scroll">
+                    <li class="page-scroll" ng-show="showOptions">
                       <a href="#!/signup">SIGN UP</a>
                     </li>
-                    <li class="page-scroll">
+                    <li class="page-scroll" ng-show="showOptions">
                       <a href="#!/signin">SIGN IN</a>
-                    </li>
-                </span>
-                    
+                    </li>   
+                    <li class="page-scroll" ng-hide ="showOptions">
+                      <a href="/signout">SIGN OUT</a>
+                    </li>                    
                     
                 </ul>
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -83,7 +89,7 @@
     </header>
 
     <!-- About the game Section -->
-    <section class="success">
+    <section class="success" id ="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center padding">
@@ -163,7 +169,7 @@
         
     </section>
 
-    <section class="donate text-center">
+    <section class="donate text-center" id ="charity">
         <div class="row charity">
             <div class="row">
                     <div class="col-lg-12 text-center padding">
@@ -207,3 +213,4 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
+</div>
