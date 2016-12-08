@@ -5,14 +5,14 @@ const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
 
 const Auth = {
-  responseData: (res, status, success, message, token) => {
+  responseData(res, status, success, message, token) {
     res.status(status).json({
       success,
       message,
       token
     });
   },
-  saveUser: (res, status, user) => {
+  saveUser(res, status, user) {
     user.save((err, newUser) => {
       if (err) return err;
       const token = jwt.sign(newUser, process.env.secret, {
@@ -21,7 +21,7 @@ const Auth = {
       Auth.responseData(res, status, true, 'You have successfully signed up!', token);
     });
   },
-  signUp: (req, res) => {
+  signUp(req, res) {
     User.findOne({ email: req.body.email }, (error, registeredUser) => {
       if (error) return error;
       // Check if email does not exists
