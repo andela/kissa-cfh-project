@@ -78,7 +78,7 @@ angular.module('mean.directives', [])
       }
     };
   })
-  .directive('invites', () => {
+  .directive('invites', function () {
     return {
       restrict: 'EA',
       templateUrl: '/views/invite-list.html',
