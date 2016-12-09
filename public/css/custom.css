@@ -1,6 +1,7 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  margin : 0px;
 }
 
 #how-to-plays .how-to-play-item {
@@ -96,6 +97,13 @@ header .intro-text .skills {
   font-size: 1.25em;
   font-weight: 300;
 }
+.intro-text h1 {
+  font-size: 1.2em;
+}
+
+.intro-text h2 {
+  font-size: 0.4em;
+}
 @media (min-width: 768px) {
   header .container {
     padding-top: 200px;
@@ -184,6 +192,7 @@ header .intro-text .skills {
 }
 section {
   padding: 30px 0;
+  padding-top: 0px;
 }
 section h2 {
   margin: 0;
@@ -191,6 +200,9 @@ section h2 {
 section.success {
   background: #C8E6C9 ;
   color: black;
+}
+.section-instruction {
+  padding: 0px !important;
 }
 section.donate {
   background:white;
@@ -231,7 +243,7 @@ footer .footer-below {
     height: 100%;
     padding-top: 3%;
     padding-bottom: 5%;
-    background-color: #C8E6C9;
+    background-color: #AEC6AF;
     padding-left: 6%;
     padding-right: 6%;
 }
