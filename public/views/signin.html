@@ -1,76 +1,71 @@
-<div id="main-bod" ng-controller="IndexController">
-  <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
-              </ul>
+<!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container custom-container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand-custom" href="#">
+                            <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+                        </a>
             </div>
-          </div>      
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Fixed Logo & Menu Bar End -->
 
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign in with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or log in below:</p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#home">HOME</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">ABOUT THE GAME</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#charity">CHARITY</a>
+                    </li>
+                </span>
 
-      <div class="sign-body">
-        <div class="more-sign">
-          <div class="sign-error" ng-show="showError() === 'invalid'">
-            Please check your username/password and try again.
-          </div>
-          <form class="signup form-horizontal" action="/users/session" method="post">
-            <div class="control-group">
-              <label for="game" class="control-label"></label>
-              <div class="controls">
-                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
-              </div>
+
+                </ul>
             </div>
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="text" name="email" ng-model="showEmail" placeholder="Email" required novalidate />
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
-              </div>
-            </div>
-            <div class="form-actions top-margin">
-              <button id="sign-up-btn-other" type='submit'>Sign In</button>
-            </div>
-          </form>
+            <!-- /.navbar-collapse -->
         </div>
-      </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<div class="body" id="main-bod" ng-controller="IndexController">
+        <div class="signin-wrapper body">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <div class=" row sign-up text-center">
+                      <a href="#!/signup">  SIGN UP INSTEAD </a>
+                    </div>
+                    <div class="row signin-sub-wrapper">
+                        <div class="col-md-12 ">
+                            <h4 class="signup-subtitle text-center">
+                           Login to Play Game</h4>
+                           <div class="sign-error" ng-show="showError() === 'invalid'">
+                             Please check your username/password and try again.
+                           </div>
+                            <form class="signup form-horizontal" action="/users/session" method="post">
+                                <div class="form-groups">
+                                    <input id="email" type="text" name="email" class="form-control" placeholder="Email">
+                                    <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                                    <input type="submit" class="form-control login-button" value="Sign In">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12 signin-social-pane">
+                            <h4 class="text-center"> OR</h4>
+                            <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter"><span class="fa fa-twitter"></span> Sign in with Twitter</a>
+                            <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook"><span class="fa fa-facebook"></span> Sign in with Facebook</a>
+                            <a href="/auth/google" class="btn btn-block btn-social btn-google"><span class="fa fa-google"></span> Sign in with Google</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-  </div>
-</div>

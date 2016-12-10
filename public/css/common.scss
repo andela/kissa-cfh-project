@@ -660,7 +660,7 @@ body {
           text-align: center;
           width: 100%;
           @include br-bottom;
-          background: black;
+          background: #000000;
           opacity: 0.4;
           @include mobile-only {
             overflow: auto;
@@ -1072,7 +1072,7 @@ body {
         #charity-fact-container {
           @include br;
           background-color: #fff;
-          color: black;
+          color: #000000;
           position: absolute;
           bottom: 4%;
           margin: 0 2%;
@@ -1219,7 +1219,7 @@ body {
   border-radius: 8px !important;
   text-transform: none !important;
 
-  .donateNow {
-    border-top: 0 solid black !important;
+  .donate-now {
+    border-top: 0 solid #000000 !important;
   }
 }

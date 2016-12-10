@@ -323,7 +323,7 @@ body {
           -moz-border-radius-bottomleft: 8px;
           border-bottom-right-radius: 8px;
           border-bottom-left-radius: 8px;
-          background: black;
+          background: #000000;
           opacity: 0.4; }
           @media (max-width: 520px) {
             #main-container #app-container #social-bar-container #player-container #czar-container {
@@ -747,7 +747,7 @@ body {
           -moz-border-radius: 8px;
           border-radius: 8px;
           background-color: #fff;
-          color: black;
+          color: #000000;
           position: absolute;
           bottom: 4%;
           margin: 0 2%;
@@ -864,5 +864,5 @@ body {
   -moz-border-radius: 8px !important;
   border-radius: 8px !important;
   text-transform: none !important; }
-  .gradientButton .donateNow {
-    border-top: 0 solid black !important; }
+  .gradientButton .donate-now {
+    border-top: 0 solid #000000 !important; }

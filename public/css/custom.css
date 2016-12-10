@@ -362,3 +362,77 @@ footer .footer-below {
 .footer-copyright {
     padding-top: 3%;
 }
+
+
+
+.signin-wrapper
+{
+    padding-top: 20%;
+    padding-bottom: 20%;
+    background-color: #555857;
+}
+
+.signin-sub-wrapper
+{
+    padding: 10%;
+    background-color: white;
+    color: black;
+    -webkit-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+}
+
+
+.sign-up
+{
+    color: white;
+    font-size: 1.5em;
+    padding: 3% 3% 3% 3%;
+    cursor: pointer;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 10px;
+    webkit-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+}
+
+.sign-up span
+{
+    font-size: 0.7em;
+}
+
+.signup-subtitle
+{
+    padding-bottom: 3%;
+}
+
+.signin-social-pane
+{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.signin-social-pane h4
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-groups input
+{
+    margin-bottom: 5%;
+}
+
+body:after
+{
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
