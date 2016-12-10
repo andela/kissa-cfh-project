@@ -108,7 +108,20 @@ header .intro-text .skills {
     font-size: 1.75em;
   }
 }
-
+.intro-text h1{
+  font-size: 1.2em;
+}
+.intro-text h2{
+  font-size: 0.4em;
+  font-weight: 300;
+}
+.intro-text p{
+  color: #bfd4c2;
+  font-weight: 100;
+}
+.intro-text a{
+  margin-top: 30px;
+}
 .navbar-custom {
   background: #2c5043;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -224,14 +237,13 @@ footer .footer-below {
 }
 
 .padding {
-  padding-bottom: 5px;
+  padding-bottom: 30px;
 }
 
 .instruction {
     height: 100%;
     padding-top: 3%;
     padding-bottom: 5%;
-    background-color: #C8E6C9;
     padding-left: 6%;
     padding-right: 6%;
 }
@@ -299,4 +311,11 @@ footer .footer-below {
     height: 50px;
     font-size: 18px;
     line-height: 20px;
+}
+.instruction-section{
+  padding-top: 0px;
+  background-color: #b7d6b8;
+}
+.quote-footer{
+  color: black;
 }

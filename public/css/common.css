@@ -71,7 +71,7 @@ html, body, .main-container, .cont, #first-section, #inner-container {
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
   background: transparent;
-  margin: 10px; }
+  margin: 0px; }
   @media only screen and (min-width: 521px) and (max-width: 768px) {
     body {
       margin: 5px; } }
@@ -856,3 +856,14 @@ body {
   text-transform: none !important; }
   .gradientButton .donateNow {
     border-top: 0px solid black !important; }
+
+.intro-text h1 {
+  font-size: 1.2em; }
+
+.intro-text h2 {
+  font-size: 0.4em;
+  font-weight: 300; }
+
+.intro-text p {
+  color: #bfd4c2;
+  font-weight: 100; }

@@ -394,7 +394,7 @@ html{
     // -moz-background-size: cover;
     // -o-background-size: cover;
     // background-size: cover;
-    
+
 
     @include mobile-only{
         //margin: 3px;
@@ -404,7 +404,7 @@ html{
 body{
     font-family: $main-font;
     background: transparent;
-    margin: 10px;
+    margin: 0px;
 
     @include tablet-portrait-only{
         margin: 5px;
@@ -1322,5 +1322,3 @@ body{
         border-top: 0px solid black !important;
     }
 }
-
-
