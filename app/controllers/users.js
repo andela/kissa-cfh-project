@@ -23,6 +23,13 @@ exports.signin = function(req, res) {
   }
 };
 
+exports.playGame = function(req, res) {
+  if (!req.user) {
+    res.redirect('/#!/signin?error=invalid');
+  } else {
+    res.redirect('/#!/play-with');
+  }
+};
 /**
  * Show sign up form
  */
@@ -50,11 +57,11 @@ exports.session = function(req, res) {
   if (gameId) {
     res.redirect(`/#!/app?game=${gameId}`);
   } else {
-    res.redirect('/');
+    res.redirect('/#!/play-with');
   }
 };
 
-/** 
+/**
  * Check avatar - Confirm if the user who logged in via passport
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
@@ -64,13 +71,13 @@ exports.checkAvatar = function(req, res) {
     User.findOne({
       _id: req.user._id
     })
-    .exec(function(err, user) {
-      if (user.avatar !== undefined) {
-        res.redirect('/#!/');
-      } else {
-        res.redirect('/#!/choose-avatar');
-      }
-    });
+      .exec(function(err, user) {
+        if (user.avatar !== undefined) {
+          res.redirect('/#!/');
+        } else {
+          res.redirect('/#!/choose-avatar');
+        }
+      });
   } else {
     // If user doesn't even exist, redirect to /
     res.redirect('/');
@@ -85,7 +92,7 @@ exports.create = function(req, res) {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
-    }).exec(function(err,existingUser) {
+    }).exec(function(err, existingUser) {
       if (!existingUser) {
         var user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
@@ -102,7 +109,7 @@ exports.create = function(req, res) {
             const gameId = req.body.game;
             if (err) return next(err);
             if (gameId) return res.redirect(`/#!/app?game=${gameId}`);
-            return res.redirect('/#!/');
+            return res.redirect('/#!/play-with');
           });
         });
       } else {
@@ -124,10 +131,10 @@ exports.avatars = function(req, res) {
     User.findOne({
       _id: req.user._id
     })
-    .exec(function(err, user) {
-      user.avatar = avatars[req.body.avatar];
-      user.save();
-    });
+      .exec(function(err, user) {
+        user.avatar = avatars[req.body.avatar];
+        user.save();
+      });
   }
   return res.redirect('/#!/app');
 };
@@ -139,21 +146,21 @@ exports.addDonation = function(req, res) {
       User.findOne({
         _id: req.user._id
       })
-      .exec(function(err, user) {
-        // Confirm that this object hasn't already been entered
-        var duplicate = false;
-        for (var i = 0; i < user.donations.length; i++ ) {
-          if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
-            duplicate = true;
+        .exec(function(err, user) {
+          // Confirm that this object hasn't already been entered
+          var duplicate = false;
+          for (var i = 0; i < user.donations.length; i++) {
+            if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
+              duplicate = true;
+            }
           }
-        }
-        if (!duplicate) {
-          console.log('Validated donation');
-          user.donations.push(req.body);
-          user.premium = 1;
-          user.save();
-        }
-      });
+          if (!duplicate) {
+            console.log('Validated donation');
+            user.donations.push(req.body);
+            user.premium = 1;
+            user.save();
+          }
+        });
     }
   }
   res.send();
