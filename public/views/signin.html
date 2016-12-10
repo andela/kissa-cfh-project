@@ -1,71 +1,79 @@
-<!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container custom-container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand-custom" href="#">
-                            <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
-                        </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#home">HOME</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">ABOUT THE GAME</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#charity">CHARITY</a>
-                    </li>
-                </span>
-
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-<div class="body" id="main-bod" ng-controller="IndexController">
-        <div class="signin-wrapper body">
-            <div class="row">
-                <div class="col-md-offset-4 col-md-4">
-                    <div class=" row sign-up text-center">
-                      <a href="#!/signup">  SIGN UP INSTEAD </a>
-                    </div>
-                    <div class="row signin-sub-wrapper">
-                        <div class="col-md-12 ">
-                            <h4 class="signup-subtitle text-center">
-                           Login to Play Game</h4>
-                           <div class="sign-error" ng-show="showError() === 'invalid'">
-                             Please check your username/password and try again.
-                           </div>
-                            <form class="signup form-horizontal" action="/users/session" method="post">
-                                <div class="form-groups">
-                                    <input id="email" type="text" name="email" class="form-control" placeholder="Email">
-                                    <input id="password" type="password" name="password" class="form-control" placeholder="Password">
-                                    <input type="submit" class="form-control login-button" value="Sign In">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-12 signin-social-pane">
-                            <h4 class="text-center"> OR</h4>
-                            <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter"><span class="fa fa-twitter"></span> Sign in with Twitter</a>
-                            <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook"><span class="fa fa-facebook"></span> Sign in with Facebook</a>
-                            <a href="/auth/google" class="btn btn-block btn-social btn-google"><span class="fa fa-google"></span> Sign in with Google</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container custom-container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      Menu
+      <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand-custom" href="#">
+      <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+      </a>
     </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li class="page-scroll">
+          <a href="/">HOME</a>
+        </li>
+        <li class="page-scroll">
+          <a href="/#!/#about">ABOUT THE GAME</a>
+        </li>
+        <li class="page-scroll">
+          <a href="/#!/#charity">CHARITY</a>
+        </li>
+        </span>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div class="body" id="main-bod" ng-controller="IndexController">
+  <div class="signin-wrapper body">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class=" row sign-up text-center">
+          <a href="#!/signup">
+          SIGN UP INSTEAD
+          </a>
+        </div>
+        <div class="row signin-sub-wrapper">
+          <div class="col-md-12 ">
+            <h4 class="signup-subtitle text-center">
+              Login to Play Game
+            </h4>
+            <div class="sign-error" ng-show="showError() === 'invalid'">
+              Please check your username/password and try again.
+            </div>
+            <form class="signup form-horizontal" action="/users/session" method="post">
+              <div class="form-groups">
+                <input id="email" type="text" name="email" class="form-control" placeholder="Email">
+                <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                <input type="submit" class="form-control login-button" value="Sign In">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-12 signin-social-pane">
+            <h4 class="text-center">
+              OR
+            </h4>
+            <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
+            <span class="fa fa-twitter"></span>
+            Sign in with Twitter</a>
+            <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+            <span class="fa fa-facebook"></span>
+            Sign in with Facebook</a>
+            <a href="/auth/google" class="btn btn-block btn-social btn-google">
+            <span class="fa fa-google"></span>
+            Sign in with Google</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
