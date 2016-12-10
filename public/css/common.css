@@ -61,17 +61,22 @@
       display: inline-block;
       content: '.'; }
 
-html, body, .main-container, .cont, #first-section, #inner-container {
+#first-section,
+#inner-container,
+.cont,
+.main-container,
+body,
+html {
   height: 100%; }
 
 @media (max-width: 520px) {
   html {
-    margin-top: 0px; } }
+    margin-top: 0; } }
 
 body {
   font-family: "helvetica neue", helvetica, sans-serif;
   background: transparent;
-  margin: 0px; }
+  margin: 0; }
   @media only screen and (min-width: 521px) and (max-width: 768px) {
     body {
       margin: 5px; } }
@@ -92,7 +97,7 @@ body {
   #main-container #app-container {
     height: 100%;
     max-width: 1200px;
-    margin: 0px auto;
+    margin: 0 auto;
     position: relative; }
     #main-container #app-container #menu-container {
       width: 100%;
@@ -106,7 +111,7 @@ body {
       @media (max-width: 520px) {
         #main-container #app-container #menu-container {
           margin-bottom: 1px;
-          margin-top: 0px; } }
+          margin-top: 0; } }
       #main-container #app-container #menu-container #logo {
         display: inline-block;
         margin-left: 10px;
@@ -197,7 +202,7 @@ body {
           #main-container #app-container #social-bar-container #player-container {
             min-height: 0;
             display: inline-block;
-            margin: 0px .5%;
+            margin: 0 0.5%;
             width: 15.5%;
             height: 48px;
             padding-top: 1%;
@@ -268,7 +273,7 @@ body {
                 width: 60%; } }
             #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
               font-family: 'Lobster', cursive;
-              margin-bottom: 0px; }
+              margin-bottom: 0; }
             @media only screen and (min-width: 521px) and (max-width: 768px) {
               #main-container #app-container #social-bar-container #player-container #above-czar-container #player-container-inner #player-name h4 {
                 font-size: 14px; } }
@@ -371,13 +376,13 @@ body {
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
-            -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-            -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-            box-shadow: inset 0px 1px 0px 0px #ffffff;
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+            -moz-box-shadow: inset 0 1px 0 0 #ffffff;
+            -webkit-box-shadow: inset 0 1px 0 0 #ffffff;
+            box-shadow: inset 0 1px 0 0 #ffffff;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#fcfcfc', endColorstr='#f0f0f0');
             background-color: #D5D5D5;
             text-indent: 0;
-            text-shadow: 1px 1px 0px #ffffff;
+            text-shadow: 1px 1px 0 #ffffff;
             cursor: pointer;
             height: 20%;
             margin-bottom: 16px;
@@ -400,13 +405,13 @@ body {
               -webkit-border-radius: 8px;
               -moz-border-radius: 8px;
               border-radius: 8px;
-              -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-              -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-              box-shadow: inset 0px 1px 0px 0px #ffffff;
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+              -moz-box-shadow: inset 0 1px 0 0 #ffffff;
+              -webkit-box-shadow: inset 0 1px 0 0 #ffffff;
+              box-shadow: inset 0 1px 0 0 #ffffff;
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#fcfcfc', endColorstr='#f0f0f0');
               background-color: #D5D5D5;
               text-indent: 0;
-              text-shadow: 1px 1px 0px #ffffff;
+              text-shadow: 1px 1px 0 #ffffff;
               cursor: pointer;
               background: #FFF;
               text-shadow: none;
@@ -416,7 +421,8 @@ body {
               min-height: 85px;
               height: 100%;
               color: #000; }
-              #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+              #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing,
+              #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round {
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -424,10 +430,12 @@ body {
                 padding-bottom: 8px;
                 bottom: 0; }
                 @media only screen and (max-width: 1024px) {
-                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing,
+                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round {
                     font-size: 13px; } }
                 @media (max-width: 520px) {
-                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round, #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing {
+                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-czar-choosing,
+                  #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #timer-status-round {
                     font-size: 12px; } }
               #main-container #app-container #gameplay-container #upper-gameplay-container #menu-timeremaining-container #timer-container #inner-timer-container #time {
                 font-family: 'Lobster', cursive;
@@ -460,7 +468,7 @@ body {
             height: 100%; }
             #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card {
               width: 100%;
-              margin: 0px auto;
+              margin: 0 auto;
               display: block; }
               #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #notifications {
                 position: absolute;
@@ -481,7 +489,9 @@ body {
                     #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #finding-players {
                       font-size: 21px;
                       margin-top: 0; } }
-                #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-container, #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
+                #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #loading-container,
+                #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #player-count-container,
+                #main-container #app-container #gameplay-container #upper-gameplay-container #question-container-outer #question-container-inner .card #startGame #start-game-container {
                   width: 33.333%;
                   float: left;
                   text-align: center; }
@@ -553,7 +563,7 @@ body {
           #main-container #app-container #gameplay-container #info-container {
             width: 100%;
             padding: 1px;
-            margin: 0px auto;
+            margin: 0 auto;
             height: 72%; } }
         #main-container #app-container #gameplay-container #info-container #inner-info {
           width: 90%;
@@ -575,7 +585,7 @@ body {
             @media (max-width: 520px) {
               #main-container #app-container #gameplay-container #info-container #inner-info ol {
                 font-size: 13px;
-                padding: 0px 10px 10px 10px; } }
+                padding: 0 10px 10px; } }
       #main-container #app-container #gameplay-container #game-end-container {
         width: 100%;
         background: #252525;
@@ -623,7 +633,7 @@ body {
                 height: auto; } }
             #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game {
               float: left;
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#fcfcfc', endColorstr='#f0f0f0');
               background-color: white;
               -webkit-border-top-left-radius: 8px;
               -moz-border-radius-topleft: 8px;
@@ -660,12 +670,12 @@ body {
               #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #join-new-game:hover {
                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
                 background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#f0f0f0', endColorstr='#ededed');
                 background-color: #f0f0f0;
                 color: #4e4e4e; }
             #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match {
               float: left;
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f0f0f0');
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#fcfcfc', endColorstr='#f0f0f0');
               background-color: white;
               -webkit-border-top-left-radius: 8px;
               -moz-border-radius-topleft: 8px;
@@ -702,7 +712,7 @@ body {
               #main-container #app-container #gameplay-container #game-end-container #inner-info-exit #inner-text-container #exit-match:hover {
                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0f0f0), color-stop(1, #ededed));
                 background: -moz-linear-gradient(center top, #f0f0f0 5%, #ededed 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ededed');
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#f0f0f0', endColorstr='#ededed');
                 background-color: #f0f0f0;
                 color: #4e4e4e; }
       #main-container #app-container #gameplay-container #czar-blank-container {
@@ -722,7 +732,7 @@ body {
           #main-container #app-container #gameplay-container #czar-blank-container {
             width: 100%;
             font-size: 16px;
-            margin: 0px auto; } }
+            margin: 0 auto; } }
         #main-container #app-container #gameplay-container #czar-blank-container #czar-blank-inner {
           position: absolute;
           left: 10%;
@@ -762,7 +772,7 @@ body {
             font-style: italic;
             text-align: center;
             width: 90%;
-            margin: 0 5% 3px 5%; }
+            margin: 0 5% 3px; }
             @media (max-width: 520px) {
               #main-container #app-container #gameplay-container #czar-blank-container #charity-fact-container #charity-fact {
                 font-size: 12px; } }
@@ -811,9 +821,9 @@ body {
     font-size: 15px; } }
 
 .crDonateWidget {
-  -webkit-box-shadow: 0px 0px 0px 0px transparent !important;
-  -moz-box-shadow: 0px 0px 0px 0px transparent !important;
-  box-shadow: 0px 0px 0px 0px transparent !important;
+  -webkit-box-shadow: 0 0 0 0 transparent !important;
+  -moz-box-shadow: 0 0 0 0 transparent !important;
+  box-shadow: 0 0 0 0 transparent !important;
   -webkit-border-radius: 8px !important;
   -moz-border-radius: 8px !important;
   border-radius: 8px !important; }
@@ -821,10 +831,10 @@ body {
 .crDonateWidgetOuter {
   text-align: center;
   background-color: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 0px transparent !important;
-  box-shadow: 0px 0px 0px 0px transparent !important;
-  border: 0px solid #e6e6e6 !important;
-  margin: 0px 0px !important; }
+  -webkit-box-shadow: 0 0 0 0 transparent !important;
+  box-shadow: 0 0 0 0 transparent !important;
+  border: 0 solid #e6e6e6 !important;
+  margin: 0 !important; }
 
 .crDonated {
   margin-top: 2px !important; }
@@ -855,4 +865,4 @@ body {
   border-radius: 8px !important;
   text-transform: none !important; }
   .gradientButton .donateNow {
-    border-top: 0px solid black !important; }
+    border-top: 0 solid black !important; }
