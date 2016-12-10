@@ -856,14 +856,3 @@ body {
   text-transform: none !important; }
   .gradientButton .donateNow {
     border-top: 0px solid black !important; }
-
-.intro-text h1 {
-  font-size: 1.2em; }
-
-.intro-text h2 {
-  font-size: 0.4em;
-  font-weight: 300; }
-
-.intro-text p {
-  color: #bfd4c2;
-  font-weight: 100; }
