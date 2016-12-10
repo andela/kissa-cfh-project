@@ -363,28 +363,22 @@ footer .footer-below {
     padding-top: 3%;
 }
 
-
-
-.signin-wrapper
-{
-    padding-top: 20%;
-    padding-bottom: 20%;
+.signin-wrapper {
+    padding-top: 10%;
+    padding-bottom: 10%;
     background-color: #555857;
 }
 
-.signin-sub-wrapper
-{
+.signin-sub-wrapper {
     padding: 10%;
     background-color: white;
     color: black;
-    -webkit-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
-    -moz-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
-    box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
+    -moz-box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
+    box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
 }
 
-
-.sign-up
-{
+.sign-up {
     color: white;
     font-size: 1.5em;
     padding: 3% 3% 3% 3%;
@@ -394,40 +388,37 @@ footer .footer-below {
     border-style: solid;
     background-color: rgba(255, 255, 255, 0);
     margin-bottom: 10px;
-    webkit-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
-    -moz-box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
-    box-shadow: 10px 10px 81px -15px rgba(0,0,0,0.69);
+    webkit-box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
+    -moz-box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
+    box-shadow: 10px 10px 81px -15px rgba(0, 0, 0, 0.69);
 }
 
-.sign-up span
-{
+.sign-up span {
     font-size: 0.7em;
 }
 
-.signup-subtitle
-{
+.signup-subtitle {
     padding-bottom: 3%;
 }
 
-.signin-social-pane
-{
+.signup-submit{
+    margin-top: 120px;
+}
+.signin-social-pane {
     padding-left: 70px;
     padding-right: 70px;
 }
 
-.signin-social-pane h4
-{
+.signin-social-pane h4 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.form-groups input
-{
+.form-groups input {
     margin-bottom: 5%;
 }
 
-body:after
-{
+body:after {
     content: "";
     top: 0;
     left: 0;
@@ -435,4 +426,17 @@ body:after
     right: 0;
     position: absolute;
     z-index: -1;
+}
+
+.signin-social-pane a {
+    font-size: 0.7em;
+}
+
+.login-button {
+    background-color: #2c5043;
+    color: white;
+}
+
+.sign-up a {
+    color: white;
 }
