@@ -1,4 +1,4 @@
-/* eslint amd:0 */
+/* eslint-disable import/no-unresolved, amd:0 */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');

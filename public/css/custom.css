@@ -477,3 +477,12 @@ body:after {
 .stranger{
  background-color: green;
 }
+
+@media only screen and (max-device-width: 480px){
+  .choose-play-wrapper {
+    padding-top: 30%;
+    padding-bottom: 100%;
+    background-color: #555857;
+    margin-top: -30px;
+}
+}

@@ -1,4 +1,4 @@
-/* eslint-disable func-names, prefer-arrow-callback */
+/* eslint-disable func-names, prefer-arrow-callback, no-underscore-dangle */
 /**
  * Module dependencies.
  */
@@ -67,12 +67,12 @@ exports.session = function (req, res) {
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
  */
-exports.checkAvatar = function(req, res) {
+exports.checkAvatar = function (req, res) {
   if (req.user && req.user._id) {
     User.findOne({
       _id: req.user._id
     })
-      .exec(function(err, user) {
+      .exec(function (err, user) {
         if (user.avatar !== undefined) {
           res.redirect('/#!/');
         } else {
@@ -83,7 +83,6 @@ exports.checkAvatar = function(req, res) {
     // If user doesn't even exist, redirect to /
     res.redirect('/');
   }
-
 };
 
 /**
@@ -149,8 +148,8 @@ exports.addDonation = function(req, res) {
       })
         .exec(function(err, user) {
           // Confirm that this object hasn't already been entered
-          var duplicate = false;
-          for (var i = 0; i < user.donations.length; i++) {
+          let duplicate = false;
+          for (let i = 0; i < user.donations.length; i += 1) {
             if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
               duplicate = true;
             }
