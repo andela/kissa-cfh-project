@@ -1,3 +1,4 @@
+/* eslint-disable func-names, prefer-arrow-callback */
 /**
  * Module dependencies.
  */
@@ -15,7 +16,7 @@ exports.authCallback = function(req, res, next) {
 /**
  * Show login form
  */
-exports.signin = function(req, res) {
+exports.signin = function (req, res) {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
@@ -23,7 +24,7 @@ exports.signin = function(req, res) {
   }
 };
 
-exports.playGame = function(req, res) {
+exports.playGame = function (req, res) {
   if (!req.user) {
     res.redirect('/#!/signin?error=invalid');
   } else {
@@ -52,7 +53,7 @@ exports.signout = function(req, res) {
 /**
  * Session
  */
-exports.session = function(req, res) {
+exports.session = function (req, res) {
   const gameId = req.body.game;
   if (gameId) {
     res.redirect(`/#!/app?game=${gameId}`);
@@ -88,11 +89,11 @@ exports.checkAvatar = function(req, res) {
 /**
  * Create user
  */
-exports.create = function(req, res) {
+exports.create = function (req, res) {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
-    }).exec(function(err, existingUser) {
+    }).exec(function (err, existingUser) {
       if (!existingUser) {
         var user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
