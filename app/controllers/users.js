@@ -131,7 +131,7 @@ exports.avatars = function(req, res) {
     User.findOne({
       _id: req.user._id
     })
-      .exec(function(err, user) {
+      .exec(function (err, user) {
         user.avatar = avatars[req.body.avatar];
         user.save();
       });
@@ -146,7 +146,7 @@ exports.addDonation = function(req, res) {
       User.findOne({
         _id: req.user._id
       })
-        .exec(function(err, user) {
+        .exec(function (err, user) {
           // Confirm that this object hasn't already been entered
           let duplicate = false;
           for (let i = 0; i < user.donations.length; i += 1) {
@@ -155,7 +155,6 @@ exports.addDonation = function(req, res) {
             }
           }
           if (!duplicate) {
-            console.log('Validated donation');
             user.donations.push(req.body);
             user.premium = 1;
             user.save();
