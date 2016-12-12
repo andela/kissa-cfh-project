@@ -27,6 +27,27 @@
 
 <div id="info-container" ng-show="game.state === 'awaiting players'">
   <div id="inner-info">
+    <div class="container-fluid typeahead-demo">
+      <div id="search-area" ng-show="isCustomGame() === true">
+        <div id="show-search" ng-show="customCreator() === true">
+          <h4>Search users to invite to this game</h4>
+          <p style="font-color: 10px; color: red">{{message}}</p>
+          <div class="search-box">
+            <div class="row">
+              <div class="col-md-8">
+                <input type="text" class="form-control" ng-model="email" ng-keyup="searchUsers()" placeholder="Search and enter an email address to invite">
+              </div>
+              <div class="col-sm-4">
+                <button class="btn btn-primary" ng-click="sendInvites()">Send Invite</button>
+              </div>
+            </div>
+            <div class="search-result" ng-if="email !== ''">
+              <div ng-class="{'item-focus': hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" ng-repeat="result in searchResult" ng-click="selectList(result.email)" ng-model="email">{{result.email}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="lobby-how-to-play">How To Play</div>
     <ol id="oh-el">
       <li>Each player begins with, and will always have, 10 white answer cards.</li>

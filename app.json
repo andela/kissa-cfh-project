@@ -10,6 +10,12 @@
     },
     "PORT": {
       "required": true
+    },
+    "EMAIL_SERVICES": {
+      "required": true
+    },
+    "EMAIL_OWNER": {
+      "required": true
     }
   },
   "formation": {

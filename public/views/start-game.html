@@ -1,5 +1,5 @@
 <div id = "startGame" ng-click="startGame()"> 
-      <div id="player-count">{{game.players.length}} / 6 </div>
+      <div id="player-count">{{game.players.length}} / {{game.playerMaxLimit}} </div>
       <div id="the-word-players"> Players </div> 
     </div>
     <div id="loading-container">
@@ -7,7 +7,7 @@
     </div>
     <div id="start-game-container">
       <div id = 'start-game-button'> 
-        Start Game with {{game.players.length}} players
+        Start Game
       </div>
     </div>   
 </div>

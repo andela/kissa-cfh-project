@@ -46,7 +46,12 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-  res.redirect('/');
+  const gameId = req.body.game;
+  if (gameId) {
+    res.redirect(`/#!/app?game=${gameId}`);
+  } else {
+    res.redirect('/');
+  }
 };
 
 /** 
@@ -94,7 +99,9 @@ exports.create = function(req, res) {
             });
           }
           req.logIn(user, function(err) {
+            const gameId = req.body.game;
             if (err) return next(err);
+            if (gameId) return res.redirect(`/#!/app?game=${gameId}`);
             return res.redirect('/#!/');
           });
         });

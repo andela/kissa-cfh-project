@@ -1,24 +1,26 @@
-/*  eslint amd:true */
+/* eslint amd:true */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
-const questions = require('../app/controllers/questions');
 const avatars = require('../app/controllers/avatars');
+const questions = require('../app/controllers/questions');
 const index = require('../app/controllers/index');
+const invite = require('../app/controllers/api/invites');
+const search = require('../app/controllers/api/search');
 const jwtAuth = require('../app/controllers/api/auth');
 
-module.exports = (app, passport) => {
-    //  User Routes
 
+const routes = (app, passport) => {
+// User Routes
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
   app.get('/signout', users.signout);
 
-    //   Setting up the users api
+  // Setting up the users api
   app.post('/users', users.create);
   app.post('/users/avatars', users.avatars);
 
-    //  Donation Routes
+  // Donation Routes
   app.post('/donations', users.addDonation);
 
   app.post('/users/session', passport.authenticate('local', {
@@ -29,7 +31,7 @@ module.exports = (app, passport) => {
   app.get('/users/me', users.me);
   app.get('/users/:userId', users.show);
 
-    //  Setting the facebook oauth routes
+  // Setting the facebook oauth routes
   app.get('/auth/facebook', passport.authenticate('facebook', {
     scope: ['email'],
     failureRedirect: '/signin'
@@ -39,7 +41,7 @@ module.exports = (app, passport) => {
     failureRedirect: '/signin'
   }), users.authCallback);
 
-    //  Setting the github oauth routes
+  // Setting the github oauth routes
   app.get('/auth/github', passport.authenticate('github', {
     failureRedirect: '/signin'
   }), users.signin);
@@ -48,7 +50,7 @@ module.exports = (app, passport) => {
     failureRedirect: '/signin'
   }), users.authCallback);
 
-    //  Setting the twitter oauth routes
+  // Setting the twitter oauth routes
   app.get('/auth/twitter', passport.authenticate('twitter', {
     failureRedirect: '/signin'
   }), users.signin);
@@ -57,7 +59,7 @@ module.exports = (app, passport) => {
     failureRedirect: '/signin'
   }), users.authCallback);
 
-    //  Setting the google oauth routes
+  // Setting the google oauth routes
   app.get('/auth/google', passport.authenticate('google', {
     failureRedirect: '/signin',
     scope: [
@@ -70,28 +72,36 @@ module.exports = (app, passport) => {
     failureRedirect: '/signin'
   }), users.authCallback);
 
-    //  Finish with setting up the userId param
+  // Finish with setting up the userId param
   app.param('userId', users.user);
 
-    // Answer Routes
+  // Answer Routes
   app.get('/answers', answers.all);
   app.get('/answers/:answerId', answers.show);
-    // Finish with setting up the answerId param
+  // Finish with setting up the answerId param
   app.param('answerId', answers.answer);
 
-    //  Question Routes
+  // Question Routes
   app.get('/questions', questions.all);
   app.get('/questions/:questionId', questions.show);
-    //  Finish with setting up the questionId param
+  // Finish with setting up the questionId param
   app.param('questionId', questions.question);
 
-    //  Avatar Routes
+  // Avatar Routes
   app.get('/avatars', avatars.allJSON);
 
-    //  Home route
+  // Home route
   app.get('/play', index.play);
   app.get('/', index.render);
 
-    // Auth api sign up route
+  // Invite users with nodemailer
+  app.post('/api/invite/user', invite.emailinvite);
+
+  // Search Users api
+  app.get('/api/search/users/:email', search.users);
+
+  // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
 };
+
+module.exports = routes;

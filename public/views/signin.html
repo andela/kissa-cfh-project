@@ -46,9 +46,15 @@
           </div>
           <form class="signup form-horizontal" action="/users/session" method="post">
             <div class="control-group">
+              <label for="game" class="control-label"></label>
+              <div class="controls">
+                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
+              </div>
+            </div>
+            <div class="control-group">
               <label for="email" class="control-label"></label>
               <div class="controls">
-                <input class="input-info" id="email" type="text" name="email" placeholder="Email" required novalidate />
+                <input class="input-info" id="email" type="text" name="email" ng-model="showEmail" placeholder="Email" required novalidate />
               </div>
             </div>
             <div class="control-group">
@@ -68,4 +74,3 @@
     </div>
   </div>
 </div>
-
