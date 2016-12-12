@@ -102,6 +102,7 @@ const routes = (app, passport) => {
 
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
+  app.post('/api/auth/login', jwtAuth.login);
 };
 
 module.exports = routes;
