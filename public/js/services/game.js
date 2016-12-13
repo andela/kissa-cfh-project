@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
+  .factory('game', ['socket', '$timeout','chat', function (socket, $timeout, chat) {
 
   var game = {
     id: null, // This player's socket ID, so we know who this player is
@@ -20,7 +20,9 @@ angular.module('mean.system')
     curQuestion: null,
     notification: null,
     timeLimits: {},
-    joinOverride: false
+    joinOverride: false,
+    gameChat: chat,
+    chatUsername : null
   };
 
   var notificationQueue = [];
@@ -86,6 +88,14 @@ angular.module('mean.system')
     }
 
     var newState = (data.state !== game.state);
+
+    
+    game.chatUsername = data.players[game.playerIndex].username;
+    game.gameChat.setChatAvatar(data.players[game.playerIndex].avatar);
+    game.gameChat.setChatUsername(game.chatUsername);
+    game.gameChat.setChatGroup(data.gameID);
+    game.gameChat.listenForMessages();
+
 
     //Handle updating game.time
     if (data.round !== game.round && data.state !== 'awaiting players' &&

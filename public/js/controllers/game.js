@@ -9,6 +9,8 @@ angular.module('mean.system')
   $scope.pickedCards = [];
   var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
   $scope.makeAWishFact = makeAWishFacts.pop();
+  $scope.chat = game.gameChat;
+  $scope.chatName = game.chatUserName;
 
   $scope.pickCard = function(card) {
     if (!$scope.hasPickedCards) {
@@ -289,4 +291,37 @@ angular.module('mean.system')
       })
     }
   };
+  $scope.$watchCollection('chat.messageArray', (newValue, oldValue) => {
+      $timeout(() => {
+        $scope.scrollChatThread();
+      }, 100);
+    });
+    $scope.scrollChatThread = () => {
+      const chatResults = document.getElementById('chatbox');
+      chatResults.scrollTop = chatResults.scrollHeight;
+    };
+   /**
+    * Method to send messages
+    * @param{String} userMessage - String containing the message to be sent
+    * @return
+    */
+    $scope.sendMessage = (userMessage) => {
+      $scope.chat.postGroupMessage(userMessage);
+      $scope.chatMessage = '';
+    };
+    $scope.keyPressed = function ($event) {
+      const keyCode = $event.which || $event.keyCode;
+      if (keyCode === 13) {
+        $scope.sendMessage($scope.chatMessage);
+      }
+    };
+
+    $scope.showChat = function () {
+      $scope.chat.showChatWindow = !$scope.chat.showChatWindow;
+      // enableChatWindow;
+      if ($scope.chat.showChatWindow) {
+        $scope.chat.unreadMessageCount = 0;
+      };
+    };
+
 }]);
