@@ -10,11 +10,12 @@ const Game = mongoose.model('Game');
 const GameServices = {
   create(req, res) {
     const gameId = req.params.id;
-    if (req.user && req.user._id) {
+    if (req.user && req.user.id) {
       const game = new Game({
         game_id: gameId,
         creator: req.body.creator,
         winner: '',
+        rounds: 0,
         friends: req.body.friends,
         date_created: new Date(),
         completed: 'false'
@@ -40,7 +41,8 @@ const GameServices = {
     if (req.user && req.user._id) {
       Game.update(query, {
         winner: req.body.winner,
-        completed: req.body.status
+        completed: req.body.status,
+        rounds: req.body.rounds
       }, (err, result) => {
         if (err) return res.status(500).json({ message: 'An error occured while updating this data' });
         return res.status(200).json({ message: 'Game updated sucessfully' });

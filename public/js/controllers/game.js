@@ -180,7 +180,8 @@ angular.module('mean.system')
       const data = {
         creator: game.players[0].id,
         winner: game.players[game.gameWinner].id,
-        status: 'true'
+        status: 'true',
+        rounds: game.round
       }
       dataFactory.updateGameHistory(link, data)
       .success(function(response) {
@@ -311,10 +312,5 @@ angular.module('mean.system')
           }
         }
       });
-      // $scope.modalInstance.result.then(function (selectedItem) {
-      //   $scope.select = selectedItem;
-      // }, function () {
-      //   // Do nothing
-      // });
   }
 }]);

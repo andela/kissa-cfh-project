@@ -22,7 +22,8 @@ angular.module('mean.system')
         data: {
           gameDataId: form.gameKey,
           winner: form.winner,
-          status: form.status
+          status: form.status,
+          rounds: form.rounds
         }
       })
     };
