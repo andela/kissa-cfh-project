@@ -38,7 +38,7 @@ const GameServices = {
     const query = { $and: [
           { game_id: gameId }, { creator: gameCreator }
     ] };
-    if (req.user && req.user._id) {
+    if (req.user && req.user.id) {
       Game.update(query, {
         winner: req.body.winner,
         completed: req.body.status,
@@ -54,7 +54,7 @@ const GameServices = {
   viewOne(req, res) {
     const userId = req.params.userid;
     const gameId = req.params.gameid;
-    if (req.user && req.user._id) {
+    if (req.user && req.user.id) {
       Game.findOne({ _id: gameId })
       .exec((err, result) => {
         if (err) {
@@ -70,7 +70,7 @@ const GameServices = {
   },
   viewAll(req, res) {
     const userId = req.params.userid;
-    if (req.user && req.user._id) {
+    if (req.user && req.user.id) {
       Game.find({
         $or: [
           { creator: userId }, { friends: userId }
