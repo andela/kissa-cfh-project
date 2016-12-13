@@ -13,6 +13,7 @@ angular.module('mean.system')
         this.messageArray = [];
         this.enableListener = true;
         this.chatAvatar = null;
+        this.IsHidden = false;
         this.unreadMessageCount = 0;
       }
 
@@ -77,8 +78,25 @@ angular.module('mean.system')
         this.firebase.child(this.chatGroup).on('child_added', (snapshot) => {
           const message = snapshot.val();
           this.messageArray.push(message);
+          this.unreadMessage();
         });
       }
+      showHide() {
+      // If DIV is hidden it will be visible and vice versa.
+      if(!this.IsHidden){
+        this.unreadMessageCount = 0;
+        this.IsHidden = true;       
+      } else {
+        this.IsHidden = false;
+      }
+    }
+    unreadMessage() {
+      if(!this.IsHidden) {
+        this.unreadMessageCount += 1;
+      }
+      return this.unreadMessageCount;
+    }
+
     }
     const chat = new Chat();
     return chat;

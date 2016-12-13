@@ -323,5 +323,4 @@ angular.module('mean.system')
         $scope.chat.unreadMessageCount = 0;
       };
     };
-
 }]);

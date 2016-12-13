@@ -1,5 +1,13 @@
 <div class="wrapper">
-    <div id="chatbox">
+    <div class="panel">
+        <i class="fa fa-2x fa-comments-o" size="30" aria-hidden="true"></i>
+        <span ng-show= "chat.unreadMessageCount === 0" class="chat-head">Kissa Chat</span>
+        <span ng-hide= "chat.unreadMessageCount === 0" class="chat-head">
+            <span class="badge badge-danger">{{chat.unreadMessageCount}}</span>&nbsp;New&nbsp;Message</span>
+        <i class="fa fa-2x fa-chevron-up minimize" ng-click="chat.showHide()" ng-hide="chat.IsHidden" aria-hidden="true"></i>
+        <i class="fa fa-2x fa-chevron-down minimize" ng-click="chat.showHide()"  ng-show="chat.IsHidden" aria-hidden="true"></i>
+    </div>
+    <div ng-show="chat.IsHidden" id="chatbox">
         <span ng-repeat="message in chat.messageArray">
             <span ng-if="chat.userName == message.senderName">
                 <span class="row msg_container base_sent">
@@ -13,55 +21,37 @@
                         </div>
                     </div>
                 </span>
-            </span>
-            <span ng-if="chat.userName !== message.senderName">
+        </span>
+        <span ng-if="chat.userName !== message.senderName">
                 <div class="row msg_container base_receive">
                     <div class="col-xs-10 col-md-10">
                         <div class="messages msg_receive">
                             <p>{{message.textContent}}</p>
-                            <time datetime="2009-11-13T20:00">{{message.senderName}}&nbsp;&nbsp;{{message.time}}</time>
+                            <time>{{message.senderName}}&nbsp;&nbsp;{{message.time}}</time>
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-2 avatar">
                         <img ng-src="{{message.avatar}}" class="avatar-image">
                     </div>
                     </span>
-                </div>
-            </span>
-        </span>
-
-
-
-
-
-
-
-        <!-- <span>{{chat.userName}}</span> -->
-        <!-- <span ng-repeat="message in chat.messageArray" class="chat">
-        <span class="chat-body clearfix">
-        <span ng-if="chat.userName == message.senderName" class="header">
-          <div class="header">
-            <b>&nbsp;&nbsp;&nbsp;{{message.senderName}} </b> 
-            <small class="text-muted">  {{message.time}}</small>
-          </div>
-              <p>{{message.textContent}}</p>
-          </span> -->
-        <span ng-if="chat.userName !== message.senderName" class="heads">
+    </div>
+    </span>
+    </span>
+    <span ng-if="chat.userName !== message.senderName" class="heads">
           <div class="heads">
             <b>&nbsp;&nbsp;&nbsp;{{message.senderName}} </b> 
             <small class="text-muted">  {{message.time}}</small>
           </div>
               <p>{{message.textContent}}</p>
           </span>
-        </span>
-        </span>
+    </span>
+    </span>
+</div>
+<div ng-show="chat.IsHidden" class="chatinput">
+    <div class="inner-addon right-addon">
+        <i class="fa fa-smile-o paper" aria-hidden="true" style="cursor: pointer;"></i>
+        <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)"
+            size="60" />
     </div>
-    <div class="chatinput">
-        <!-- <form name="message" action=""> -->
-        <div class="inner-addon right-addon">
-            <i class="fa fa-smile-o paper"  aria-hidden="true" style="cursor: pointer;"></i>
-            <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)" size="60" />
-            <!-- <input name="submitmsg" type="submit" ng-click="sendMessage(chatMessage)" id="submitmsg" value="Send" /> -->
-        </div>
-    </div>
+</div>
 </div>

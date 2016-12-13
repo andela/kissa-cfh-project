@@ -1261,13 +1261,13 @@
 .wrapper {
     margin:0 auto;
     padding-top: 5px;
-    padding-bottom:30px;
+    padding-bottom:3px;
     padding-left: 10px;
     padding-right: 12px;
     position: fixed;
-    background:#8b8e8e;
+    background:#a7b1c1;
     width:300px;
-    height: 400px;
+    /*height: 415px;*/
     border:2px solid black;
     bottom: 0;
     right: 0%;
@@ -1287,8 +1287,8 @@
     overflow:auto;
 }
 .chatinput {
-    padding-left: 2px;
-    width: 270px !important;
+    margin-top: -10px;
+    width: 280px !important;
 }
 
 .user {
@@ -1322,9 +1322,6 @@ margin: 0 0 0.2rem 0;
 
 .col-md-2, .col-md-10{
     padding:0;
-}
-.panel{
-    margin-bottom: 0px;
 }
 .chat-window{
     bottom:0;
@@ -1445,4 +1442,18 @@ margin: 0 0 0.2rem 0;
    bottom: 0;
    max-width:300%;
    max-height:300%;
+}
+.panel {
+    height: 39px;
+    margin-left: -5px;
+    width: 280px;
+    background: #a7b1c1;
+    margin-bottom: 0px;
+}
+.minimize {
+    float:right;
+    cursor: pointer;
+}
+.chat-head {
+    text-align: center;
 }
