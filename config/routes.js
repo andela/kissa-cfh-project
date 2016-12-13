@@ -1,4 +1,4 @@
-/* eslint amd:true */
+/* eslint-disable import/no-unresolved, amd:0 */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');
@@ -10,11 +10,12 @@ const jwtAuth = require('../app/controllers/api/auth');
 
 
 const routes = (app, passport) => {
-// User Routes
+  // User Routes
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
   app.get('/signout', users.signout);
+  app.get('/playgame', users.playGame);
 
   // Setting up the users api
   app.post('/users', users.create);
