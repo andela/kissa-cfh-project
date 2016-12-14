@@ -29,28 +29,38 @@ describe('User Authentication', () => {
     });
 
     it('should login for valid user', (done) => {
-      request(app).get('/signin', (req, res) => {
-        users.session(req, res);
-        res.send();
-      });
-      request(app).expect(302, done());
+      request(app).post('/users/session')
+        .type('form')
+        .send({
+          email: 'test@tesing.com',
+          password: 'password'
+        })
+        .expect(302)
+        .end((err, res) => {
+          done();
+        });
     });
   });
   describe('SignUp', () => {
-    it('should rediret to the sign up page when sign up is click', (done) => {
+    it('should redirect to the sign up page when sign up is click', (done) => {
       request(app).get('/signup')
         .expect(302, done());
     });
 
     it('should sign up when valid data is passed', (done) => {
-      request(app).post('/users', users.create)
+
+      request(app).post('/users')
+        .type('form')
         .send({
           name: 'Full name',
           email: 'test@tesing.com',
           username: 'user1',
           password: 'password'
         })
-        .expect(302, done());
+        .expect(302)
+        .end((err, res) => {
+          done();
+        });
     });
   });
 });
