@@ -124,10 +124,10 @@
 }
 
 .sign-error {
-  text-align: center;
-  color: white;
-  font-family: arial;
-  margin-bottom: -13px;
+ text-align: center;
+ color: #e40000;
+ font-family: arial;
+ font-size: 0.8em;
 }
 
 
