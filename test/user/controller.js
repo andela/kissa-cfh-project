@@ -1,4 +1,4 @@
-/* eslint-disable amd, */
+/* eslint-disable amd, import/no-unresolved*/
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
