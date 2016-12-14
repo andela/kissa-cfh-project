@@ -13,7 +13,7 @@ angular.module('mean.system')
         this.messageArray = [];
         this.enableListener = true;
         this.chatAvatar = null;
-        this.IsHidden = false;
+        this.isHidden = false;
         this.unreadMessageCount = 0;
       }
 
@@ -83,15 +83,15 @@ angular.module('mean.system')
       }
       showHide() {
       // If DIV is hidden it will be visible and vice versa.
-      if(!this.IsHidden){
+      if(!this.isHidden){
         this.unreadMessageCount = 0;
-        this.IsHidden = true;       
+        this.isHidden = true;       
       } else {
-        this.IsHidden = false;
+        this.isHidden = false;
       }
     }
     unreadMessage() {
-      if(!this.IsHidden) {
+      if(!this.isHidden) {
         this.unreadMessageCount += 1;
       }
       return this.unreadMessageCount;

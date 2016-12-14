@@ -1,13 +1,13 @@
 <div class="wrapper">
     <div class="panel">
         <i class="fa fa-2x fa-comments-o" size="30" aria-hidden="true"></i>
-        <span ng-show= "chat.unreadMessageCount === 0" class="chat-head">Kissa Chat</span>
-        <span ng-hide= "chat.unreadMessageCount === 0" class="chat-head">
+        <span ng-show="chat.unreadMessageCount === 0" class="text-center">Kissa Chat</span>
+        <span ng-hide="chat.unreadMessageCount === 0" class="text-center">
             <span class="badge badge-danger">{{chat.unreadMessageCount}}</span>&nbsp;New&nbsp;Message</span>
-        <i class="fa fa-2x fa-chevron-up minimize" ng-click="chat.showHide()" ng-hide="chat.IsHidden" aria-hidden="true"></i>
-        <i class="fa fa-2x fa-chevron-down minimize" ng-click="chat.showHide()"  ng-show="chat.IsHidden" aria-hidden="true"></i>
+        <i class="fa fa-2x fa-chevron-up minimize" ng-click="chat.showHide()" ng-hide="chat.isHidden" aria-hidden="true"></i>
+        <i class="fa fa-2x fa-chevron-down minimize" ng-click="chat.showHide()" ng-show="chat.isHidden" aria-hidden="true"></i>
     </div>
-    <div ng-show="chat.IsHidden" id="chatbox">
+    <div ng-show="chat.isHidden" id="chatbox">
         <span ng-repeat="message in chat.messageArray">
             <span ng-if="chat.userName == message.senderName">
                 <span class="row msg_container base_sent">
@@ -37,8 +37,8 @@
     </div>
     </span>
     </span>
-    <span ng-if="chat.userName !== message.senderName" class="heads">
-          <div class="heads">
+    <span ng-if="chat.userName !== message.senderName" class="text-right">
+          <div class="text-right">
             <b>&nbsp;&nbsp;&nbsp;{{message.senderName}} </b> 
             <small class="text-muted">  {{message.time}}</small>
           </div>
@@ -47,7 +47,7 @@
     </span>
     </span>
 </div>
-<div ng-show="chat.IsHidden" class="chatinput">
+<div ng-show="chat.isHidden" class="chatinput">
     <div class="inner-addon right-addon">
         <i class="fa fa-smile-o paper" aria-hidden="true" style="cursor: pointer;"></i>
         <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)"

@@ -1274,31 +1274,25 @@
     z-index: 2000;
 }
 #chatbox {
-    text-align:left;
-    margin-bottom:25px;
-    padding-top:2px;
+    text-align: left;
+    margin-bottom: 25px;
+    padding-top: 2px;
     padding-right: 2px; 
-    padding-bottom:2px;
+    padding-bottom: 2px;
     padding-left: 2px;
-    background:#eeeeef;
-    height:300px;
-    width:280px;
+    background: #eeeeef;
+    height: 300px;
+    width: 280px;
     border:1px solid gray;
-    overflow:auto;
+    overflow: auto;
 }
 .chatinput {
-    margin-top: -10px;
+    margin-bottom: 1px;
     width: 280px !important;
 }
 
 .user {
      padding-top: 5px;
-}
-.header {
-     text-align: left !important;
-}
-.heads {
-     text-align: right !important;
 }
 .inner-addon { 
     position: relative; 
@@ -1309,14 +1303,13 @@
   padding: 10px;
 }
 .right-addon .paper { 
-     right: 0px;
+     right: 0;
 }
 .right-addon input { 
      padding-right: 30px; 
 }
-margin: 0 0 0.2rem 0;
-  }
 
+margin: 0 0 0.2rem 0;
 
 /*chat box*/
 
@@ -1324,10 +1317,10 @@ margin: 0 0 0.2rem 0;
     padding:0;
 }
 .chat-window{
-    bottom:0;
-    position:fixed;
-    float:right;
-    margin-left:10px;
+    bottom: 0;
+    position: fixed;
+    float: right;
+    margin-left: 10px;
 }
 .chat-window > div > .panel{
     border-radius: 5px 5px 0 0;
@@ -1339,8 +1332,8 @@ margin: 0 0 0.2rem 0;
   background: #e5e5e5;
   margin: 0;
   padding: 0 10px 10px;
-  max-height:300px;
-  overflow-x:hidden;
+  max-height: 300px;
+  overflow-x: hidden;
 }
 .top-bar {
   background: #666;
@@ -1350,19 +1343,19 @@ margin: 0 0 0.2rem 0;
   overflow: hidden;
 }
 .msg_receive{
-    padding-left:0;
-    margin-left:0;
+    padding-left: 0;
+    margin-left: 0;
 }
 .msg_sent{
-    padding-bottom:20px !important;
-    margin-right:0;
+    padding-bottom: 20px !important;
+    margin-right: 0;
 }
 .messages {
   background: white;
   padding: 10px;
   border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  max-width:100%;
+  box-shadow: 0 1px 2px  #000000;
+  max-width: 100%;
 }
 .messages > p {
     font-size: 13px;
@@ -1386,8 +1379,8 @@ margin: 0 0 0.2rem 0;
     width: 0;
     height: 0;
     border: 5px solid #FFF;
-    border-left-color: rgba(0, 0, 0, 0);
-    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color:  #000000;
+    border-bottom-color:  #000000;
 }
 
 .base_sent {
@@ -1404,7 +1397,7 @@ margin: 0 0 0.2rem 0;
     border: 5px solid white;
     border-right-color: transparent;
     border-top-color: transparent;
-    box-shadow: 1px 1px 2px rgba(black, 0.2); // not quite perfect but close
+    box-shadow: 1px 1px 2px #ffffff; // didn't find any color better
 }
 
 .msg_sent > time{
@@ -1429,31 +1422,23 @@ margin: 0 0 0.2rem 0;
 
 .msg_container_base::-webkit-scrollbar-thumb
 {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 0 6px #000000;
     background-color: #555;
 }
 
-.btn-group.dropup{
-    position:fixed;
-    left:0px;
-    bottom:0;
-}
 .avatar-image {
    bottom: 0;
-   max-width:300%;
-   max-height:300%;
+   max-width: 300%;
+   max-height: 300%;
 }
 .panel {
     height: 39px;
     margin-left: -5px;
     width: 280px;
     background: #a7b1c1;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 .minimize {
-    float:right;
+    float: right;
     cursor: pointer;
-}
-.chat-head {
-    text-align: center;
 }
