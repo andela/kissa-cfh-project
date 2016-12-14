@@ -23,7 +23,8 @@ const GameServices = {
       game.save((err) => {
         if (err) {
           return res.status(500).json({
-            message: 'An error occured while trying to save'
+            message: 'An error occured while trying to save',
+            error: err
           });
         }
         return res.status(200).json(game);
