@@ -1,4 +1,4 @@
-/* eslint-disable amd, import/no-unresolved */
+/* eslint-disable amd, */
 const app = require('../../server');
 const request = require('supertest');
 const mongoose = require('mongoose');
@@ -29,12 +29,11 @@ describe('User Authentication', () => {
     });
 
     it('should login for valid user', (done) => {
-      request(app).post('/users')
-        .send({
-          email: user.email,
-          password: user.password
-        })
-        .expect(302, done());
+      request(app).get('/signin', (req, res) => {
+        users.session(req, res);
+        res.send();
+      });
+      request(app).expect(302, done());
     });
   });
   describe('SignUp', () => {
