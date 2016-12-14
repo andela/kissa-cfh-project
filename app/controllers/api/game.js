@@ -44,7 +44,7 @@ const GameServices = {
         completed: req.body.status,
         rounds: req.body.rounds
       }, (err, result) => {
-        if (err) return res.status(500).json({ message: 'An error occured while updating this data' });
+        if (err) return res.status(500).json({ message: 'An error occured while updating this data', error: err });
         return res.status(200).json({ message: 'Game updated sucessfully' });
       });
     } else {

@@ -26,7 +26,7 @@ exports.emailinvite = (req, res) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.status(500).json({ status: 'error' });
+        return res.status(500).json({ status: 'error' }, error);
       } else {
         return res.status(200).json({ status: info.response });
       }
