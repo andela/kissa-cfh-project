@@ -48,7 +48,8 @@ const Auth = {
       email: req.body.email
     }, (error, user) => {
       if (error) {
-        res.status(500).send(error);
+        res.status(500).send(error)
+        return;
       }
       if (!user) {
         Auth.responseData(res, 401, false, 'Authentication failed');
