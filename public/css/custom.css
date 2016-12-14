@@ -415,8 +415,19 @@ footer .footer-below {
   padding-bottom: 10px;
 }
 
-.form-groups input {
+.signin-input input{
   margin-bottom: 5%;
+}
+
+.signup input{
+ margin-bottom: 3%;
+}
+
+.error-message{
+ color: #ff5050;
+    text-align: center;
+    padding-bottom: 2%;
+    font-size: 0.8em
 }
 
 body:after {

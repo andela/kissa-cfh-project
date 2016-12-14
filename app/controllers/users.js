@@ -81,7 +81,7 @@ exports.checkAvatar = function (req, res) {
         }
       });
   } else {
-    // If user doesn't even exist, redirect to /
+    // If user doesn't even exist, redirect to '/'
     res.redirect('/');
   }
 };

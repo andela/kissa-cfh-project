@@ -48,7 +48,6 @@ describe('User Authentication', () => {
     });
 
     it('should sign up when valid data is passed', (done) => {
-
       request(app).post('/users')
         .type('form')
         .send({
