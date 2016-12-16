@@ -7,46 +7,111 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const agent = request.agent(app);
 
-let user = '';
+let user;
+let user2;
+let messageDetails;
+const objectId = new mongoose.Types.ObjectId();
+const secondUserId = new mongoose.Types.ObjectId();
 
 describe('Invite API', () => {
   describe('Send invite', () => {
     before((done) => {
-    User.remove().exec();
-    const user1 = new User({
-      name: 'Full name',
-      email: 'search@search.com',
-      username: 'user',
-      password: 'password'
+      User.remove().exec();
+      user = new User({
+        name: 'Full name',
+        email: 'search@search.com',
+        username: 'user',
+        password: 'password'
+      });
+      user2 = new User({
+        _id: secondUserId,
+        name: 'New Player',
+        email: 'newplayer@players.com',
+        username: 'user',
+        password: 'password'
+      });
+      messageDetails = {
+        _id: objectId,
+        link: 'http://localhost:3000/app?custom=GYQl1g6',
+        email: user2.email,
+        sender: user.email,
+        userId: secondUserId
+      };
+      user.save();
+      user2.save();
+      agent.post('/users/session')
+      .send({ email: user.email, password: user.password })
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(302);
+        done();
+      });
     });
-    user1.save();
-    agent.post('/users/session')
-    .send({ email: user1.email, password: user1.password })
-    .end((err, res) => {
-      if (err) return done(err);
-      res.should.have.status(302);
-      done();
-    });
-  });
 
-  it('should not send invites when a user is not logged in', (done) => {
-    request(app)
-    .post('/api/invite/user')
-    .send({ email: 'test@test.com', link: 'https://google.com' })
-    .end((err, res) => {
-      res.should.have.status(403);
-      done();
+    it('should not send invites when a user is not logged in', (done) => {
+      request(app)
+      .post('/api/users/email-invite')
+      .send({ email: 'test@test.com', link: 'https://google.com' })
+      .end((err, res) => {
+        res.should.have.status(403);
+        done();
+      });
     });
-  });
     it('should send invites successfully', (done) => {
       agent
-      .post('/api/invite/user')
+      .post('/api/users/email-invite')
       .send({ email: 'test@test.com', link: 'https://google.com' })
-      .end(function(err, res){
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
       });
       done();
+    });
+    it('should send an in-app message to a user with friends', (done) => {
+      agent
+      .post('/api/users/send-message')
+      .send(messageDetails)
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(200);
+        done();
+      });
+    });
+    it('should return all the list of messages that has not been read for a user', (done) => {
+      agent
+      .get('/api/users/get-messages')
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(200);
+        done();
+      });
+    });
+    it('should not allow a non-logged in user to view the message list', (done) => {
+      request(app)
+      .get('/api/users/get-messages')
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(403);
+        done();
+      });
+    });
+    it('should update a message as read when the user reads the message', (done) => {
+      agent
+      .get(`/api/users/view-message/${objectId}`)
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(200);
+        done();
+      });
+    });
+    it('should not allow a non-logged in user to read a message', (done) => {
+      request(app)
+      .get(`/api/users/view-message/${objectId}`)
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(403);
+        done();
+      });
     });
   });
 });
