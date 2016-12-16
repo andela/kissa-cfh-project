@@ -83,7 +83,7 @@ UserSchema.pre('save', function(next) {
     next(new Error('Invalid password'));
   } else {
     next();
-  } 
+  }
 });
 
 /**
