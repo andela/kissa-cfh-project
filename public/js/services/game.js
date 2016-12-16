@@ -89,14 +89,6 @@ angular.module('mean.system')
 
     var newState = (data.state !== game.state);
 
-    
-    game.chatUsername = data.players[game.playerIndex].username;
-    game.gameChat.setChatAvatar(data.players[game.playerIndex].avatar);
-    game.gameChat.setChatUsername(game.chatUsername);
-    game.gameChat.setChatGroup(data.gameID);
-    game.gameChat.listenForMessages();
-
-
     //Handle updating game.time
     if (data.round !== game.round && data.state !== 'awaiting players' &&
       data.state !=='game ended' && data.state !== 'game dissolved') {
@@ -109,6 +101,13 @@ angular.module('mean.system')
       game.time = game.timeLimits.stateResults - 1;
       timeSetViaUpdate = true;
     }
+        
+    game.chatUsername = data.players[game.playerIndex].username;
+    game.gameChat.setChatAvatar(data.players[game.playerIndex].avatar);
+    game.gameChat.setChatUsername(game.chatUsername);
+    game.gameChat.setChatGroup(data.gameID);
+    game.gameChat.listenForMessages();
+
 
     // Set these properties on each update
     game.round = data.round;
