@@ -1,4 +1,4 @@
-/* eslint amd:true */
+  /* eslint amd:true */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');
@@ -95,11 +95,10 @@ const routes = (app, passport) => {
   app.get('/play', index.play);
   app.get('/', index.render);
 
-  // Invite users with nodemailer
-  app.post('/api/invite/user', invite.emailinvite);
-
   // Search Users api
   app.get('/api/search/users/:email', search.users);
+  app.get('/api/search/users/friends/:email', search.searchFriends);
+  app.post('/api/users/friends', search.addFriend);
 
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
@@ -110,7 +109,15 @@ const routes = (app, passport) => {
 
   // Get game history
   app.get('/api/:userid/:gameid/history', game.viewOne);
-  app.get('/api/:userid/games/history', game.viewAll)
+  app.get('/api/:userid/games/history', game.viewAll);
+
+  // Invite users with nodemailer
+  app.post('/api/users/email-invite', invite.emailinvite);
+
+  // Invite Users and Friends
+  app.post('/api/users/send-message', invite.appMessage);
+  app.get('/api/users/get-messages', invite.getMessages);
+  app.get('/api/users/view-message/:id', invite.viewMessage);
 };
 
 module.exports = routes;
