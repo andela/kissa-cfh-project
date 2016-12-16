@@ -6,6 +6,7 @@ const questions = require('../app/controllers/questions');
 const index = require('../app/controllers/index');
 const invite = require('../app/controllers/api/invites');
 const search = require('../app/controllers/api/search');
+const game = require('../app/controllers/api/game');
 const jwtAuth = require('../app/controllers/api/auth');
 
 
@@ -102,6 +103,14 @@ const routes = (app, passport) => {
 
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
+
+  // Game Play Routes
+  app.post('/api/games/:id/start', game.create);
+  app.put('/api/games/:id/start', game.update);
+
+  // Get game history
+  app.get('/api/:userid/:gameid/history', game.viewOne);
+  app.get('/api/:userid/games/history', game.viewAll)
 };
 
 module.exports = routes;
