@@ -149,12 +149,7 @@ exports.addDonation = function(req, res) {
       })
         .exec(function (err, user) {
           // Confirm that this object hasn't already been entered
-          var duplicate = false;
-          for (var i = 0; i < user.donations.length; i += 1) {
-            if (user.donations[i].crowdrise_donation_id === req.body.crowdrise_donation_id) {
-              duplicate = true;
-            }
-          }
+          const duplicate = user.donations.some(donation => donation.crowdrise_donation_id === req.body.crowdrise_donation_id);
           if (!duplicate) {
             user.donations.push(req.body);
             user.premium = 1;
