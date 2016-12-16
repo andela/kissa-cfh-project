@@ -1460,3 +1460,7 @@
      float: right;
      cursor: pointer;
  }
+ input[type=text] {
+    background-color: white;
+   /* color: white;  */
+}
