@@ -254,9 +254,8 @@ angular.module('mean.system')
     game.joinGame();
   }
 
-  $scope.searchUsers = function () {
-    const link = `/api/search/users/${$scope.email}`;
-    dataFactory.searchUsers(link)
+  $scope.searchUsers = function (word, type) {
+    dataFactory.searchUsers(word, type)
       .success(function(data, status, headers, config) {
         $scope.searchResult = data;
       })
@@ -265,34 +264,50 @@ angular.module('mean.system')
       });
   };
 
-  $scope.selectList = function (word) {
-    $scope.email = word;
+  $scope.selectList = function (email, id) {
+    $scope.email = email;
+    $scope.friendId = id;
   };
 
-  $scope.sendInvites = function () {
+  $scope.sendInvites = function (email, mode, friendId) {
     const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
     if (regex.test($scope.email) && !$scope.inviteList.includes($scope.email)) {
       if ($scope.inviteList.length > game.playerMaxLimit) {
         let message = `You have exceeded ${game.playerMaxLimit}, the  maximum amount of invite for this game.`;
         let templateUrl = '/views/popup.html';
         showModal(message, templateUrl);
+      } else {
+        const form = {
+          email: email,
+          link: document.URL,
+          sender: window.user.name,
+          friendId: friendId
+        }
+        dataFactory.sendInvites(mode, form)
+        .success(function(response) {
+          $scope.message = 'Invite has been sent';
+          $scope.inviteList.push($scope.email);
+        })
+        .error(function (response) {
+          $scope.message = 'Could not send invite';
+        });
       }
-      const link = '/api/invite/user';
-      const data = {
-        email: $scope.email,
-        link: document.URL,
-        sender: window.user.name
-      }
-      dataFactory.sendInvites(link, data)
-      .success(function(response) {
-        $scope.message = 'Invite has been sent';
-        $scope.inviteList.push($scope.email);
-      })
-      .error(function (response) {
-        $scope.message = 'Could not send invite';
-      })
     }
   };
+
+  $scope.addFriend = function(playerEmail) {
+    const link = '/api/users/friends';
+    const data = {
+      email: playerEmail
+    }
+    dataFactory.addFriends(link, data)
+    .success(function(response) {
+      $scope.friendMessage = response.message;
+    })
+    .error(function(response) {
+      $scope.friendMessage = response.message;
+    })
+  }
 
   function showModal(message, template) {
     $scope.animationsEnabled = true;
