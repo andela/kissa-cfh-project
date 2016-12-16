@@ -135,7 +135,6 @@ angular.module('mean.system')
         $scope.isUser = window.user;
 
         $scope.userEmail = $location.search().email;
-
   $scope.startGame = function () {
     if (game.players.length < game.playerMinLimit) {
       let message = `You need at least ${game.playerMinLimit} players to start the game`;
@@ -266,7 +265,6 @@ angular.module('mean.system')
       });
   };
 
-
         $scope.selectList = function(word) {
             $scope.email = word;
         };
@@ -315,12 +313,14 @@ angular.module('mean.system')
         }
       });
   }
+
  $scope.$watchCollection('chat.messageArray', (newValue, oldValue) => {
             $timeout(() => {
                 $scope.scrollChatThread();
             }, 100);
         });
-        $scope.scrollChatThread = () => {
+
+  $scope.scrollChatThread = () => {
             const chatResults = document.getElementById('chatbox');
             chatResults.scrollTop = chatResults.scrollHeight;
         };
@@ -329,11 +329,11 @@ angular.module('mean.system')
          * @param{String} userMessage - String containing the message to be sent
          * @return
          */
-        $scope.sendMessage = (userMessage) => {
+  $scope.sendMessage = (userMessage) => {
             $scope.chat.postGroupMessage(userMessage);
             $scope.chatMessage = '';
         };
-        $scope.keyPressed = function($event) {
+  $scope.keyPressed = function($event) {
             const keyCode = $event.which || $event.keyCode;
             if (keyCode === 13) {
                 $scope.sendMessage($scope.chatMessage);
