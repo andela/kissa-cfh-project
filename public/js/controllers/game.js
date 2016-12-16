@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$http', '$timeout', '$location', '$modal', 'MakeAWishFactsService', function ($scope, game, $http, $timeout, $location, $modal, MakeAWishFactsService) {
+.controller('GameController', ['$scope', 'game', 'dataFactory', '$timeout', '$location', '$modal', 'MakeAWishFactsService', function ($scope, game, dataFactory, $timeout, $location, $modal, MakeAWishFactsService) {
   $scope.hasPickedCards = false;
   $scope.winningCardPicked = false;
   $scope.showTable = false;
@@ -136,36 +136,61 @@ angular.module('mean.system')
 
   $scope.startGame = function () {
     if (game.players.length < game.playerMinLimit) {
-      $scope.animationsEnabled = true;
-      $scope.errorBody = `You need at least ${game.playerMinLimit} players to start the game`;
-      $scope.modalInstance = $modal.open({
-        animation: $scope.animationsEnabled,
-        ariaLabelledBy: 'modal-title',
-        scope: $scope,
-        ariaDescribedBy: 'modal-body',
-        templateUrl: '/views/popup.html',
-        controller: 'GameController',
-        size: 'sm',
-        appendTo: angular.element(document).find('#gameplay-container'),
-        resolve: {
-          items: function () {
-            return $scope.errorBody;
-          }
-        }
-      })
-      $scope.modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        // Do nothing
-      });
-      return;
+      let message = `You need at least ${game.playerMinLimit} players to start the game`;
+      let template = '/views/popup.html';
+      showModal(message, template);
+    } else if ($scope.isCustomGame()) {
+      let message = 'You are about to start a game that will be saved';
+      let template = '/views/save-game.html';
+      showModal(message, template);
+    } else {
+      game.startGame();
     }
+  };
+
+  $scope.saveGame = function () {
     game.startGame();
+    $scope.modalInstance.close();
+    const gameId = $location.search().game;
+    const link = `/api/games/${gameId}/start`;
+    const data = {
+      creator: game.players[0].id,
+      friends: game.players
+    }
+    dataFactory.saveGameHistory(link, data)
+    .success(function(response) {
+      gameKey = response._id;
+      $scope.model = 'Game Saved';
+      return gameKey;
+    })
+    .error(function (response) {
+      $scope.message = 'Could not save game';
+    });
   };
 
   $scope.closeModal = function () {
     $scope.modalInstance.close();
   };
+
+  $scope.$watch('game.state', function() {
+    if (game.state === 'game ended' && $scope.isCustomGame()) {
+      const gameId = $location.search().game;
+      const link = `/api/games/${gameId}/start`;
+      const data = {
+        creator: game.players[0].id,
+        winner: game.players[game.gameWinner].id,
+        status: 'true',
+        rounds: game.round
+      }
+      dataFactory.updateGameHistory(link, data)
+      .success(function(response) {
+        $scope.model = 'Game updated';
+      })
+      .error(function (response) {
+        $scope.message = 'Could not update game';
+      });
+    }
+  });
 
   $scope.abandonGame = function() {
     game.leaveGame();
@@ -229,7 +254,8 @@ angular.module('mean.system')
   }
 
   $scope.searchUsers = function () {
-    $http.get(`/api/search/users/${$scope.email}`)
+    const link = `/api/search/users/${$scope.email}`;
+    dataFactory.searchUsers(link)
       .success(function(data, status, headers, config) {
         $scope.searchResult = data;
       })
@@ -246,42 +272,19 @@ angular.module('mean.system')
     const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
     if (regex.test($scope.email) && !$scope.inviteList.includes($scope.email)) {
       if ($scope.inviteList.length > game.playerMaxLimit) {
-        $scope.animationsEnabled = true;
-        $scope.errorBody = `You have exceeded ${game.playerMaxLimit}, the  maximum amount of invite for this game.`;
-        $scope.modalInstance = $modal.open({
-          animation: $scope.animationsEnabled,
-          ariaLabelledBy: 'modal-title',
-          scope: $scope,
-          ariaDescribedBy: 'modal-body',
-          templateUrl: '/views/popup.html',
-          controller: 'GameController',
-          size: 'sm',
-          appendTo: angular.element(document).find('#gameplay-container'),
-          resolve: {
-            items: function () {
-              return $scope.errorBody;
-            }
-          }
-        });
-        $scope.modalInstance.result.then(function (selectedItem) {
-          $scope.select = selectedItem;
-        }, function () {
-          // Do nothing
-        });
-        return;
+        let message = `You have exceeded ${game.playerMaxLimit}, the  maximum amount of invite for this game.`;
+        let templateUrl = '/views/popup.html';
+        showModal(message, templateUrl);
       }
-      $http({
-        method: 'POST',
-        url: '/api/invite/user',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          email: $scope.email,
-          link: document.URL,
-          sender: window.user.name
-        }
-      })
+      const link = '/api/invite/user';
+      const data = {
+        email: $scope.email,
+        link: document.URL,
+        sender: window.user.name
+      }
+      dataFactory.sendInvites(link, data)
       .success(function(response) {
-        $scope.model = '';
+        $scope.message = 'Invite has been sent';
         $scope.inviteList.push($scope.email);
       })
       .error(function (response) {
@@ -289,4 +292,24 @@ angular.module('mean.system')
       })
     }
   };
+
+  function showModal(message, template) {
+    $scope.animationsEnabled = true;
+      $scope.errorBody = message;
+      $scope.modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        ariaLabelledBy: 'modal-title',
+        scope: $scope,
+        ariaDescribedBy: 'modal-body',
+        templateUrl: template,
+        controller: 'GameController',
+        size: 'sm',
+        appendTo: angular.element(document).find('#gameplay-container'),
+        resolve: {
+          items: function () {
+            return $scope.errorBody;
+          }
+        }
+      });
+  }
 }]);
