@@ -53,7 +53,7 @@ const Auth = {
       }
       if (!user) {
         Auth.responseData(res, 401, false, 'Authentication failed');
-      } else if (user) {
+      } else {
         if (!user.authenticate(req.body.password)) {
           Auth.responseData(res, 401, false, 'Authentication failed. Invalid Password');
         } else {
