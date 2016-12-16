@@ -27,8 +27,8 @@ const Invites = {
         click on this link <a href="${link}">here</a> to join the game now.<br/>
         <strong>Cards For Humanity</strong>`
       };
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) return res.status(500).json({ status: 'error' });
+      transporter.sendMail(mailOptions, (err, info) => {
+        if (err) return res.status(500).json({ message: 'An error occured while trying to send the message', error: err });
         return res.status(200).json({ status: info.response });
       });
     } else {
@@ -73,7 +73,7 @@ const Invites = {
       Invitation.update(query, {
         read: true
       }, (err, result) => {
-        if (err) return res.status(500).json({ message: 'An error occured while updating this data' });
+        if (err) return res.status(500).json({ message: 'An error occured while updating this data', error: err });
         return res.status(200).json({ message: 'Message has been marked as read' });
       });
     } else {
