@@ -23,7 +23,7 @@ describe('User Authentication', () => {
     done();
   });
   describe('Login', () => {
-    it('should redirect to login page when login is click', (done) => {
+    it('should redirect to login page when login is clicked', (done) => {
       request(app).get('/signin')
         .expect(302, done());
     });
@@ -42,7 +42,7 @@ describe('User Authentication', () => {
     });
   });
   describe('SignUp', () => {
-    it('should redirect to the sign up page when sign up is click', (done) => {
+    it('should redirect to the sign up page when sign up is clicked', (done) => {
       request(app).get('/signup')
         .expect(302, done());
     });
