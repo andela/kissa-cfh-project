@@ -1,3 +1,4 @@
+/* eslint amd:true */
 const should = require('should');
 const app = require('../../server');
 const request = require('supertest');
