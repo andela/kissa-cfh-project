@@ -95,6 +95,7 @@ module.exports = function(io) {
         } else {
           player.username = user.name;
           player.id = user._id;
+          player.email = user.email;
           player.premium = user.premium || 0;
           player.avatar = user.avatar || avatars[Math.floor(Math.random()*4)+12];
         }
