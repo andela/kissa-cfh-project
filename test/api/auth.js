@@ -100,7 +100,6 @@ describe('Authenticate', () => {
       .send(user)
       .end((error, response) => {
         response.should.have.status(401);
-        response.body.should.have.property('message');
         response.body.should.have.property('success').eql(false);
         response.body.should.have.property('message').eql('Authentication failed');
         done();
@@ -117,7 +116,6 @@ describe('Authenticate', () => {
       .send(user)
       .end((error, response) => {
         response.should.have.status(401);
-        response.body.should.have.property('message');
         response.body.should.have.property('success').eql(false);
         response.body.should.have.property('message').eql('Authentication failed. Invalid Password');
         done();
@@ -134,7 +132,6 @@ describe('Authenticate', () => {
       .send(user)
       .end((err, response) => {
         response.should.have.status(401);
-        response.body.should.have.property('message');
         response.body.should.have.property('success').eql(false);
         response.body.should.have.property('message').eql('Authentication failed');
         done();
@@ -151,7 +148,6 @@ describe('Authenticate', () => {
       .send(user)
       .end((error, response) => {
         response.should.have.status(200);
-        response.body.should.have.property('message');
         response.body.should.have.property('success').eql(true);
         response.body.should.have.property('token');
         response.body.should.have.property('message').eql('Authentication successful. User logged in');
