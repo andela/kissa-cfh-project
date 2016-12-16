@@ -1,3 +1,6 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_password"] }] */
+/* eslint camelcase: ["error", {properties: "never"}]*/
+
 /**
  * Module dependencies.
  */
@@ -76,10 +79,11 @@ UserSchema.path('hashed_password').validate(function(hashed_password) {
 UserSchema.pre('save', function(next) {
   if (!this.isNew) return next();
 
-  if (!validatePresenceOf(this.password) && authTypes.indexOf(this.provider) === -1)
+  if (!validatePresenceOf(this.password) && authTypes.indexOf(this.provider) === -1) {
     next(new Error('Invalid password'));
-  else
+  } else {
     next();
+  } 
 });
 
 /**
@@ -93,11 +97,11 @@ UserSchema.methods = {
    * @return {Boolean}
    * @api public
    */
-  authenticate: function(plainText) {
+  authenticate(plainText) {
     if (!plainText || !this.hashed_password) {
-        return false;
+      return false;
     }
-    return bcrypt.compareSync(plainText,this.hashed_password);
+    return bcrypt.compareSync(plainText, this.hashed_password);
   },
 
   /**
@@ -107,7 +111,7 @@ UserSchema.methods = {
    * @return {String}
    * @api public
    */
-  encryptPassword: function(password) {
+  encryptPassword(password) {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   }
