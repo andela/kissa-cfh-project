@@ -1,5 +1,5 @@
 /* eslint-disable func-names, prefer-arrow-callback, no-underscore-dangle */
-/* eslint-disable no-var, vars-on-top */
+/* eslint-disable no-var, vars-on-top, max-len */
 /**
  * Module dependencies.
  */
