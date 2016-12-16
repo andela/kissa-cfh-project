@@ -1209,6 +1209,10 @@
   color: #f2f2f2;
 }
 
+.search-box {
+  color: #000000;
+}
+
 #search-area {
   width: 50%;
   height: auto;
@@ -1255,5 +1259,20 @@
 }
 
 .hide-game {
-    display:none;
+  display:none;
+}
+
+.message-list {
+  color: #333333 !important;
+}
+
+.unbold {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.add-friend {
+  color: #333333;
+  padding: 5px;
+  float: right;
 }

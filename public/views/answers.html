@@ -33,16 +33,29 @@
           <h4>Search users to invite to this game</h4>
           <p style="font-color: 10px; color: red">{{message}}</p>
           <div class="search-box">
-            <div class="row">
+            <form  ng-init="content='users'">
+              <label><input id="first" type="radio" name="content" ng-model="content" value="users" checked="checked">Search for all users</label>
+              <br />
+              <label><input id="other" type="radio" name="content" ng-model="content" value="friends">Search for friends only</label>
+            </form>
+            <div class="row" ng-show="content === 'users'">
               <div class="col-md-8">
-                <input type="text" class="form-control" ng-model="email" ng-keyup="searchUsers()" placeholder="Search and enter an email address to invite">
+                <input type="text" class="form-control" ng-model="email" ng-keyup="searchUsers(email, 'users')" placeholder="Search and enter an email address to invite">
               </div>
               <div class="col-sm-4">
-                <button class="btn btn-primary" ng-click="sendInvites()">Send Invite</button>
+                <button class="btn btn-primary" ng-click="sendInvites(email, 'users', null)">Send Invite</button>
+              </div>
+            </div>
+            <div class="row" ng-show="content === 'friends'">
+              <div class="col-md-8">
+                <input type="text" class="form-control" ng-model="email" ng-keyup="searchUsers(email, 'friends')" placeholder="send invite message to friends">
+              </div>
+              <div class="col-sm-4">
+                <button class="btn btn-primary" ng-click="sendInvites(email, 'friends', friendId)">Send Message</button>
               </div>
             </div>
             <div class="search-result" ng-if="email !== ''">
-              <div ng-class="{'item-focus': hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" ng-repeat="result in searchResult" ng-click="selectList(result.email)" ng-model="email">{{result.email}}</div>
+              <div ng-class="{'item-focus': hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" ng-repeat="result in searchResult" ng-click="selectList(result.email, result._id)" ng-model="email">{{result.email}}</div>
             </div>
           </div>
         </div>

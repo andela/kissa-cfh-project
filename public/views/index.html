@@ -59,6 +59,17 @@
                     </li>   
                     <li class="page-scroll" ng-hide ="showOptions">
                       <a href="/signout">SIGN OUT</a>
+                    </li>
+                    <li class="page-scroll" ng-hide ="showOptions">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#!/#">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <span class="badge">{{invitation.length}}</span>
+                            <ul class="dropdown-menu" ng-if="invitation.length > 0">
+                                <li ng-repeat="invite in invitation" ng-click="readMessage(invite._id)">
+                                    <a ng-class="{ 'unbold': invite.read }" class="message-list" href="{{invite.link}}">You have an invite from {{invite.from}} click here to join</a>
+                                </li>
+                            </ul>
+                        </a>
                     </li>                    
                     
                 </ul>
