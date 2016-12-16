@@ -1,213 +1,216 @@
 <script type="text/javascript">
-  $(document).ready(function() {
+    $(document).ready(function() {
 
 
-    //Twitter buttons
-    ! function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        p = /^http:/.test(d.location) ? 'http' : 'https';
-      if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + '://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    }(document, 'script', 'twitter-wjs');
+        //Twitter buttons
+        ! function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
 
-  });
+    });
 </script>
 
 <script></script>
 <div ng-controller="IndexController">
+    
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" landing>
-    <div class="container custom-container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand-custom" href="#">
-          <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+<!-- Navigation -->
+
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" landing>
+        <div class="container custom-container" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand-custom" href="#">
+                            <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+                        </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#">ABOUT THE GAME</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#">CHARITY</a>
+                    </li>
+                    <li class="page-scroll" ng-show="showOptions">
+                      <a href="#!/signup">SIGN UP</a>
+                    </li>
+                    <li class="page-scroll" ng-show="showOptions">
+                      <a href="#!/signin">SIGN IN</a>
+                    </li>   
+                    <li class="page-scroll" ng-hide ="showOptions">
+                      <a href="/signout">SIGN OUT</a>
+                    </li>                    
+                    
+                </ul>
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">
+                            <h1>Cards for Humanity</h1>
+                            <p><h2>A Game for horrible people desperately trying to do good</h2></p>
+                        </span>
+                        <p>
+                            <a class="btn btn-danger btn-lg" href="#" role="button">Play Game</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About the game Section -->
+    <section class="success" id ="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center padding">
+                    <h3>ABOUT THE GAME</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="jumbotron" style="background:transparent !important">
+                        <p>
+                        Cards for Humanity is a fast-paced online version of the popular card game
+                        Cards Against Humanity, that gives you the opportunity to donate to children in need...
+                        </p>
+                        <p>
+                            <a class="btn btn-danger btn-lg" href="#" role="button">Read more »</a>
+                        </p>
+                    </div>   
+                </div>
+                <div class="col-md-6">
+                    <div class="videoWrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/9r5QIhbwb3Y" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How to play Grid Section -->
+    <section>
+        <div class="instruction">
+                <div class="row">
+                    <div class="col-lg-12 text-center padding">
+                    <h3>HOW TO PLAY</h3>
+                </div>
+                    <div class="row instruction-container">
+                        <div class="card-shadow col-md-3">
+                            <div class="text-center instruction-card bg-danger">
+                                <b> STEP 1</b>
+                            </div>
+                            <div class="card-block text-center instruction-text">
+                                <p class="card-text play-vertical-center">Each player begins with, and will always have, 10 white answer cards.</p>
+                            </div>
+                        </div>
+                        <div class="card-shadow col-md-3">
+                            <div class="text-center instruction-card bg-danger">
+                                <b> STEP 2</b>
+                            </div>
+                            <div class="card-block text-center instruction-text">
+                                <p class="card-text play-vertical-center">For each round, one player is randomly chosen as the Card Czar.</p>
+                            </div>
+                        </div>
+                        <div class="card-shadow col-md-3">
+                            <div class="text-center instruction-card bg-danger">
+                                <b> STEP 3</b>
+                            </div>
+                            <div class="card-block text-center instruction-text">
+                                <p class="card-text play-vertical-center">Everyone else answers the black question card by clicking on the answer card they want to use.</p>
+                            </div>
+                        </div>
+                        <div class="card-shadow col-md-3">
+                            <div class="text-center instruction-card bg-danger">
+                                <b> STEP 4</b>
+                            </div>
+                            <div class="card-block text-center instruction-text">
+                                <p class="card-text play-vertical-center">The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="play-button text-center">
+                            <a class="btn btn-lg btn-danger text-center" href="#"> PLAY GAME</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </section>
+
+    <section class="donate text-center" id ="charity">
+        <div class="row charity">
+            <div class="row">
+                    <div class="col-lg-12 text-center padding">
+                    <h3>CHARITY</h3>
+                </div>
+                <div class="row charity-sub">
+                    <div class="col-md-6 charity-img">
+                        <img class="img-responsive" src="./img/charity.png" width="350" style="float:" />
+                    </div>
+                    <div class="col-md-6 text-center charity-quote">
+                        <p> Give to Charity, All donations go to the Make-a-Wish Foundation and benefit children in need.</p>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">“Hebrew word for "charity" tzedakah, simply means "justice" and as this suggests, for Jews, giving to the poor is no optional extra but an essential part of living a just life.” </p>
+                            <footer class="blockquote-footer"> Peter Singer,
+                                <cite title="Source Title"> The Life You Can Save: Acting Now to End World </cite>
+                            </footer>
+                        </blockquote>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="row footer-custom ">
+                <div class="col-md-6">
+                    <p class="text-center">(C) copyright Cards For Humanity 2016&nbsp;</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
+                    <a class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
+                    <a class="btn btn-social-icon btn-google"><span class="fa fa-google"></span></a>
+                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCards-For-Humanity-1631013577200095%2F&width=74&layout=button_count&action=like&size=large&show_faces=true&share=false&height=21&appId=236093993111473" width="74" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" class="faceboo-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
         </a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li class="page-scroll">
-            <a href="/">HOME</a>
-          </li>
-          <li class="page-scroll">
-            <a href="#!/#about">ABOUT THE GAME</a>
-          </li>
-          <li class="page-scroll">
-            <a href="#!/#how-to-play">HOW TO PLAY</a>
-          </li>
-          <li class="page-scroll">
-            <a href="#!/#charity">CHARITY</a>
-          </li>
-          <li class="page-scroll" ng-show="showOptions">
-            <a href="#!/signup">SIGN UP</a>
-          </li>
-          <li class="page-scroll" ng-show="showOptions">
-            <a href="#!/signin">SIGN IN</a>
-          </li>
-          <li class="page-scroll" ng-hide="showOptions">
-            <a href="/signout">SIGN OUT</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="intro-text">
-            <span class="name">
-              <h1>Cards for Humanity</h1>
-              <h2>A Game for horrible people desperately trying to do good</h2>
-            </span>
-            <a href="/playgame" class="btn btn-danger btn-lg intro-text-button" href="#" role="button">Play Game</a>
-            <br><a href="/play" class="intro-text-guest"> play as guest</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- About the game Section -->
-  <section class="success" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center padding">
-          <h3>ABOUT THE GAME</h3>
-        </div>
-        <div class="col-md-6">
-          <div class="jumbotron" style="background:transparent !important">
-            <p class="text-justify">
-              Cards for Humanity is a fast-paced online version of the popular card game Cards Against Humanity, that gives you the opportunity to donate to children in need...
-            </p>
-            <p>
-              <a class="btn btn-danger btn-lg" href="#" role="button">Read more »</a>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="videoWrapper">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/9r5QIhbwb3Y" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How to play Grid Section -->
-  <section class="instruction-section" id="how-to-play">
-    <div class="instruction">
-      <div class="row">
-        <div class="col-lg-12 text-center padding">
-          <h3>HOW TO PLAY</h3>
-        </div>
-        <div class="row instruction-container">
-          <div class="card-shadow col-md-3">
-            <div class="text-center instruction-card bg-danger">
-              <b> STEP 1</b>
-            </div>
-            <div class="card-block text-center instruction-text">
-              <p class="card-text play-vertical-center">Each player begins with, and will always have, 10 white answer cards.</p>
-            </div>
-          </div>
-          <div class="card-shadow col-md-3">
-            <div class="text-center instruction-card bg-danger">
-              <b> STEP 2</b>
-            </div>
-            <div class="card-block text-center instruction-text">
-              <p class="card-text play-vertical-center">For each round, one player is randomly chosen as the Card Czar.</p>
-            </div>
-          </div>
-          <div class="card-shadow col-md-3">
-            <div class="text-center instruction-card bg-danger">
-              <b> STEP 3</b>
-            </div>
-            <div class="card-block text-center instruction-text">
-              <p class="card-text play-vertical-center">Everyone else answers the black question card by clicking on the answer card they want to use.</p>
-            </div>
-          </div>
-          <div class="card-shadow col-md-3">
-            <div class="text-center instruction-card bg-danger">
-              <b> STEP 4</b>
-            </div>
-            <div class="card-block text-center instruction-text">
-              <p class="card-text play-vertical-center">The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="play-button text-center">
-            <a class="btn btn-lg btn-danger text-center" href="#"> PLAY GAME</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="donate text-center" id="charity">
-    <div class="row charity">
-      <div class="row">
-        <div class="col-lg-12 text-center padding">
-          <h3>CHARITY</h3>
-        </div>
-        <div class="row charity-sub">
-          <div class="col-md-6 charity-img">
-            <img class="img-responsive" src="./img/charity.png" width="350" style="float:" />
-          </div>
-          <div class="col-md-6 text-center charity-quote">
-            <h4> Give to Charity, All donations go to the Make-a-Wish Foundation and benefit children in need.</h4>
-            <blockquote class="blockquote">
-              <p class="mb-0">“Hebrew word for "charity" tzedakah, simply means "justice" and as this suggests, for Jews, giving to the poor is no optional extra but an essential part of living a just life.” </p>
-              <footer class="blockquote-footer quote-footer"> Peter Singer,
-                <cite title="Source Title"> The Life You Can Save: Acting Now to End World </cite>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- Footer -->
-  <div class="row footer-custom ">
-    <div class="col-md-6">
-      <p class="text-center footer-copyright text-muted">&copy; copyright Cards For Humanity 2016&nbsp;</p>
-    </div>
-    <div class="col-md-6 text-center">
-      <div class="row">
-        <div class="col-md-6 text-right">
-          <p class="share-buttons text-right text-muted">Share</p>
-          <a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
-          <a class="btn btn-social-icon btn-facebook"><span class="fa fa-facebook"></span></a>
-          <a class="btn btn-social-icon btn-google"><span class="fa fa-google"></span></a>
-        </div>
-        <div class="col-md-6">
-          <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCards-For-Humanity-701709783330407%2F&amp;width=100&amp;layout=standard&amp;action=like&amp;size=small&amp;show_faces=true&amp;share=false&amp;height=80&amp;appId=339784869726443"
-            width="300" height="60" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-    <a class="btn btn-primary" href="#page-top">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-  </div>
 </div>
