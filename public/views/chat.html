@@ -49,9 +49,11 @@
 </div>
 <div ng-show="chat.isHidden" class="chatinput">
     <div class="inner-addon right-addon">
-        <i class="fa fa-smile-o paper" aria-hidden="true" style="cursor: pointer;"></i>
-        <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)"
-            size="60" />
+        <!--<i class="fa fa-smile-o paper" aria-hidden="true" style="cursor: pointer;"></i>-->
+        <span class="lead emoji-picker-container">
+        <input name="usermsg" data-emojiable="true" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)" size="60"/>
+        </span>
     </div>
 </div>
+<script type="text/javascript" src="/lib/emoji/lib/js/emoji-init.js"></script>
 </div>
