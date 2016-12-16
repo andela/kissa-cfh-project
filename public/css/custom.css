@@ -497,3 +497,7 @@ body:after {
     margin-top: -30px;
 }
 }
+
+.custom-navbrand{
+  max-width: 70px;
+}
