@@ -152,7 +152,6 @@ angular.module('mean.system')
     game.startGame();
     $scope.modalInstance.close();
     const gameId = $location.search().game;
-    console.log(gameId);
     const link = `/api/games/${gameId}/start`;
     const data = {
       creator: game.players[0].id,
