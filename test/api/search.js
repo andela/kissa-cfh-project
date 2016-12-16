@@ -1,4 +1,3 @@
-/* eslint amd:true */
 const should = require('should');
 const app = require('../../server');
 const request = require('supertest');
@@ -20,11 +19,11 @@ describe('Search api', () => {
       password: 'password'
     });
     user2 = new User({
-        name: 'New Friend',
-        email: 'newfriend@friends.com',
-        username: 'user',
-        password: 'password'
-      });
+      name: 'New Friend',
+      email: 'newfriend@friends.com',
+      username: 'user',
+      password: 'password'
+    });
     user.save();
     user2.save();
     agent.post('/users/session')
@@ -41,7 +40,7 @@ describe('Search api', () => {
       agent
       .get('/api/search/users/boss@boss.com')
       .set('Accept', 'application/json')
-      .end(function(err, res){
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
         done();
@@ -51,7 +50,7 @@ describe('Search api', () => {
       agent
       .get('/api/search/users/')
       .set('Accept', 'application/json')
-      .end(function(err, res) {
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(404);
       });
@@ -60,7 +59,7 @@ describe('Search api', () => {
     it('should not search for anything when the user is not logged in', (done) => {
       request(app)
       .get('/api/search/users/')
-      .end(function(err, res) {
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(404);
       });
