@@ -1,11 +1,11 @@
  .clear {
      clear: both;
  }
-
+ 
  .uppercase {
      text-transform: uppercase;
  }
-
+ 
  #landing-charity {
      width: 300px !important;
      margin-left: 15px !important;
@@ -14,34 +14,34 @@
      float: left !important;
      top: -65px;
  }
-
+ 
  .facebook-like-container {
      padding-top: 3%;
  }
-
+ 
  .facebook-like {
      padding-top: 2%;
      background-color: white;
  }
-
+ 
  #tweet-container-index {
      margin-top: 10px;
      display: inline-block;
      position: relative;
      top: 5px;
  }
-
+ 
  #twitter-facebook {
      display: block;
  }
-
+ 
  #send-link {
      color: white;
      text-align: center;
      display: block;
      margin-bottom: 10px;
  }
-
+ 
  #facebook-share {
      font-size: 12px;
      padding: 3px;
@@ -67,32 +67,32 @@
      user-select: none;
      cursor: pointer;
  }
-
+ 
  #facebook-share a {
      color: #333;
  }
-
+ 
  .some-text {
      text-align: center;
      color: white;
      max-width: 800px;
      margin: 0 30px;
  }
-
+ 
  #give {
      color: white;
      text-align: center;
  }
-
+ 
  #info-box {
      margin-top: 25px;
      margin-left: 10%;
  }
-
+ 
  #wish {
      max-width: 25%;
  }
-
+ 
  @media(min-width: 400px) and (max-width: 950px) {
      .some-text {
          text-align: center;
@@ -110,7 +110,7 @@
          top: -65px;
      }
  }
-
+ 
  @media (max-width: 400px) {
      #landing-charity {
          margin-bottom: -60px;
@@ -122,7 +122,7 @@
          margin: 0;
      }
  }
-
+ 
  .sign-error {
      text-align: center;
      color: white;
@@ -130,7 +130,7 @@
      margin-bottom: -13px;
  }
  /**** Links ****/
-
+ 
  a {
      color: #60B197;
      -webkit-transition: color 0.5s ease;
@@ -139,22 +139,22 @@
      -o-transition: color 0.5s ease;
      transition: color 0.5s ease;
  }
-
+ 
  a:hover {
      text-decoration: none;
      color: #2ecc71;
      border-radius: 0px !important;
  }
-
+ 
  p a {
      color: #60B197;
  }
-
+ 
  p a:hover {
      color: #2ecc71;
  }
  /**** Top Bar ****/
-
+ 
  #menu-container {
      width: 100%;
      -webkit-border-radius: 8px;
@@ -164,7 +164,7 @@
      margin: 10px 0;
      padding: 5px;
  }
-
+ 
  #landing-logo {
      margin: 5px 0 5px 0px;
      font-size: 28px;
@@ -173,23 +173,23 @@
      background: #252525;
      padding: 5px 5px 5px 13px;
  }
-
+ 
  #first-word {
      color: #7CE4E8;
  }
-
+ 
  #second-word {
      color: #FFFFA5;
  }
-
+ 
  #third-word {
      color: #FC575E;
  }
-
+ 
  #warning-word {
      color: #FC575E;
  }
-
+ 
  .wpb-top-bar {
      height: 60px;
      background: transparent;
@@ -199,7 +199,7 @@
      z-index: 10000;
      max-width: 1400px;
  }
-
+ 
  .wpb-logo-container {
      color: #fff;
      font-weight: bold;
@@ -207,22 +207,22 @@
      max-width: 100%;
      margin-right: 9px;
  }
-
+ 
  .wpb-logo-container a {
      color: #ffffff !important;
  }
-
+ 
  .wpb-menu-container {
      float: right;
  }
-
+ 
  .wpb-menu-container .wpb-dropdown-menu {
      display: none;
      margin-top: 35px;
      text-align: center;
      float: right;
  }
-
+ 
  .wpb-menu-container .wpb-main-menu {
      list-style: none;
      margin: 0;
@@ -231,14 +231,14 @@
      margin-top: -77px;
      margin-right: 35px;
  }
-
+ 
  .wpb-menu-container .wpb-main-menu li {
      display: inline-block;
      height: 100%;
      position: relative;
      cursor: pointer;
  }
-
+ 
  .wpb-menu-container .wpb-main-menu li a:hover {
      color: #2ECC71 !important;
      -webkit-transition: color 0.5s ease;
@@ -247,7 +247,7 @@
      -o-transition: color 0.5s ease;
      transition: color 0.5s ease;
  }
-
+ 
  .wpb-menu-container .wpb-main-menu li a {
      display: block;
      height: 100%;
@@ -265,21 +265,21 @@
      z-index: 1000;
  }
  /**** LANDING ****/
-
+ 
  #main-text {
      margin: 5px;
  }
-
+ 
  #avatars {
      width: 100%;
      margin-top: -11%;
      margin-bottom: 3%;
  }
-
+ 
  #avatar-face {
      width: 8.3%;
  }
-
+ 
  .wpb-teaser {
      min-height: 450px;
      position: relative;
@@ -290,7 +290,7 @@
      margin-top: 70px;
      padding: 30px;
  }
-
+ 
  .wpb-teaser .background-opacity {
      position: absolute;
      top: 0;
@@ -303,18 +303,18 @@
      border-radius: 8px;
      padding: 20px;
  }
-
+ 
  .wpb-teaser .container {
      position: relative;
      z-index: 1000;
      padding-top: 120px;
  }
-
+ 
  .wpb-teaser .modified-container {
      position: relative;
      z-index: 1000;
  }
-
+ 
  .wpb-teaser .wpb-slogan h2 {
      color: #fff;
      font-weight: bold;
@@ -323,12 +323,12 @@
      line-height: 60px;
      text-align: center;
  }
-
+ 
  #slogan {
      text-align: center;
      color: white;
  }
-
+ 
  .wpb-teaser .wpb-text p {
      color: #fff;
      padding-top: 15px;
@@ -339,17 +339,17 @@
      max-width: 585px;
      padding-bottom: 20px;
  }
-
+ 
  #navver {
      height: 60px;
  }
  /**** Section Title ****/
-
+ 
  .wpb-section-title {
      background-color: #24272a;
      height: 100px;
  }
-
+ 
  .wpb-section-title .wpb-title {
      color: #fff;
      font-size: 32px;
@@ -357,7 +357,7 @@
      font-weight: bold;
      line-height: 100px;
  }
-
+ 
  .wpb-section-title .wpb-title-description {
      color: #515e65;
      font-size: 14px;
@@ -367,14 +367,14 @@
      display: inline-block;
      vertical-align: top;
  }
-
+ 
  #create {
      text-align: center;
      color: white;
      font-family: arial;
      margin-bottom: -13px;
  }
-
+ 
  #sign-up-btn-landing {
      display: inline-block;
      border-radius: 8px;
@@ -392,7 +392,7 @@
      padding: 0.65em 35px;
      cursor: pointer;
  }
-
+ 
  #sign-up-btn-other {
      display: inline-block;
      border-radius: 8px;
@@ -411,74 +411,74 @@
      cursor: pointer;
  }
  /**** About Us ****/
-
+ 
  #main-bod {
      max-width: 1400px;
      margin: 0px auto;
  }
-
+ 
  .wpb-about-us {
      background-color: #fff;
      margin-top: 9%;
  }
-
+ 
  #team-photo {
      max-width: 84% !important;
      width: 84%;
      margin: 0 8%;
  }
-
+ 
  #gitcat {
      max-width: 50px !important;
      padding-right: 10px;
  }
-
+ 
  #login-buttons {
      text-align: center;
  }
-
+ 
  .login-item {
      max-width: 48%;
  }
-
+ 
  .input-info {
      max-width: 100%;
  }
-
+ 
  #how-to {
      max-width: 1400px;
      margin-top: -15px;
  }
-
+ 
  #how-to-play {
      margin-top: 190px;
  }
-
+ 
  #how-to-cards {
      text-align: center;
  }
-
+ 
  #how-to-container {
      padding-top: 0;
  }
-
+ 
  #card-list {
      margin-bottom: 15px;
  }
-
+ 
  #directions {
      font-family: 'Lobster', cursive;
      color: #FC575E;
  }
-
+ 
  .sign-body {
      text-align: center;
  }
-
+ 
  #sign-up {
      text-align: center;
  }
-
+ 
  #sign-up-text {
      margin: 0px auto;
      font-size: 18px;
@@ -488,7 +488,7 @@
      margin-left: 40px;
      overflow: hidden;
  }
-
+ 
  .sign-in-header {
      color: #fff;
      font-weight: bold;
@@ -498,38 +498,38 @@
      text-align: center;
      margin-bottom: -15px;
  }
-
+ 
  .top-margin {
      margin-top: 15px;
  }
-
+ 
  #team {
      max-width: 1400px;
  }
-
+ 
  .floater {
      margin-top: 0px !important;
      float: right;
  }
-
+ 
  li {
      list-style-type: none;
  }
-
+ 
  #contain-avatars {
      margin-top: 25px;
  }
-
+ 
  .avatar-list {
      overflow: hidden;
      padding-left: 0px;
      margin-left: 3%;
  }
-
+ 
  .avatar-list img {
      max-width: 60%;
  }
-
+ 
  .avatars {
      position: relative;
      float: left;
@@ -537,36 +537,36 @@
      border-radius: 8px;
  }
  /**** Portfolio ****/
-
+ 
  .wpb-portfolio-list .wpb-portfolio-item {
      margin-left: 10px;
      list-style-type: none;
      width: 30%;
      float: left;
  }
-
+ 
  .wpb-portfolio-list .wpb-portfolio-item:nth-child(3n) {
      margin-right: 0px;
  }
-
+ 
  .wpb-portfolio-item {
      background-color: #fff;
      margin-bottom: 20px;
      width: 21%;
      float: left;
  }
-
+ 
  .wpb-portfolio-item .wpb-portfolio-thumbnail {
      height: 170px;
      overflow: hidden;
      position: relative;
  }
-
+ 
  .wpb-portfolio-item .wpb-portfolio-thumbnail>img {
      position: absolute;
      width: 100%;
  }
-
+ 
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
      position: absolute;
      top: 0;
@@ -576,69 +576,69 @@
      z-index: 1001;
      background: url('img/mongo-logo.png');
  }
-
+ 
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
      min-width: none !important;
  }
-
+ 
  .wpb-portfolio-item .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
      line-height: 170px;
      width: 100%;
      text-align: center;
      font-size: 3em;
  }
-
+ 
  .wpb-portfolio-details {
      padding: 0px 25px 10px 25px;
  }
-
+ 
  .wpb-portfolio-details h3 {
      font-size: 18px;
      color: #24272a !important;
  }
-
+ 
  .wpb-portfolio-details p {
      color: #515e65 !important;
  }
  /**** Portfolio ****/
-
+ 
  .wpb-portfolio-body {}
-
+ 
  .wpb-portfolio-body .wpb-teaser {
      min-height: 350px;
  }
-
+ 
  .wpb-portfolio-body .wpb-teaser .container {
      padding-top: 60px;
  }
-
+ 
  .wpb-portfolio-page .container {
      top: 0px;
  }
-
+ 
  .wpb-portfolio-body .wpb-portfolio-filter-container {
      padding-top: 50px;
  }
-
+ 
  .wpb-portfolio-body .wpb-portfolio-filter-container span {
      display: inline-block;
      padding-right: 30px;
      text-transform: uppercase;
      color: #ffffff !important;
  }
-
+ 
  .wpb-portfolio-body .wpb-portfolio-filter {
      margin: 0;
      display: inline-block;
  }
-
+ 
  .wpb-portfolio-body .wpb-portfolio-filter li {
      display: inline-block;
      text-transform: uppercase;
      color: #ffffff !important;
      padding-right: 15px;
  }
-
+ 
  .wpb-portfolio-body .wpb-portfolio-filter li a {
      color: #ffffff;
      padding: 5px 14px;
@@ -652,36 +652,36 @@
      transition: background-color 0.5s ease;
  }
  /**** Team List ****/
-
+ 
  .wpb-team-list .wpb-team-item {
      margin-left: 0px;
      margin-right: 10px;
  }
-
+ 
  .wpb-team-list .wpb-team-item:nth-child(3n) {
      margin-right: 0px;
  }
-
+ 
  .wpb-team-item {
      background-color: #fff;
      margin-bottom: 20px;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail {
      height: 300px;
      overflow: hidden;
      position: relative;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail:hover .wpb-team-overlay {
      opacity: 1;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail>img {
      position: absolute;
      width: 100%;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay {
      -webkit-transition: opacity 0.5s ease;
      -moz-transition: opacity 0.5s ease;
@@ -697,32 +697,32 @@
      background: rgba(55, 50, 53, 0.9);
      opacity: 0;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay img {
      min-width: none !important;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div {
      line-height: 500px;
      width: 100%;
      text-align: center;
      font-size: 3em;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content h3 {
      color: #ffffff !important;
      font-size: 18px;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content a {
      color: #ffffff !important;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content i {
      font-size: 1.5em;
      padding-right: 5px;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content {
      text-transform: uppercase;
      color: #ffffff !important;
@@ -730,53 +730,53 @@
      line-height: normal;
      margin-top: 125px;
  }
-
+ 
  .wpb-team-item .wpb-team-thumbnail .wpb-team-overlay>div div.content p {
      line-height: normal;
      display: inline-block;
      width: 100%;
  }
-
+ 
  .wpb-team-details {
      padding: 0px 25px 10px 25px;
      text-align: center;
  }
-
+ 
  .wpb-team-details h3 {
      font-size: 18px;
      color: white !important;
  }
-
+ 
  .wpb-team-details p {
      color: #515e65 !important;
  }
  /**** Single Portfolio Item ****/
-
+ 
  .wpb-single-portfolio {}
-
+ 
  .wpb-single-portfolio .wpb-content-inner {
      padding: 0px;
  }
-
+ 
  .wpb-single-portfolio .wpb-content-inner p {
      padding: 12px 0px;
  }
-
+ 
  .wpb-single-portfolio .wpb-content-inner .inner {
      padding: 0px 25px 25px 25px;
  }
-
+ 
  .wpb-single-portfolio .container {
      top: -100px;
      position: relative;
      z-index: 1010;
      background-color: #24272A;
  }
-
+ 
  .wpb-single-portfolio .wpb-content {
      padding: 25px 0px 25px 0px;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail {
      height: 270px;
      overflow: hidden;
@@ -786,11 +786,11 @@
      display: inline-block;
      margin-bottom: 25px;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail:hover .wpb-portfolio-overlay {
      opacity: 1;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail>img {
      position: absolute;
      min-height: 100%;
@@ -798,7 +798,7 @@
      max-width: none !important;
      min-width: 100%;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay {
      -webkit-transition: opacity 0.5s ease;
      -moz-transition: opacity 0.5s ease;
@@ -814,59 +814,59 @@
      background: rgba(26, 204, 113, 0.6);
      opacity: 0;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay img {
      min-width: none !important;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-thumbnail .wpb-portfolio-overlay div {
      line-height: 200px;
      width: 100%;
      text-align: center;
      font-size: 3em;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description .wpb-portfolio-main-thumbnail {
      margin-bottom: 25px;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-main-thumbnail img {
      max-width: 100% !important;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description {
      margin-right: 25px;
      margin-left: 0px;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description ul {
      margin: 0;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description ul li {
      padding-bottom: 15px;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description ul li p.wpb-list-title {
      text-transform: uppercase;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description ul li p {
      padding: 0;
      margin: 0;
  }
-
+ 
  .wpb-single-portfolio .wpb-portfolio-description h3 {
      margin: 0;
  }
  /**** Contact Us ****/
-
+ 
  .wpb-contact-us {
      min-height: 540px;
      position: relative;
      z-index: 890;
  }
-
+ 
  .wpb-contact-us .google-map-container {
      width: 100%;
      height: 100%;
@@ -875,12 +875,13 @@
      bottom: 0;
      left: 0;
  }
-
- .wpb-contact-us .wpb-section-title, .wpb-contact-us .container {
+ 
+ .wpb-contact-us .wpb-section-title,
+ .wpb-contact-us .container {
      position: relative;
      z-index: 1000;
  }
-
+ 
  .wpb-contact-us .background-opacity {
      position: absolute;
      top: 0;
@@ -892,22 +893,22 @@
      background: #252525;
  }
  /**** Contact Us Information ****/
-
+ 
  .wpb-contact-us-info {
      margin-top: 25px;
      color: #fff;
  }
-
+ 
  .wpb-contact-us-info ul {
      margin: 0;
      padding: 0;
  }
-
+ 
  .wpb-contact-us-info ul li {
      padding-bottom: 10px;
  }
  /**** Footer ****/
-
+ 
  .foot {
      bottom: 0;
      max-width: 1400px;
@@ -917,12 +918,12 @@
      width: 90%;
      margin: 30px auto;
  }
-
+ 
  .legal {
      color: white;
  }
  /**** Margins ****/
-
+ 
  .mod-contain {
      /*padding-right: 15px;
    padding-left: 15px;*/
@@ -930,12 +931,12 @@
      margin-left: auto;
      width: 90%;
  }
-
+ 
  .container-margin {
      padding-top: 60px;
      padding-bottom: 60px;
  }
-
+ 
  .arrow {
      position: fixed;
      bottom: 0;
@@ -953,7 +954,7 @@
      -moz-animation-delay: 5s;
      -o-animation-delay: 5s;
  }
-
+ 
  .landing-card {
      position: relative;
      display: inline-block;
@@ -971,17 +972,17 @@
      vertical-align: top;
  }
  /*Override Bootstrap Row Class*/
-
+ 
  .row {
      margin-left: 0;
      margin-right: 9px;
  }
-
+ 
  #donations {
      margin-top: 160px;
  }
  /*MORE MEDIA QUERIESS WHOOOOOAAAA*/
-
+ 
  @media (min-width: 1430px) {
      .row {
          margin: 0 0 -9px 0;
@@ -990,7 +991,7 @@
          margin-right: 0;
      }
  }
-
+ 
  @media(max-width: 680px) {
      .wpb-menu-container {
          display: none;
@@ -999,7 +1000,7 @@
          text-align: center;
      }
  }
-
+ 
  @media (min-width: 480px) and (max-width: 865px) {
      .wpb-menu-container .wpb-main-menu {
          text-align: right;
@@ -1039,7 +1040,7 @@
          font-size: 0.8em;
      }
  }
-
+ 
  @media (min-width: 865px) and (max-width: 1024px) {
      .wpb-menu-container .wpb-main-menu {
          text-align: right;
@@ -1079,7 +1080,7 @@
          width: 37% !important;
      }
  }
-
+ 
  @media (max-width: 480px) {
      #sign-up-btn {
          font-size: 1.5rem;
@@ -1203,242 +1204,259 @@
          margin: 0 0 0 4px;
      }
  }
-
+ 
  .active {
-  background-color: #c44741;
-  color: #f2f2f2;
-}
-
-#search-area {
-  width: 50%;
-  height: auto;
-  background-color: #fff;
-  margin: auto;
-}
-
-.modal {
-  display: block;
-}
-
-#invite-container {
-  padding: 10px;
-}
-
-#inviteList {
-  background-color: #fff;
-}
-
-.invite-list{
-  font-color: blue;
-  background-color: #fff;
-
-}
-
-.search-result {
-  position: static;
-  float: none;
-  display: block;
-  min-width: 160px;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  z-index: 1000;
-  color: #333333;
-  height: 100px;
-  overflow-y: scroll;
-}
-
-.item-focus {
-  background-color: blue;
-  color: white;
-}
-
-.hide-game {
-    display:none;
-}
-/* chat css */
-.wrapper {
-    margin:0 auto;
-    padding-top: 5px;
-    padding-bottom:3px;
-    padding-left: 10px;
-    padding-right: 12px;
-    position: fixed;
-    background:#a7b1c1;
-    width:300px;
-    /*height: 415px;*/
-    border:2px solid black;
-    bottom: 0;
-    right: 0%;
-    z-index: 2000;
-}
-#chatbox {
-    text-align: left;
-    margin-bottom: 25px;
-    padding-top: 2px;
-    padding-right: 2px; 
-    padding-bottom: 2px;
-    padding-left: 2px;
-    background: #eeeeef;
-    height: 300px;
-    width: 280px;
-    border:1px solid gray;
-    overflow: auto;
-}
-.chatinput {
-    margin-bottom: 1px;
-    width: 280px !important;
-}
-
-.user {
+     background-color: #c44741;
+     color: #f2f2f2;
+ }
+ 
+ #search-area {
+     width: 50%;
+     height: auto;
+     background-color: #fff;
+     margin: auto;
+ }
+ 
+ .modal {
+     display: block;
+ }
+ 
+ #invite-container {
+     padding: 10px;
+ }
+ 
+ #inviteList {
+     background-color: #fff;
+ }
+ 
+ .invite-list {
+     font-color: blue;
+     background-color: #fff;
+ }
+ 
+ .search-result {
+     position: static;
+     float: none;
+     display: block;
+     min-width: 160px;
+     background-color: transparent;
+     border: none;
+     border-radius: 0;
+     box-shadow: none;
+     z-index: 1000;
+     color: #333333;
+     height: 100px;
+     overflow-y: scroll;
+ }
+ 
+ .item-focus {
+     background-color: blue;
+     color: white;
+ }
+ 
+ .hide-game {
+     display: none;
+ }
+ /* chat css */
+ 
+ .wrapper {
+     margin: 0 auto;
      padding-top: 5px;
-}
-.inner-addon { 
-    position: relative; 
-}
-/* style icon */
-.inner-addon .paper{
-  position: absolute;
-  padding: 10px;
-}
-.right-addon .paper { 
+     padding-bottom: 3px;
+     padding-left: 10px;
+     padding-right: 12px;
+     position: fixed;
+     background: #a7b1c1;
+     width: 300px;
+     border: 2px solid #000000;
+     bottom: 0;
+     right: 0%;
+     z-index: 2000;
+ }
+ 
+ #chatbox {
+     text-align: left;
+     margin-bottom: 25px;
+     padding-top: 2px;
+     padding-right: 2px;
+     padding-bottom: 2px;
+     padding-left: 2px;
+     background: #eeeeef;
+     height: 300px;
+     width: 280px;
+     border: 1px solid gray;
+     overflow: auto;
+ }
+ 
+ .chatinput {
+     margin-bottom: 1px;
+     width: 280px !important;
+ }
+ 
+ .user {
+     padding-top: 5px;
+ }
+ 
+ .inner-addon {
+     position: relative;
+ }
+ /* style icon */
+ 
+ .inner-addon .paper {
+     position: absolute;
+     padding: 10px;
+ }
+ 
+ .right-addon .paper {
      right: 0;
-}
-.right-addon input { 
-     padding-right: 30px; 
-}
-
-margin: 0 0 0.2rem 0;
-
-/*chat box*/
-
-.col-md-2, .col-md-10{
-    padding:0;
-}
-.chat-window{
-    bottom: 0;
-    position: fixed;
-    float: right;
-    margin-left: 10px;
-}
-.chat-window > div > .panel{
-    border-radius: 5px 5px 0 0;
-}
-.icon_minim{
-    padding:2px 10px;
-}
-.msg_container_base{
-  background: #e5e5e5;
-  margin: 0;
-  padding: 0 10px 10px;
-  max-height: 300px;
-  overflow-x: hidden;
-}
-.top-bar {
-  background: #666;
-  color: white;
-  padding: 10px;
-  position: relative;
-  overflow: hidden;
-}
-.msg_receive{
-    padding-left: 0;
-    margin-left: 0;
-}
-.msg_sent{
-    padding-bottom: 20px !important;
-    margin-right: 0;
-}
-.messages {
-  background: white;
-  padding: 10px;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px  #000000;
-  max-width: 100%;
-}
-.messages > p {
-    font-size: 13px;
-    margin: 0 0 0.2rem 0;
-  }
-.messages > time {
-    font-size: 11px;
-    color: #ccc;
-}
-.msg_container {
-    padding: 10px;
-    overflow: hidden;
-    display: flex;
-}
-
-.base_receive > .avatar:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border: 5px solid #FFF;
-    border-left-color:  #000000;
-    border-bottom-color:  #000000;
-}
-
-.base_sent {
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-.base_sent > .avatar:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border: 5px solid white;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    box-shadow: 1px 1px 2px #ffffff; // didn't find any color better
-}
-
-.msg_sent > time{
-    float: right;
-}
-.avatar {
-    position: relative;
-    padding-top: 5px;
-}
-
-.msg_container_base::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-.msg_container_base::-webkit-scrollbar
-{
-    width: 12px;
-    background-color: #F5F5F5;
-}
-
-.msg_container_base::-webkit-scrollbar-thumb
-{
-    -webkit-box-shadow: inset 0 0 6px #000000;
-    background-color: #555;
-}
-
-.avatar-image {
-   bottom: 0;
-   max-width: 300%;
-   max-height: 300%;
-}
-.panel {
-    height: 39px;
-    margin-left: -5px;
-    width: 280px;
-    background: #a7b1c1;
-    margin-bottom: 0;
-}
-.minimize {
-    float: right;
-    cursor: pointer;
-}
+ }
+ 
+ .right-addon input {
+     padding-right: 30px;
+ }
+ 
+ margin: 0 0 0.2rem 0;
+ /*chat box*/
+ 
+ .col-md-2,
+ .col-md-10 {
+     padding: 0;
+ }
+ 
+ .chat-window {
+     bottom: 0;
+     position: fixed;
+     float: right;
+     margin-left: 10px;
+ }
+ 
+ .chat-window>div>.panel {
+     border-radius: 5px 5px 0 0;
+ }
+ 
+ .icon_minim {
+     padding: 2px 10px;
+ }
+ 
+ .msg_container_base {
+     background: #e5e5e5;
+     margin: 0;
+     padding: 0 10px 10px;
+     max-height: 300px;
+     overflow-x: hidden;
+ }
+ 
+ .top-bar {
+     background: #666;
+     color: white;
+     padding: 10px;
+     position: relative;
+     overflow: hidden;
+ }
+ 
+ .msg_receive {
+     padding-left: 0;
+     margin-left: 0;
+ }
+ 
+ .msg_sent {
+     padding-bottom: 20px !important;
+     margin-right: 0;
+ }
+ 
+ .messages {
+     background: #ffffff;
+     padding: 10px;
+     border-radius: 2px;
+     box-shadow: 0 1px 2px #000000;
+     max-width: 100%;
+ }
+ 
+ .messages>p {
+     font-size: 13px;
+     margin: 0 0 0.2rem 0;
+ }
+ 
+ .messages>time {
+     font-size: 11px;
+     color: #ccc;
+ }
+ 
+ .msg_container {
+     padding: 10px;
+     overflow: hidden;
+     display: flex;
+ }
+ 
+ .base_receive>.avatar:after {
+     content: "";
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 0;
+     height: 0;
+     border: 5px solid #FFF;
+     border-left-color: #000000;
+     border-bottom-color: #000000;
+ }
+ 
+ .base_sent {
+     justify-content: flex-end;
+     align-items: flex-end;
+ }
+ 
+ .base_sent>.avatar:after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 0;
+     height: 0;
+     border: 5px solid white;
+     border-right-color: transparent;
+     border-top-color: transparent;
+     box-shadow: 1px 1px 2px #ffffff; // didn't find any color better
+ }
+ 
+ .msg_sent>time {
+     float: right;
+ }
+ 
+ .avatar {
+     position: relative;
+     padding-top: 5px;
+ }
+ 
+ .msg_container_base::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+     background-color: #F5F5F5;
+ }
+ 
+ .msg_container_base::-webkit-scrollbar {
+     width: 12px;
+     background-color: #F5F5F5;
+ }
+ 
+ .msg_container_base::-webkit-scrollbar-thumb {
+     -webkit-box-shadow: inset 0 0 6px #000000;
+     background-color: #555;
+ }
+ 
+ .avatar-image {
+     bottom: 0;
+     max-width: 300%;
+     max-height: 300%;
+ }
+ 
+ .panel {
+     height: 39px;
+     margin-left: -5px;
+     width: 280px;
+     background: #a7b1c1;
+     margin-bottom: 0;
+ }
+ 
+ .minimize {
+     float: right;
+     cursor: pointer;
+ }

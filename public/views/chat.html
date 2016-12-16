@@ -4,8 +4,8 @@
         <span ng-show="chat.unreadMessageCount === 0" class="text-center">Kissa Chat</span>
         <span ng-hide="chat.unreadMessageCount === 0" class="text-center">
             <span class="badge badge-danger">{{chat.unreadMessageCount}}</span>&nbsp;New&nbsp;Message</span>
-        <i class="fa fa-2x fa-chevron-up minimize" ng-click="chat.showHide()" ng-hide="chat.isHidden" aria-hidden="true"></i>
-        <i class="fa fa-2x fa-chevron-down minimize" ng-click="chat.showHide()" ng-show="chat.isHidden" aria-hidden="true"></i>
+        <i class="fa fa-2x minimize {{chat.isHidden ? 'fa-chevron-down' : 'fa-chevron-up'}}" ng-click="chat.toggle()" aria-hidden="true">
+</i>
     </div>
     <div ng-show="chat.isHidden" id="chatbox">
         <span ng-repeat="message in chat.messageArray">
