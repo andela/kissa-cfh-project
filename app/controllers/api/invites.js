@@ -20,7 +20,7 @@ exports.emailinvite = (req, res) => {
       to: req.body.email,
       subject: 'Invitation to join Game',
       html: `<h3> Cards for Humanity </h3><br/>
-      You have been invited by <a>${sender}</a> to join a game in cards for humanity<br/>
+      You have been invited by <strong>${sender}</strong> to join a game in cards for humanity<br/>
       click on this link <a href="${link}">here</a> to join the game now.<br/>
       <strong>Cards For Humanity</strong>`
     };
