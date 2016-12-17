@@ -1,89 +1,90 @@
-<div id="main-bod">
-  <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
-              </ul>
-            </div>
-          </div>      
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container custom-container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand-custom" href="#">
+                <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive custom-navbrand">
+            </a>
         </div>
-      </div>
-    </div>
-  </div>
-<!-- Fixed Logo & Menu Bar End -->
-
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign Up with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or create a username/password and select an avatar:</p>
-
-      <div class="sign-body" ng-controller="IndexController">
-        <div class="more-sign">
-          <form class="signup form-horizontal" action="/users" method="post">
-            <div class="control-group">
-              <label for="game" class="control-label"></label>
-              <div class="controls">
-                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="name" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="name" type="text" name="name" placeholder="Full name" required novalidate />
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="email" name="email" ng-model="showEmail" placeholder="Email" required novalidate />
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
-              </div>
-            </div>
-            <div id="contain-avatars">
-              <ul class="avatar-list">
-                <li ng-repeat="avatar in avatars" class="avatars ng-scope">
-                  <input name="avatar" type='radio' value="{{$index}}">
-                    <img ng-src="{{avatar}}">
-                  </input>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
                 </li>
-              </ul>
+                <li class="page-scroll">
+                    <a href="/">HOME</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="/#!/#about">ABOUT THE GAME</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="/#!/#charity">CHARITY</a>
+                </li>
+            </span>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+<div class="body" id="main-bod" ng-controller="IndexController">
+<div class="signin-wrapper body">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <div class=" row sign-up text-center">
+                <a href="/#!/signin?game={{gameId}}&email={{showEmail}}">SIGN IN INSTEAD
+                </a>
             </div>
-            <div class="form-actions">
-              <button id="sign-up-btn-other" type='submit'>Sign Up</button>
-              <a href="/#!/signin?game={{gameId}}&email={{showEmail}}">Go to signin</a>
+            <div class="row signin-sub-wrapper">
+                <div class="col-md-12 ">
+                    <h4 class="signup-subtitle text-center">
+                        Sign Up
+                    </h4>
+                    <form name="signUp" novalidate class="signup form-horizontal" action="/users" method="post">
+                        <div class="form-groups">
+                            <input class="form-control signup-input" type="text" name="name" ng-maxlength="7" ng-pattern="/[a-zA-Z0-9]/" ng-model="username" id="name" placeholder="Username">
+                            <span ng-show="signUp.name.$invalid" class="help-block error-message">Max 10 characters, Only Alphanumeric characters Allowed</span>
+                            <input id="email" type="email" name="email" ng-model="email" class="form-control" placeholder="Email">
+                            <span ng-show="signUp.email.$invalid" class="help-block error-message">Invalid email Address</span>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                            <div id="contain-avatars" class="text-center">
+                                Select Avatar
+                                <ul ng-controller="IndexController" class="list-inline text-center">
+                                    <li ng-repeat="avatar in avatars" class="avatars ng-scope">
+                                        <input name="avatar" type='radio' value="{{$index}}">
+                                            <img width="30" ng-src="{{avatar}}">
+                                        </input>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="signup-submit">
+                                <button ng-disabled="signUp.$invalid" type="submit" class="form-control signup-submit login-button">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12 signin-social-pane">
+                    <h4 class="text-center">
+                        OR
+                    </h4>
+                    <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
+                        <span class="fa fa-twitter"></span>
+                        Sign Up with Twitter</a>
+                    <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+                        <span class="fa fa-facebook"></span>
+                        Sign Up with Facebook</a>
+                    <a href="/auth/google" class="btn btn-block btn-social btn-google">
+                        <span class="fa fa-google"></span>
+                        Sign Up with Google</a>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
     </div>
-    </div>
-    </div>
-  </div>
 </div>
