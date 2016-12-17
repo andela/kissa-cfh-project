@@ -9,7 +9,7 @@ angular.module('mean.system')
 
   $scope.showError = function() {
     if ($location.search().error) {
-      return $location.search().error;
+      return true;
     } else {
       return false;
     }
