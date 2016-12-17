@@ -14,3 +14,8 @@ public/emoji/lib/js/emoji-picker.js
 public/emoji/lib/js/emoji-picker.js.map
 public/emoji/lib/js/emoji-init.js
 public/emoji/lib/js/config.js
+public/emoji/css/*.*
+public/emoji/css/cover.css
+public/emoji/css/cover.css.map
+public/emoji/css/cover.scss
+public/emoji/css/bootstrap.min.css

@@ -1,4 +1,3 @@
-/* eslint-disable */
 class @EmojiPicker
   # Options:
   #    spriteSheetPath: Path to each category's sprite sheet. Use '!' as a placeholder for the number (see default).
