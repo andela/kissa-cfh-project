@@ -56,16 +56,6 @@
     <button onclick=" angular.element(document.getElementById('usermsg')).scope().sendMessage(document.getElementById('usermsg').value);">send</button>
 </div>
 <script>
-function send(chatMessage) {
-    chat.sendMessage(chatMessage);
-}
-function handle(e) {
-    if(e.keyCode === 13){
-            e.preventDefault(); // Ensure it is only this code that runs
-            chat.sendMessage(chatMessage);
-        }
-
-}
 </script>
 <script type="text/javascript" src="/emoji/lib/js/emoji-init.js"></script>
 </div>
