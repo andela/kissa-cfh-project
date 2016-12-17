@@ -1,3 +1,4 @@
+/* eslint-disable */
 $(function() {
     // Initializes and creates emoji set from sprite sheet
     window.emojiPicker = new EmojiPicker({

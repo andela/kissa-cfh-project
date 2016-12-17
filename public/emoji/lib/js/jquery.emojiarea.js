@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * emojiarea - A rich textarea control that supports emojis, WYSIWYG-style.
  * Copyright (c) 2012 DIY Co
