@@ -6,3 +6,4 @@
 public/js/*
 public/emoji/lib/js/*
 public/emoji/js/*
+public/emoji/lib/js/emoji-picker.coffee
