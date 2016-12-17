@@ -3,3 +3,4 @@ eslint:
   config_file: .eslintrc
 fail_on_violaions: true
 ignore_file: .eslintignore
+ignore_file: public/emoji/lib/js/emoji-picker.coffee
