@@ -1,4 +1,4 @@
-/* eslint amd:true */
+/* eslint-disable import/no-unresolved, amd:0 */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');
@@ -6,15 +6,17 @@ const questions = require('../app/controllers/questions');
 const index = require('../app/controllers/index');
 const invite = require('../app/controllers/api/invites');
 const search = require('../app/controllers/api/search');
+const game = require('../app/controllers/api/game');
 const jwtAuth = require('../app/controllers/api/auth');
 
 
 const routes = (app, passport) => {
-// User Routes
+  // User Routes
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
   app.get('/signout', users.signout);
+  app.get('/playgame', users.playGame);
 
   // Setting up the users api
   app.post('/users', users.create);
@@ -103,6 +105,14 @@ const routes = (app, passport) => {
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
   app.post('/api/auth/login', jwtAuth.login);
+
+  // Game Play Routes
+  app.post('/api/games/:id/start', game.create);
+  app.put('/api/games/:id/start', game.update);
+
+  // Get game history
+  app.get('/api/:userid/:gameid/history', game.viewOne);
+  app.get('/api/:userid/games/history', game.viewAll)
 };
 
 module.exports = routes;
