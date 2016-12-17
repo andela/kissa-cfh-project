@@ -1,4 +1,3 @@
-/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
 /* eslint amd:true */
 
 /**
@@ -12,8 +11,9 @@ const User = mongoose.model('User');
  * Gets all users from the database
  */
 exports.users = (req, res) => {
-  const query = req.params.email || '';
-  User.find({ email: { $regex: query } }).limit(10)
+  if (req.user && req.user.id) {
+    const query = req.params.email || '';
+    User.find({ email: { $regex: query } }).limit(10)
     .exec((err, result) => {
       if (err) {
         return res.status(500).json(err);
@@ -21,6 +21,9 @@ exports.users = (req, res) => {
         // hope this never happens.
         return res.status(404).send('I did not find any data');
       }
-      res.status(200).json(result);
+      return res.status(200).json(result);
     });
+  } else {
+    return res.status(404).json({ message: 'You do not have permission to visit this route'});
+  }
 };
