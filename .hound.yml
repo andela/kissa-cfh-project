@@ -5,6 +5,3 @@ eslint:
   config_file: .eslintrc
 ignore_file: .eslintignore
 fail_on_violaions: true
-ignore_file: public/emoji/css/cover.scss
-ignore_file: public/emoji/css/cover.css
-ignore_file: public/emoji/lib/js/emoji-picker.coffee

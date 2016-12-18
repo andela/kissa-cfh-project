@@ -19,3 +19,8 @@ public/emoji/css/cover.css
 public/emoji/css/cover.css.map
 public/emoji/css/cover.scss
 public/emoji/css/bootstrap.min.css
+public/emoji/css/cover.scss
+public/emoji/css/cover.css
+public/emoji/lib/js/nanoscroller.min.js
+public/emoji/lib/js/tether.min.js
+public/emoji/lib/js/config.js
