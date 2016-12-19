@@ -1,12 +1,12 @@
 <div class="row player" ng-repeat="player in game.players" style="background-color:{{colors[player.color]}}">
  <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-xs-4 col-lg-4">
      <span ng-show="isPremium($index)">
        <img ng-src="img/king.png" id="king">
      </span>
      <img ng-src="{{player.avatar}}"/>
     </div>
-    <div class="col-md-8 player-name">
+    <div class="col-md-8 col-xs-8 col-lg-8 player-name">
      {{player.username | upperFirstLetter}}
      <span class="label label-success"> {{player.points}}/{{game.pointLimit}}</span>
      <div class="player-is-player" ng-show="isPlayer($index)" id="player-star">

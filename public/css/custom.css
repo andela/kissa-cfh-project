@@ -722,32 +722,6 @@
     float: left;
   }
   
-  .col-md-15:hover {
-    box-shadow: .3em .3em .3em #333;
-    border: 1px solid #177d17;
-  }
-  
-  @media (min-width: 768px) {
-    .col-sm-15 {
-      width: 20%;
-      float: left;
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .col-md-15 {
-      width: 19%;
-      float: left;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .col-lg-15 {
-      width: 20%;
-      float: left;
-    }
-  }
-  
   #lobby-how-to-play {
     font-size: 1.2em;
     text-transform: uppercase;
@@ -791,7 +765,8 @@
   }
   
   #join-new-game {
-    margin-top: 2% margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
   
   #notifications {
@@ -815,4 +790,10 @@
   
   .custom-navbrand {
     max-width: 70px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .well-media {
+      padding: 0;
+    }
   }
