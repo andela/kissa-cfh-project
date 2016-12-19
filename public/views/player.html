@@ -17,6 +17,7 @@
    </div>
     <div  class="row player-czar">
      <span ng-show="currentCzar($index)">Czar</span>
-     <i class="fa fa-plus-circle add-friend" aria-hidden="true"></i>
+     <i ng-show="player.id" ng-if="player.id !== isUser._id" ng-click="addFriend(player.email)" class="fa fa-plus-circle add-friend" aria-hidden="true"></i>
+<p> {{friendMessage}} </p>
     </div>
 </div>
