@@ -1263,8 +1263,6 @@
      margin: 0 auto;
      padding-top: 5px;
      padding-bottom: 3px;
-     padding-left: 10px;
-     padding-right: 12px;
      position: fixed;
      background: #a7b1c1;
      width: 300px;
@@ -1276,21 +1274,17 @@
  
  #chatbox {
      text-align: left;
-     margin-bottom: 25px;
-     padding-top: 2px;
-     padding-right: 2px;
-     padding-bottom: 2px;
      padding-left: 2px;
-     background: #eeeeef;
-     height: 300px;
-     width: 280px;
+     background: #ffffff;
+     height: 400px;
+     max-width: 300px;
      border: 1px solid gray;
      overflow: auto;
  }
  
  .chatinput {
      margin-bottom: 1px;
-     width: 280px !important;
+     width: 295px !important;
  }
  
  .user {
@@ -1443,14 +1437,14 @@
  }
  
  .avatar-image {
-     bottom: 0;
-     max-width: 300%;
-     max-height: 300%;
+    bottom: 0;
+    max-width: 70%;
+    max-height: 30%;
  }
  
  .panel {
      height: 39px;
-     margin-left: -5px;
+     margin-left: 5px;
      width: 280px;
      background: #a7b1c1;
      margin-bottom: 0;
@@ -2748,4 +2742,30 @@ li {
 
 .hide-game {
   display: none;
+}
+.list-group-item {
+  border: 1px solid #ffffff !important;
+}
+
+.chat_list .list-group-item {
+    padding: 5px 4px;
+    min-height: 50px;
+    border: 1px #ffffff !important;
+}
+@media (max-width: 768px) {
+    .chat_list .list-group-item {
+        min-height: inherit;
+    }
+}
+.chat_list .list-group-item-text {
+    word-wrap: break-word;
+    display: flex;
+    overflow: auto;
+}
+.chat_list .pull-left {
+    width: 55px;
+    text-align: center;
+}
+.list-group-item:hover {
+    background-color: #dddddd;
 }
