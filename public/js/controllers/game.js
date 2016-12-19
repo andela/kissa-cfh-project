@@ -179,7 +179,9 @@ angular.module('mean.system')
       const link = `/api/games/${gameId}/start`;
       const data = {
         creator: game.players[0].id,
-        friends: game.players
+        winner: game.players[game.gameWinner].id,
+        status: 'true',
+        rounds: game.round
       }
       dataFactory.updateGameHistory(link, data)
       .success(function(response) {
@@ -208,77 +210,50 @@ angular.module('mean.system')
             }
             $scope.pickedCards = [];
         });
-    };
 
+        // In case player doesn't pick a card in time, show the table
+        $scope.$watch('game.state', function() {
+            if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+                $scope.showTable = true;
+            }
+        });
 
-    $scope.closeModal = function () {
-      $scope.modalInstance.close();
-    };
-    $scope.$watch('game.state', function () {
-      if (game.state === 'game ended' && $scope.isCustomGame()) {
-        const gameId = $location.search().game;
-        const link = `/api/games/${gameId}/start`;
-        const data = {
-          creator: game.players[0].id,
-          winner: game.players[game.gameWinner].id,
-          status: 'true',
-          rounds: game.round
+        $scope.$watch('game.gameID', function() {
+            if (game.gameID && game.state === 'awaiting players') {
+                if (!$scope.isCustomGame() && $location.search().game) {
+                    // If the player didn't successfully enter the request room,
+                    // reset the URL so they don't think they're in the requested room.
+                    $location.search({});
+                } else if ($scope.isCustomGame() && !$location.search().game) {
+                    // Once the game ID is set, update the URL if this is a game with friends,
+                    // where the link is meant to be shared.
+                    $location.search({ game: game.gameID });
+                    if (!$scope.modalShown) {
+                        setTimeout(function() {
+                            var link = document.URL;
+                            var txt = 'Give the following link to your friends so they can join your game: ';
+                            $('#lobby-how-to-play').text(txt);
+                            $('#oh-el').css({ 'text-align': 'center', 'font-size': '22px', 'background': 'white', 'color': 'black' }).text(link);
+                        }, 200);
+                        $scope.modalShown = true;
+                    }
+                }
+            }
+        });
+
+        if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
+            if (!!window.user) {
+                console.log('joining custom game');
+                game.joinGame('joinGame', $location.search().game);
+            } else {
+                $location.path('/signup');
+            }
+        } else if ($location.search().custom) {
+            game.joinGame('joinGame', null, true);
+        } else {
+            game.joinGame();
         }
-        dataFactory.updateGameHistory(link, data)
-          .success(function (response) {
-            $scope.model = 'Game updated';
-          })
-          .error(function (response) {
-            $scope.message = 'Could not update game';
-          });
-      }
-    });
 
-    $scope.abandonGame = function () {
-      game.leaveGame();
-      $location.path('/');
-    };
-
-    // Catches changes to round to update when no players pick card
-    // (because game.state remains the same)
-    $scope.$watch('game.round', function () {
-      $scope.hasPickedCards = false;
-      $scope.showTable = false;
-      $scope.winningCardPicked = false;
-      $scope.makeAWishFact = makeAWishFacts.pop();
-      if (!makeAWishFacts.length) {
-        makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
-      }
-      $scope.pickedCards = [];
-    });
-
-    // In case player doesn't pick a card in time, show the table
-    $scope.$watch('game.state', function () {
-      if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
-        $scope.showTable = true;
-      }
-    });
-
-    $scope.$watch('game.gameID', function () {
-      if (game.gameID && game.state === 'awaiting players') {
-        if (!$scope.isCustomGame() && $location.search().game) {
-          // If the player didn't successfully enter the request room,
-          // reset the URL so they don't think they're in the requested room.
-          $location.search({});
-        } else if ($scope.isCustomGame() && !$location.search().game) {
-          // Once the game ID is set, update the URL if this is a game with friends,
-          // where the link is meant to be shared.
-          $location.search({ game: game.gameID });
-          if (!$scope.modalShown) {
-            setTimeout(function () {
-              var link = document.URL;
-              var txt = 'Give the following link to your friends so they can join your game: ';
-              $('#lobby-how-to-play').text(txt);
-              $('#oh-el').css({ 'text-align': 'center', 'font-size': '22px', 'background': 'white', 'color': 'black' }).text(link);
-            }, 200);
-            $scope.modalShown = true;
-          }
-        }
   $scope.searchUsers = function () {
     const link = `/api/search/users/${$scope.email}`;
     dataFactory.searchUsers(link)
@@ -302,61 +277,25 @@ angular.module('mean.system')
         let templateUrl = '/views/popup.html';
         showModal(message, templateUrl);
       }
-    });
-
-    if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
-      if (!!window.user) {
-        console.log('joining custom game');
-        game.joinGame('joinGame', $location.search().game);
-      } else {
-        $location.path('/signup');
+      const link = '/api/invite/user';
+      const data = {
+        email: $scope.email,
+        link: document.URL,
+        sender: window.user.name
       }
-    } else if ($location.search().custom) {
-      game.joinGame('joinGame', null, true);
-    } else {
-      game.joinGame();
+      dataFactory.sendInvites(link, data)
+      .success(function(response) {
+        $scope.message = 'Invite has been sent';
+        $scope.inviteList.push($scope.email);
+      })
+      .error(function (response) {
+        $scope.message = 'Could not send invite';
+      })
     }
+  };
 
-    $scope.searchUsers = function () {
-      const link = `/api/search/users/${$scope.email}`;
-      dataFactory.searchUsers(link)
-        .success(function (data, status, headers, config) {
-          $scope.searchResult = data;
-        })
-        .error(function (data, status, headers, config) {
-          $scope.noResult = status;
-        });
-    };
-    $scope.selectList = function (word) {
-      $scope.email = word;
-    };
-    $scope.sendInvites = function () {
-      const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
-      if (regex.test($scope.email) && !$scope.inviteList.includes($scope.email)) {
-        if ($scope.inviteList.length > game.playerMaxLimit) {
-          let message = `You have exceeded ${game.playerMaxLimit}, the  maximum amount of invite for this game.`;
-          let templateUrl = '/views/popup.html';
-          showModal(message, templateUrl);
-        }
-        const link = '/api/invite/user';
-        const data = {
-          email: $scope.email,
-          link: document.URL,
-          sender: window.user.name
-        }
-        dataFactory.sendInvites(link, data)
-          .success(function (response) {
-            $scope.message = 'Invite has been sent';
-            $scope.inviteList.push($scope.email);
-          })
-          .error(function (response) {
-            $scope.message = 'Could not send invite';
-          })
-      }
-    };
-
-    function showModal(message, template) {
-      $scope.animationsEnabled = true;
+  function showModal(message, template) {
+    $scope.animationsEnabled = true;
       $scope.errorBody = message;
       $scope.modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
@@ -393,6 +332,7 @@ angular.module('mean.system')
   $scope.sendMessage = (userMessage) => {
             $scope.chat.postGroupMessage(userMessage);
             $scope.chatMessage = '';
+            document.getElementsByClassName('emoji-wysiwyg-editor')[0].innerHTML = '';
         };
   $scope.keyPressed = function($event) {
             const keyCode = $event.which || $event.keyCode;
