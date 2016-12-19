@@ -1265,17 +1265,17 @@ li {
 
 .search-result {
   position: static;
-  float: none;
   display: block;
   min-width: 160px;
-  background-color: transparent;
-  border: none;
+  background-color: #ffffff;
+  border: 10px 10px 10px 10px;
   border-radius: 0;
   box-shadow: none;
   z-index: 1000;
-  color: #333333;
   height: 100px;
   overflow-y: scroll;
+  border-left: 50px;
+  padding: 10px 10px 10px 10px;
 }
 
 .item-focus {
