@@ -8,7 +8,7 @@
       <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand-custom" href="#">
-      <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive custom-navbrand">
+        <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive custom-navbrand">
       </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,22 +39,22 @@
       <div class="col-md-offset-4 col-md-4">
         <div class=" row sign-up text-center">
           <a href="#!/signup">
-          SIGN UP INSTEAD
-          </a>
+                    SIGN UP INSTEAD
+                </a>
         </div>
         <div class="row signin-sub-wrapper">
           <div class="col-md-12 ">
             <h4 class="signup-subtitle text-center">
               Login to Play Game
             </h4>
-            <div class="sign-error" ng-show="!showError()">
+            <div class="sign-error" ng-show="showError()">
               Please check your username/password and try again.
             </div>
-            <form novalidate name="signIn" class="signup form-horizontal" action="/users/session" method="post">
+            <form class="signup form-horizontal" action="/users/session" method="post">
               <div class="form-groups">
-                <input id="email" type="email" name="email" ng-model="email" class="form-control" placeholder="Email">
-                <span ng-show="signIn.email.$invalid" class="help-block error-message">Invalid email Address</span>
-                <input id="password" type="password" name="password" required class="form-control" placeholder="Password">
+                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate/>
+                <input id="email" type="text" name="email" class="form-control" placeholder="Email">
+                <input id="password" type="password" name="password" class="form-control" placeholder="Password">
                 <input type="submit" class="form-control login-button" value="Sign In">
               </div>
             </form>
@@ -64,14 +64,11 @@
               OR
             </h4>
             <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
-            <span class="fa fa-twitter"></span>
-            Sign in with Twitter</a>
+              <span class="fa fa-twitter"></span> Sign in with Twitter</a>
             <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
-            <span class="fa fa-facebook"></span>
-            Sign in with Facebook</a>
+              <span class="fa fa-facebook"></span> Sign in with Facebook</a>
             <a href="/auth/google" class="btn btn-block btn-social btn-google">
-            <span class="fa fa-google"></span>
-            Sign in with Google</a>
+              <span class="fa fa-google"></span> Sign in with Google</a>
           </div>
         </div>
       </div>
