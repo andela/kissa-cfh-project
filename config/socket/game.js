@@ -229,7 +229,7 @@ Game.prototype.startNextRound = function (self) {
   }, self.timeLimits.stateNextRound * 1000);
 };
 
-Game.prototype.changeCzar = function(self) {
+Game.prototype.changeCzar = function (self) {
   self.state = 'pick black card';
   self.table = [];
   if (self.czar >= self.players.length - 1) {
