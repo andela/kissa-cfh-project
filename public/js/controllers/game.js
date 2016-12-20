@@ -154,7 +154,7 @@ angular.module('mean.system')
     const gameId = $location.search().game;
     const link = `/api/games/${gameId}/start`;
     const data = {
-      creator: game.players[0].id,
+      creator: game.players[0],
       friends: game.players
     }
     dataFactory.saveGameHistory(link, data)
@@ -172,22 +172,28 @@ angular.module('mean.system')
     $scope.modalInstance.close();
   };
 
+  const gameID = $location.search().game;
+  const isCustom = $scope.isCustomGame();
+
   $scope.$watch('game.state', function() {
-    if (game.state === 'game ended' && $scope.isCustomGame()) {
-      const gameId = $location.search().game;
+    if (game.state === 'game ended' && isCustom && game.players[0].id === window.user._id) {
+      const gameId = gameID;
       const link = `/api/games/${gameId}/start`;
       const data = {
-        creator: game.players[0].id,
-        winner: game.players[game.gameWinner].id,
-        status: 'true',
-        rounds: game.round
+        creator: game.players[0],
+        winner: game.players[game.gameWinner],
+        status: true,
+        rounds: game.round,
+        friends: game.players
       }
       dataFactory.updateGameHistory(link, data)
       .success(function(response) {
-        $scope.model = 'Game updated';
+        $scope.model = response.message;
+        console.log($scope.model);
       })
       .error(function (response) {
-        $scope.message = 'Could not update game';
+        $scope.message = response.message;
+        console.log($scope.message);
       });
     }
   });

@@ -14,14 +14,15 @@ const GameServices = {
       const game = new Game({
         game_id: gameId,
         creator: req.body.creator,
-        winner: '',
+        winner: {},
         rounds: 0,
         friends: req.body.friends,
         date_created: new Date(),
-        completed: 'false'
+        completed: false
       });
       game.save((err) => {
         if (err) {
+          console.log(err);
           return res.status(500).json({
             message: 'An error occured while trying to save',
             error: err
@@ -37,13 +38,14 @@ const GameServices = {
     const gameCreator = req.body.creator;
     const gameId = req.params.id;
     const query = { $and: [
-          { game_id: gameId }, { creator: gameCreator }
+          { game_id: gameId }, { 'creator.id': gameCreator.id }
     ] };
     if (req.user && req.user.id) {
       Game.update(query, {
         winner: req.body.winner,
         completed: req.body.status,
-        rounds: req.body.rounds
+        rounds: req.body.rounds,
+        friends: req.body.friends
       }, (err, result) => {
         if (err) return res.status(500).json({ message: 'An error occured while updating this data', error: err });
         return res.status(200).json({ message: 'Game updated sucessfully' });
@@ -52,7 +54,7 @@ const GameServices = {
       return res.status(403).json({ message: 'you do not have permission to access this route' });
     }
   },
-  viewOne(req, res) {
+  gameDetails(req, res) {
     const userId = req.params.userid;
     const gameId = req.params.gameid;
     if (req.user && req.user.id) {
@@ -69,14 +71,14 @@ const GameServices = {
       });
     }
   },
-  viewAll(req, res) {
+  gameLog(req, res) {
     const userId = req.params.userid;
     if (req.user && req.user.id) {
       Game.find({
         $or: [
-          { creator: userId }, { friends: userId }
+          { 'creator.id': userId }, { 'friends.id': userId }
         ]
-      })
+      }).sort({_id: -1})
       .exec((err, result) => {
         if (err) {
           return res.status(500).json({

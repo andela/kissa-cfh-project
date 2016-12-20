@@ -110,8 +110,8 @@ const routes = (app, passport) => {
   app.put('/api/games/:id/start', game.update);
 
   // Get game history
-  app.get('/api/:userid/:gameid/history', game.viewOne);
-  app.get('/api/:userid/games/history', game.viewAll)
+  app.get('/api/games/history/:userid/:gameid', game.gameDetails);
+  app.get('/api/games/history/:userid', game.gameLog);
 };
 
 module.exports = routes;
