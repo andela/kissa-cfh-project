@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="chat-wrapper">
     <div class="panel">
         <i class="fa fa-2x fa-comments-o" size="30" aria-hidden="true"></i>
         <span ng-show="chat.unreadMessageCount === 0" class="text-center">Kissa Chat</span>
@@ -14,18 +14,18 @@
         <div class="list-group-item">
             <div class="pull-left hidden-xs">
                 <div style="width:30px;height:60px;">
-                    <img ng-src="{{message.avatar}}" class="avatar-image">                    
-                </div>
-            </div>
-            
-            <div>
-                <small class="list-group-item-heading text-muted text-primary">{{message.senderName}}<small class="text-muted">&nbsp;{{message.time}}</small></small>
-                <p class="list-group-item-text">
-                    {{message.textContent}}
-                </p>
-            </div>
-        </div>
-        </span>
+<img ng-src="{{message.avatar}}" class="avatar-image">
+</div>
+</div>
+
+<div>
+    <small class="list-group-item-heading text-muted text-primary">{{message.senderName}}<small class="text-muted">&nbsp;{{message.time}}</small></small>
+    <p class="list-group-item-text">
+        {{message.textContent}}
+    </p>
+</div>
+</div>
+</span>
 </div>
 <div ng-show="chat.isHidden" class="chatinput">
     <div class="inner-addon right-addon">
