@@ -36,52 +36,53 @@
 </nav>
 <div class="body" id="main-bod" ng-controller="IndexController">
   <div class="signin-wrapper body">
-    <div class="col-md-offset-4 col-md-4">
-      <div class=" row sign-up text-center">
-        <a href="/#!/signin?game={{gameId}}&email={{showEmail}}">SIGN IN INSTEAD
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class=" row sign-up text-center">
+          <a href="/#!/signin?game={{gameId}}&email={{showEmail}}">SIGN IN INSTEAD
                 </a>
-      </div>
-      <div class="row signin-sub-wrapper">
-        <div class="col-md-12 ">
-          <h4 class="signup-subtitle text-center">
-            Sign Up
-          </h4>
-          <form name="signUp" novalidate class="signup form-horizontal" action="/users" method="post">
-            <div class="form-groups">
-              <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
-              <input class="form-control signup-input" type="text" name="name" ng-maxlength="7" ng-pattern="/[a-zA-Z0-9]/" ng-model="username" id="name" placeholder="Username">
-              <span ng-show="signUp.name.$invalid" class="help-block error-message">Max 10 characters, Only Alphanumeric characters Allowed</span>
-              <input id="email" type="email" name="email" ng-model="email" class="form-control" placeholder="Email">
-              <span ng-show="signUp.email.$invalid" class="help-block error-message">Invalid email Address</span>
-              <input id="password" type="password" name="password" class="form-control" placeholder="Password">
-              <div id="contain-avatars" class="text-center">
-                Select Avatar
-                <ul ng-controller="IndexController" class="list-inline text-center">
-                  <li ng-repeat="avatar in avatars" class="avatars ng-scope">
-                    <input name="avatar" type='radio' value="{{$index}}">
-                    <img width="30" ng-src="{{avatar}}">
-                    </input>
-                  </li>
-                </ul>
-              </div>
-              <div class="signup-submit">
-                <button ng-disabled="signUp.$invalid" type="submit" class="form-control signup-submit login-button">Sign Up</button>
-              </div>
-            </div>
-          </form>
         </div>
-        <div class="col-md-12 signin-social-pane">
-          <h4 class="text-center">
-            OR
-          </h4>
-          <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
-            <span class="fa fa-twitter"></span> Sign Up with Twitter</a>
-          <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
-            <span class="fa fa-facebook"></span> Sign Up with Facebook</a>
-          <a href="/auth/google" class="btn btn-block btn-social btn-google">
-            <span class="fa fa-google"></span> Sign Up with Google</a>
+        <div class="row signin-sub-wrapper">
+          <div class="col-md-12 ">
+            <h4 class="signup-subtitle text-center">
+              Sign Up
+            </h4>
+            <form name="signUp" novalidate class="signup form-horizontal" action="/users" method="post">
+              <div class="form-groups">
+                <input class="hide-game input-info" id="game" type="text" name="game" ng-model="gameId" placeholder="Game" novalidate />
+                <input class="form-control signup-input" type="text" name="name" ng-maxlength="7" ng-pattern="/[a-zA-Z0-9]/" ng-model="username" id="name" placeholder="Username">
+                <span ng-show="signUp.name.$invalid" class="help-block error-message">Max 10 characters, Only Alphanumeric characters Allowed</span>
+                <input id="email" type="email" name="email" ng-model="email" class="form-control" placeholder="Email">
+                <span ng-show="signUp.email.$invalid" class="help-block error-message">Invalid email Address</span>
+                <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+                <div id="contain-avatars" class="text-center">
+                  Select Avatar
+                  <ul ng-controller="IndexController" class="list-inline text-center">
+                    <li ng-repeat="avatar in avatars" class="avatars ng-scope">
+                      <input name="avatar" type='radio' value="{{$index}}">
+                      <img width="30" ng-src="{{avatar}}">
+                      </input>
+                    </li>
+                  </ul>
+                </div>
+                <div class="signup-submit">
+                  <button ng-disabled="signUp.$invalid" type="submit" class="form-control signup-submit login-button">Sign Up</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-12 signin-social-pane">
+            <h4 class="text-center">
+              OR
+            </h4>
+            <a href="/auth/twitter" class="btn btn-block btn-social btn-twitter">
+              <span class="fa fa-twitter"></span> Sign Up with Twitter</a>
+            <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+              <span class="fa fa-facebook"></span> Sign Up with Facebook</a>
+            <a href="/auth/google" class="btn btn-block btn-social btn-google">
+              <span class="fa fa-google"></span> Sign Up with Google</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

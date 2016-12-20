@@ -423,8 +423,12 @@ p a:hover {
 /**** About Us ****/
 
 #main-bod {
-  max-width: 1400px;
-  margin: 0px auto;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+#main-container{
+padding: 0;
 }
 
 .wpb-about-us {
