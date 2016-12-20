@@ -1,4 +1,4 @@
-/* eslint-disable import/no-unresolved, amd:0 */
+/* eslint amd:true */
 const users = require('../app/controllers/users');
 const answers = require('../app/controllers/answers');
 const avatars = require('../app/controllers/avatars');
@@ -97,23 +97,30 @@ const routes = (app, passport) => {
   app.get('/', index.render);
   app.get('/gametour', index.gameTour);
 
-  // Invite users with nodemailer
-  app.post('/api/invite/user', invite.emailinvite);
-
   // Search Users api
-  app.get('/api/search/users/:email', search.users);
+  app.get('/api/search/users/:email', users.authenticate, search.users);
+  app.get('/api/search/users/friends/:email', users.authenticate, search.searchFriends);
+  app.post('/api/users/friends', users.authenticate, search.addFriend);
 
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
   app.post('/api/auth/login', jwtAuth.login);
 
   // Game Play Routes
-  app.post('/api/games/:id/start', game.create);
-  app.put('/api/games/:id/start', game.update);
+  app.post('/api/games/:id/start', users.authenticate, game.create);
+  app.put('/api/games/:id/start', users.authenticate, game.update);
 
   // Get game history
-  app.get('/api/:userid/:gameid/history', game.viewOne);
-  app.get('/api/:userid/games/history', game.viewAll)
+  app.get('/api/:userid/:gameid/history', users.authenticate, game.viewOne);
+  app.get('/api/:userid/games/history', users.authenticate, game.viewAll);
+
+  // Invite users with nodemailer
+  app.post('/api/users/email-invite', users.authenticate, invite.emailinvite);
+
+  // Invite Users and Friends
+  app.post('/api/users/send-message', users.authenticate, invite.appMessage);
+  app.get('/api/users/get-messages', users.authenticate, invite.getMessages);
+  app.get('/api/users/view-message/:id', users.authenticate, invite.viewMessage);
 };
 
 module.exports = routes;

@@ -195,3 +195,14 @@ exports.user = function (req, res, next, id) {
       next();
     });
 };
+
+/**
+ * Authenticate the user
+ */
+exports.authenticate = function (req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/#!/signin?error=invalid');
+    return;
+  }
+  next();
+};

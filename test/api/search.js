@@ -7,20 +7,28 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const agent = request.agent(app);
 
-let user = '';
+let user;
+let user2;
 
 describe('Search api', () => {
   before((done) => {
     User.remove().exec();
-    const user1 = new User({
+    user = new User({
       name: 'Full name',
-      email: 'search@search.com',
+      email: 'boss@boss.com',
       username: 'user',
       password: 'password'
     });
-    user1.save();
+    user2 = new User({
+      name: 'New Friend',
+      email: 'newfriend@friends.com',
+      username: 'user',
+      password: 'password'
+    });
+    user.save();
+    user2.save();
     agent.post('/users/session')
-    .send({ email: user1.email, password: user1.password })
+    .send({ email: user.email, password: user.password })
     .end((err, res) => {
       if (err) return done(err);
       res.should.have.status(302);
@@ -31,9 +39,9 @@ describe('Search api', () => {
   describe('Search route', () => {
     it('routes successfully', (done) => {
       agent
-      .get('/api/search/users/search@search.com')
+      .get('/api/search/users/boss@boss.com')
       .set('Accept', 'application/json')
-      .end(function(err, res){
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
         done();
@@ -43,18 +51,39 @@ describe('Search api', () => {
       agent
       .get('/api/search/users/')
       .set('Accept', 'application/json')
-      .end(function(err, res) {
+      .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(404);
+      });
+      done();
+    });
+    it('should add a user as friend', (done) => {
+      agent
+      .post('/api/users/friends')
+      .send({ friendEmail: user2.email })
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(200);
         done();
       });
     });
-    it('should not search for anything when the user is not logged in', (done) => {
-      request(app)
-      .get('/api/search/users/')
-      .end(function(err, res) {
+    it('should return an error when trying to add an already added user as friend', (done) => {
+      agent
+      .post('/api/users/friends')
+      .send({ friendEmail: user2.email })
+      .end((err, res) => {
         if (err) return done(err);
-        res.should.have.status(404);
+        res.should.have.status(401);
+        done();
+      });
+    });
+    it('should return the list of user\'s friend', (done) => {
+      const email = user2.email;
+      agent
+      .get(`/api/search/users/friends/${email}`)
+      .end((err, res) => {
+        if (err) return done(err);
+        res.should.have.status(200);
         done();
       });
     });
