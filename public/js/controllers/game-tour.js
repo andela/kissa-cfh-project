@@ -176,7 +176,6 @@ angular.module('mean.system')
  	      });
  	    }
  	    default: {
- 	     window.location = '/play';
  	    }
  	    }
  	  };
