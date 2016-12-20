@@ -35,14 +35,16 @@
 </nav>
 <div class="body" id="main-bod" ng-controller="IndexController">
   <div id="game-log-button" ng-controller="DashboardController">
-    <div class="choose-play-wrapper body" style="padding-left: 5%; padding-right: 5%; padding-top: 8%;">
+    <div class="choose-play-wrapper body game-log-wrapper">
       <div class="row">
         <div class="col-md-4">
           <div ng-controller="GameController">
-          <div id="player-container" ng-repeat="player in game.players">
-              <div ng-show="isPlayer($index)" id="player-star" class="text-center" style="margin-bottom: 50px;">
+            <div id="player-container" ng-repeat="player in game.players">
+              <div ng-show="isPlayer($index)" id="player-star" class="text-center">
                 <img ng-src="{{player.avatar}}"/>
-                <div id="player-name" style="color: #FFF;"><h4>Welcome, {{player.username | uppercase}}</h4></div>
+                <div id="player-name">
+                  <h4 class="player-name-log">Welcome, {{player.username | uppercase}}</h4>
+                </div>
               </div>
           </div>
         </div>
@@ -62,8 +64,8 @@
             </div>
           </a>
         </div>
-        <div class="table-responsive col-md-8">
-          <table class="table table-bordered game-log" ng-show="showGameLog" style="background: #ccc;">
+        <div class="table-responsive col-md-8 game-log-table">
+          <table class="table table-bordered game-log" ng-show="showGameLog">
             <thead>
               <tr class="success">
                 <th>Game id</th>
