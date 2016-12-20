@@ -22,4 +22,6 @@
   <h4 class="invite-list">List of invited friends</h4>
   <invites><invites>
 </div>
-
+<div id="deck-cards" ng-if="isCzar() && !winningCardPicked" class="black-cards">
+  <button class="btn btn-primary" ng-click="startNextRound()">Start Next Round</button>
+</div>
