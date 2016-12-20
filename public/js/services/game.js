@@ -138,8 +138,17 @@ angular.module('mean.system')
       game.state = data.state;
     }
 
-    if (data.state === 'waiting for players to pick') {
+    if (data.state === 'pick black card') {
       game.czar = data.czar;
+      if (game.czar === game.playerIndex) {
+        addToNotificationQueue('You\'re the Card Czar! Click to Select a question');
+        // } else if (game.curQuestion.numAnswers === 1) {
+        //   addToNotificationQueue('Select an answer!');
+        } else {
+          addToNotificationQueue('Waiting for Czar to pick Card');
+        }
+      } 
+    if (data.state === 'waiting for players to pick') {
       game.curQuestion = data.curQuestion;
       // Extending the underscore within the question
       game.curQuestion.text = data.curQuestion.text.replace(/_/g,'<u></u>');
@@ -162,6 +171,7 @@ angular.module('mean.system')
       }
     } else if (data.state === 'winner has been chosen' &&
               game.curQuestion.text.indexOf('<u></u>') > -1) {
+      game.czar = data.czar;
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
@@ -204,6 +214,10 @@ angular.module('mean.system')
   };
 
   decrementTime();
+
+  game.startNextRound = function() {
+    socket.emit('selectNextRoundCard');
+  }
 
   return game;
 }]);
