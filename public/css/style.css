@@ -124,10 +124,10 @@
 }
 
 .sign-error {
- text-align: center;
- color: #e40000;
- font-family: arial;
- font-size: 0.8em;
+  text-align: center;
+  color: #e40000;
+  font-family: arial;
+  font-size: 0.8em;
 }
 
 
@@ -423,8 +423,12 @@ p a:hover {
 /**** About Us ****/
 
 #main-bod {
-  max-width: 1400px;
-  margin: 0px auto;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+#main-container{
+padding: 0;
 }
 
 .wpb-about-us {
@@ -896,7 +900,8 @@ li {
   left: 0;
 }
 
-.wpb-contact-us .wpb-section-title, .wpb-contact-us .container {
+.wpb-contact-us .wpb-section-title,
+.wpb-contact-us .container {
   position: relative;
   z-index: 1000;
 }
@@ -995,14 +1000,6 @@ li {
   font-size: 1.1em;
   font-weight: bold;
   vertical-align: top;
-}
-
-
-/*Override Bootstrap Row Class*/
-
-.row {
-  margin-left: 0;
-  margin-right: 9px;
 }
 
 #donations {
@@ -1265,17 +1262,17 @@ li {
 
 .search-result {
   position: static;
-  float: none;
   display: block;
   min-width: 160px;
-  background-color: transparent;
-  border: none;
+  background-color: #ffffff;
+  border: 10px 10px 10px 10px;
   border-radius: 0;
   box-shadow: none;
   z-index: 1000;
-  color: #333333;
   height: 100px;
   overflow-y: scroll;
+  border-left: 50px;
+  padding: 10px 10px 10px 10px;
 }
 
 .item-focus {
