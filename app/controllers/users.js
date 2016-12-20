@@ -199,9 +199,8 @@ exports.user = function (req, res, next, id) {
 /**
  * Authenticate the user
  */
-exports.authenticate = function(req, res, next){
-  //check if we have a signed in user
-  if(!req.isAuthenticated()){
+exports.authenticate = function (req, res, next) {
+  if (!req.isAuthenticated()) {
     res.redirect('/#!/signin?error=invalid');
     return;
   }
