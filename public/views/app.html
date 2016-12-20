@@ -1,61 +1,58 @@
-</script>
 <div id="app-container" ng-controller="GameController">
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container custom-container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                Menu
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand-custom" href="#">
-                <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
-            </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
-            <ul class="nav navbar-nav navbar-right nav-pad">
-                <li class="page-scroll" id='abandon-game-button' ng-click="abandonGame()">
-                    <a href="/">ABANDON GAME</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu
+                    <i class="fa fa-bars"></i>
+                </button>
+        <a class="navbar-brand-custom" href="#">
+          <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+        </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+        <ul class="nav navbar-nav navbar-right nav-pad">
+          <li class="page-scroll" id='abandon-game-button' ng-click="abandonGame()">
+            <a href="/">ABANDON GAME</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
-</nav>
-
-<div class="play-wrapper">
+  </nav>
+  <div class="play-wrapper">
     <div class="row">
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-2 well text-center" id="inner-timer-container">
-                    <timer></timer>
-                </div>
-                <div class="col-md-10 well">
-                    <div class="col-md-12">
-                        <question></question>
-                    </div>
-                </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-2 well text-center" id="inner-timer-container">
+            <timer></timer>
+          </div>
+          <div class="col-md-10 well">
+            <div class="col-md-12">
+              <question></question>
             </div>
-            <div class="row">
-                <div class="col-md-12 well ">
-                    <div class="col-md-12">
-                        <answers></answers>
-                    </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 well ">
+            <div class="col-md-12">
+              <answers></answers>
+            </div>
 
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="col-md-3">
-            <div class="col-md-12 well player-list spec">
-                <player></player>
-            </div>
-            <invites></invites>
+      </div>
+      <div class="col-md-3">
+        <div class="col-md-12 well player-list spec">
+          <player></player>
         </div>
+        <invites></invites>
+      </div>
     </div>
+  </div>
 </div>
-</div>
-
 </div>

@@ -124,10 +124,10 @@
 }
 
 .sign-error {
- text-align: center;
- color: #e40000;
- font-family: arial;
- font-size: 0.8em;
+  text-align: center;
+  color: #e40000;
+  font-family: arial;
+  font-size: 0.8em;
 }
 
 
@@ -896,7 +896,8 @@ li {
   left: 0;
 }
 
-.wpb-contact-us .wpb-section-title, .wpb-contact-us .container {
+.wpb-contact-us .wpb-section-title,
+.wpb-contact-us .container {
   position: relative;
   z-index: 1000;
 }
