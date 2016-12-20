@@ -6,7 +6,7 @@
     </ul>
     <button ng-click="showInviteBox = !showInviteBox" type="button" class="btn btn-success btn-circle btn-lg">
             <i class="fa fa-plus" aria-hidden="true"></i>
-        </button>
+    </button>
   </div>
   <div ng-show="showInviteBox" class="col-md-12 well player-list invite-friend">
 
@@ -16,10 +16,10 @@
           <div class="input-group">
             <input ng-init="showAutoComplete = false" id="tags" type="text" ng-model="email" ng-keyup="searchUsers(); showAutoComplete=true" class="form-control" placeholder="Enter email">
             <span class="input-group-btn">
-                            <button class="btn btn-default" ng-click="sendInvites(); showAutoComplete = false" type="button">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                            </button>
-                        </span>
+              <button class="btn btn-default" ng-click="sendInvites(); showAutoComplete = false" type="button">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              </button>
+            </span>
           </div>
         </form>
         <div class="input-group">

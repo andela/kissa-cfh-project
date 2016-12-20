@@ -5,17 +5,12 @@
     <div class="row">
       <div ng-style="{'cursor':'pointer'}" class="card smallest col-md-15" id='answers' ng-click="pickCard(card)" ng-hide="showTable || isCzar()" ng-repeat="card in game.players[game.playerIndex].hand" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}">
         <span ng-bind-html-unsafe="card.text"></span>
-        <span id='selection-number' class='badge active' ng-show="showFirst(card)">
-                    1
-                </span>
-        <span id='selection-number' class='badge active' ng-show="showSecond(card)">
-                    2
-                </span>
+        <span id='selection-number' class='badge active' ng-show="showFirst(card)">1</span>
+        <span id='selection-number' class='badge active' ng-show="showSecond(card)">2</span>
       </div>
     </div>
     <span ng-repeat="answer in game.table">
-            <div
-                class="card smallest col-md-15"
+            <div class="card smallest col-md-15"
                 ng-style="pointerCursorStyle()"
                 id='table'
                 ng-click="pickWinning(answer)"
@@ -24,12 +19,8 @@
                 ng-animate="{enter:'animated bounceInLeft'}"
                 style="background-color:{{winningColor($parent.$index)}}">
                 <span ng-bind-html-unsafe="card.text"></span>
-    <span id='selection-number' class="badge active" ng-show="firstAnswer($index)">
-                    1
-                </span>
-    <span id='selection-number' class="badge active" ng-show="secondAnswer($index)">
-                    2
-                </span>
+    <span id='selection-number' class="badge active" ng-show="firstAnswer($index)">1</span>
+    <span id='selection-number' class="badge active" ng-show="secondAnswer($index)">2</span>
   </div>
   </span>
 </div>
@@ -59,14 +50,12 @@
     <div id='inner-text-container'>
       <a href='/#!/app'>
         <div id="join-new-game" ng-click="game.joinGame('joinNewGame')">
-          <button type="button" class="btn btn-success">
-                        Join a New Game</button>
+          <button type="button" class="btn btn-success">Join a New Game</button>
         </div>
       </a>
       <a href='/'>
         <div id="exit-match">
           <button type="button" class="btn btn-success">Return to Lobby</button>
-
         </div>
       </a>
     </div>
@@ -85,15 +74,12 @@
     </div>
     <div id='charity-fact-container'>
       <div id='charity-fact-tagline'>Did you know?</div>
-
       <blockquote class="blockquote-reverse" id='charity-fact'>
         {{ makeAWishFact }}
       </blockquote>
-
       <div id='charity-logo-container'>
         <img src='/img/make-a-wish-logo.png' />
       </div>
-
     </div>
   </div>
   <div ng-if="isCzar() && !winningCardPicked" ng-init="showPickCardAnimation=false" ng-mouseover="showPickCardAnimation=true" ng-mouseleave="showPickCardAnimation=false" class="col-md-2 card-deck">

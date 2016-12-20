@@ -8,8 +8,7 @@
     </div>
     <div class="col-md-8 col-xs-8 col-lg-8 player-name">
       {{player.username | upperFirstLetter}}
-      <span class="label label-success">
-                {{player.points}}/{{game.pointLimit}}</span>
+      <span class="label label-success">{{player.points}}/{{game.pointLimit}}</span>
       <div class="player-is-player" ng-show="isPlayer($index)" id="player-star">
         <img width=20 height=20 src="../img/11.png" />
       </div>
@@ -18,8 +17,6 @@
   <div class="row player-czar">
     <span ng-show="currentCzar($index)">Czar</span>
     <i ng-show="player.id" ng-if="player.id !== isUser._id" ng-click="addFriend(player.email)" class="fa fa-plus-circle add-friend" aria-hidden="true"></i>
-    <p>
-      {{friendMessage}}
-    </p>
+    <p>{{friendMessage}}</p>
   </div>
 </div>
