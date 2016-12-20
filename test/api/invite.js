@@ -48,15 +48,6 @@ describe('Invite API', () => {
       });
     });
 
-    it('should not send invites when a user is not logged in', (done) => {
-      request(app)
-      .post('/api/users/email-invite')
-      .send({ email: 'test@test.com', link: 'https://google.com' })
-      .end((err, res) => {
-        res.should.have.status(403);
-        done();
-      });
-    });
     it('should send invites successfully', (done) => {
       agent
       .post('/api/users/email-invite')
@@ -86,30 +77,12 @@ describe('Invite API', () => {
         done();
       });
     });
-    it('should not allow a non-logged in user to view the message list', (done) => {
-      request(app)
-      .get('/api/users/get-messages')
-      .end((err, res) => {
-        if (err) return done(err);
-        res.should.have.status(403);
-        done();
-      });
-    });
     it('should update a message as read when the user reads the message', (done) => {
       agent
       .get(`/api/users/view-message/${objectId}`)
       .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
-        done();
-      });
-    });
-    it('should not allow a non-logged in user to read a message', (done) => {
-      request(app)
-      .get(`/api/users/view-message/${objectId}`)
-      .end((err, res) => {
-        if (err) return done(err);
-        res.should.have.status(403);
         done();
       });
     });

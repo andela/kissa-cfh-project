@@ -57,15 +57,6 @@ describe('Search api', () => {
       });
       done();
     });
-    it('should not search for anything when the user is not logged in', (done) => {
-      request(app)
-      .get('/api/search/users/')
-      .end((err, res) => {
-        if (err) return done(err);
-        res.should.have.status(404);
-      });
-      done();
-    });
     it('should add a user as friend', (done) => {
       agent
       .post('/api/users/friends')
@@ -86,16 +77,6 @@ describe('Search api', () => {
         done();
       });
     });
-    it('should not add friend if the user is not logged in', (done) => {
-      request(app)
-      .post('/api/users/friends')
-      .send({ friendEmail: user2.email })
-      .end((err, res) => {
-        if (err) return done(err);
-        res.should.have.status(403);
-        done();
-      });
-    });
     it('should return the list of user\'s friend', (done) => {
       const email = user2.email;
       agent
@@ -103,16 +84,6 @@ describe('Search api', () => {
       .end((err, res) => {
         if (err) return done(err);
         res.should.have.status(200);
-        done();
-      });
-    });
-    it('should return an error when a non logged in user tries to serach for friends', (done) => {
-      const email = user2.email;
-      request(app)
-      .get(`/api/search/users/friends/${email}`)
-      .end((err, res) => {
-        if (err) return done(err);
-        res.should.have.status(403);
         done();
       });
     });
