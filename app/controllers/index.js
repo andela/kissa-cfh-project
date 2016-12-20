@@ -22,7 +22,7 @@ exports.play = (req, res) => {
 * @param{Stream} res - writable stream
 * @return{undefined}
 */
-exports.gameTour = function(req, res) {
+exports.gameTour = (req, res) => {
   if (Object.keys(req.query)[0] === 'custom') {
     res.redirect('/#!/gametour?custom');
   } else {
