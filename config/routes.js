@@ -95,6 +95,7 @@ const routes = (app, passport) => {
   // Home route
   app.get('/play', index.play);
   app.get('/', index.render);
+  app.get('/gametour', index.gameTour);
 
   // Invite users with nodemailer
   app.post('/api/invite/user', invite.emailinvite);
