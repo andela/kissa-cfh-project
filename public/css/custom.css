@@ -506,7 +506,10 @@ body:after {
 }
 
 .play-wrapper {
-  padding: 5% 5% 5% 5%;
+  padding: 10% 5% 5% 5%;
+}
+@media screen and (max-width: 480px){
+  padding: 20% 5% 5% 5%;
 }
 
 .play-wrapper .well {
