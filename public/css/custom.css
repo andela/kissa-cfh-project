@@ -574,7 +574,7 @@ body:after {
 
 .player-is-player {
   position: absolute;
-  right: 0;
+  right: 2em;
   top: 7px;
   border-style: solid;
   padding: 2px;

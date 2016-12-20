@@ -1002,14 +1002,6 @@ li {
   vertical-align: top;
 }
 
-
-/*Override Bootstrap Row Class*/
-
-.row {
-  margin-left: 0;
-  margin-right: 9px;
-}
-
 #donations {
   margin-top: 160px;
 }
