@@ -1,3 +1,4 @@
+/* eslint-disable func-names, prefer-arrow-callback */
 var async = require('async');
 var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
@@ -222,8 +223,8 @@ Game.prototype.stateResults = function(self) {
   }, self.timeLimits.stateResults*1000);
 };
 
-Game.prototype.startNextRound = function(self) {
-  self.nextRoundTimeout = setTimeout(function() {
+Game.prototype.startNextRound = function (self) {
+  self.nextRoundTimeout = setTimeout(function () {
     self.stateChoosing(self);
   }, self.timeLimits.stateNextRound * 1000);
 };
