@@ -104,6 +104,7 @@ const routes = (app, passport) => {
 
   // Auth api sign up route
   app.post('/api/auth/signup', jwtAuth.signUp);
+  app.post('/api/auth/login', jwtAuth.login);
 
   // Game Play Routes
   app.post('/api/games/:id/start', game.create);

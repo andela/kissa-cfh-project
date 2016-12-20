@@ -1,7 +1,7 @@
 <div class="chat-wrapper">
     <div class="panel">
         <i class="fa fa-2x fa-comments-o" size="30" aria-hidden="true"></i>
-        <span ng-show="chat.unreadMessageCount === 0" class="text-center">Kissa Chat</span>
+        <span ng-show="chat.unreadMessageCount === 0" class="text-center">CFH Chat</span>
         <span ng-hide="chat.unreadMessageCount === 0" class="text-center">
             <span class="badge badge-danger">{{chat.unreadMessageCount}}</span>&nbsp;New&nbsp;Message</span>
         <i class="fa fa-2x minimize {{chat.isHidden ? 'fa-chevron-down' : 'fa-chevron-up'}}" ng-click="chat.toggle()" aria-hidden="true">
@@ -33,7 +33,7 @@
         <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed(event)" size="60"data-emojiable="true"/>
         </span>
     </div>
-    <button onclick=" angular.element(document.getElementById('usermsg')).scope().sendMessage(document.getElementById('usermsg').value);">send</button>
+    <button class="btn btn-success" onclick=" angular.element(document.getElementById('usermsg')).scope().sendMessage(document.getElementById('usermsg').value);">send</button>
 </div>
 <script type="text/javascript" src="/emoji/lib/js/emoji-init.js"></script>
 </div>
