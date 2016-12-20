@@ -16,6 +16,9 @@
     },
     "EMAIL_OWNER": {
       "required": true
+    },
+    "secret": {
+      "required": true
     }
   },
   "formation": {
