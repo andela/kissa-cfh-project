@@ -4,6 +4,8 @@
 ./*
 !app/*
 public/js/*
+public/css/common.scss
+public/css/common.css
 public/emoji/lib/js/*
 public/emoji/js/**/*.*
 public/emoji/lib/*.coffee

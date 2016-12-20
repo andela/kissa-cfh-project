@@ -9,4 +9,12 @@ angular.module('mean.system')
         "title": "Create New Article",
         "link": "articles/create"
     }];
+
+    dataFactory.getMessages('/api/users/get-messages')
+    .success(function(data, status, headers, config) {
+      $scope.invitation = data.length;
+    })
+    .error(function (data, status, headers, config) {
+      $scope.noResult = status;
+    });
 }]);
