@@ -74,7 +74,8 @@ gulp.task('serve', ['build', 'watch'], () => {
     ui: {
       port: 5001
     },
-    reloadOnRestart: true
+    reloadOnRestart: true,
+    ghostMode: false
   });
 });
 

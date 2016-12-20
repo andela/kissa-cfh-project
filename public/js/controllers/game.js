@@ -139,7 +139,7 @@ angular.module('mean.system')
   $scope.isUser = window.user;
 
   $scope.userEmail = $location.search().email;
-
+  
   $scope.startGame = function () {
     if (game.players.length < game.playerMinLimit) {
       let message = `You need at least ${game.playerMinLimit} players to start the game`;
@@ -174,9 +174,9 @@ angular.module('mean.system')
     });
   };
 
-  $scope.closeModal = function () {
-    $scope.modalInstance.close();
-  };
+        $scope.closeModal = function() {
+            $scope.modalInstance.close();
+        };
 
   $scope.$watch('game.state', function() {
     if (game.state === 'game ended' && $scope.isCustomGame()) {
@@ -203,61 +203,61 @@ angular.module('mean.system')
     $location.path('/');
   };
 
-    // Catches changes to round to update when no players pick card
-    // (because game.state remains the same)
-  $scope.$watch('game.round', function() {
-    $scope.hasPickedCards = false;
-    $scope.showTable = false;
-    $scope.winningCardPicked = false;
-    $scope.makeAWishFact = makeAWishFacts.pop();
-    if (!makeAWishFacts.length) {
-        makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
-      }
-    $scope.pickedCards = [];
-  });
+        // Catches changes to round to update when no players pick card
+        // (because game.state remains the same)
+        $scope.$watch('game.round', function() {
+            $scope.hasPickedCards = false;
+            $scope.showTable = false;
+            $scope.winningCardPicked = false;
+            $scope.makeAWishFact = makeAWishFacts.pop();
+            if (!makeAWishFacts.length) {
+                makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
+            }
+            $scope.pickedCards = [];
+        });
 
-    // In case player doesn't pick a card in time, show the table
-  $scope.$watch('game.state', function() {
-    if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
-        $scope.showTable = true;
-      }
-  });
+        // In case player doesn't pick a card in time, show the table
+        $scope.$watch('game.state', function() {
+            if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+                $scope.showTable = true;
+            }
+        });
 
-  $scope.$watch('game.gameID', function() {
-    if (game.gameID && game.state === 'awaiting players') {
-        if (!$scope.isCustomGame() && $location.search().game) {
-          // If the player didn't successfully enter the request room,
-          // reset the URL so they don't think they're in the requested room.
-          $location.search({});
-        } else if ($scope.isCustomGame() && !$location.search().game) {
-          // Once the game ID is set, update the URL if this is a game with friends,
-          // where the link is meant to be shared.
-          $location.search({game: game.gameID});
-          if(!$scope.modalShown){
-            setTimeout(function(){
-              var link = document.URL;
-              var txt = 'Give the following link to your friends so they can join your game: ';
-              $('#lobby-how-to-play').text(txt);
-              $('#oh-el').css({'text-align': 'center', 'font-size':'22px', 'background': 'white', 'color': 'black'}).text(link);
-            }, 200);
-            $scope.modalShown = true;
-          }
+        $scope.$watch('game.gameID', function() {
+            if (game.gameID && game.state === 'awaiting players') {
+                if (!$scope.isCustomGame() && $location.search().game) {
+                    // If the player didn't successfully enter the request room,
+                    // reset the URL so they don't think they're in the requested room.
+                    $location.search({});
+                } else if ($scope.isCustomGame() && !$location.search().game) {
+                    // Once the game ID is set, update the URL if this is a game with friends,
+                    // where the link is meant to be shared.
+                    $location.search({ game: game.gameID });
+                    if (!$scope.modalShown) {
+                        setTimeout(function() {
+                            var link = document.URL;
+                            var txt = 'Give the following link to your friends so they can join your game: ';
+                            $('#lobby-how-to-play').text(txt);
+                            $('#oh-el').css({ 'text-align': 'center', 'font-size': '22px', 'background': 'white', 'color': 'black' }).text(link);
+                        }, 200);
+                        $scope.modalShown = true;
+                    }
+                }
+            }
+        });
+
+        if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
+            if (!!window.user) {
+                console.log('joining custom game');
+                game.joinGame('joinGame', $location.search().game);
+            } else {
+                $location.path('/signup');
+            }
+        } else if ($location.search().custom) {
+            game.joinGame('joinGame', null, true);
+        } else {
+            game.joinGame();
         }
-    }
-  });
-
-  if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
-    if (!!window.user) {
-      console.log('joining custom game');
-      game.joinGame('joinGame',$location.search().game);
-    } else {
-      $location.path('/signup');
-    }
-  } else if ($location.search().custom) {
-    game.joinGame('joinGame',null,true);
-  } else {
-    game.joinGame();
-  }
 
   $scope.searchUsers = function () {
     const link = `/api/search/users/${$scope.email}`;
@@ -270,9 +270,9 @@ angular.module('mean.system')
       });
   };
 
-  $scope.selectList = function (word) {
-    $scope.email = word;
-  };
+        $scope.selectList = function(word) {
+            $scope.email = word;
+        };
 
   $scope.sendInvites = function () {
     const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
@@ -318,4 +318,31 @@ angular.module('mean.system')
         }
       });
   }
+
+ $scope.$watchCollection('chat.messageArray', (newValue, oldValue) => {
+            $timeout(() => {
+                $scope.scrollChatThread();
+            }, 100);
+        });
+
+  $scope.scrollChatThread = () => {
+            const chatResults = document.getElementById('chatbox');
+            chatResults.scrollTop = chatResults.scrollHeight;
+        };
+        /**
+         * Method to send messages
+         * @param{String} userMessage - String containing the message to be sent
+         * @return
+         */
+  $scope.sendMessage = (userMessage) => {
+            $scope.chat.postGroupMessage(userMessage);
+            $scope.chatMessage = '';
+            document.getElementsByClassName('emoji-wysiwyg-editor')[0].innerHTML = '';
+        };
+  $scope.keyPressed = function($event) {
+            const keyCode = $event.which || $event.keyCode;
+            if (keyCode === 13) {
+                $scope.sendMessage($scope.chatMessage);
+            }
+        };
 }]);
