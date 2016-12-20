@@ -10,6 +10,17 @@ script(type='text/javascript', src='/lib/jquery-ui/jquery-ui.js')
 //Bootstrap
 script(type='text/javascript', src='/lib/bootstrap/dist/js/bootstrap.js')
 
+//  Begin emoji-picker JavaScript
+script(src='/emoji/lib/js/nanoscroller.min.js')
+script(src='/emoji/lib/js/tether.min.js')
+script(src='/emoji/lib/js/config.js')
+script(src='/emoji/lib/js/util.js')
+script(src='/emoji/lib/js/jquery.emojiarea.js')
+script(src='/emoji/lib/js/emoji-picker.js')
+script(src='/emoji/lib/js/emoji-init.js')
+// End emoji-picker JavaScript
+
+
 //AngularJS
 script(type='text/javascript', src='https://code.angularjs.org/1.1.5/angular.js')
 script(type='text/javascript', src='https://code.angularjs.org/1.1.5/angular-resource.js')
@@ -43,3 +54,12 @@ script(type='text/javascript', src='/socket.io/socket.io.js')
 
 //Livereload script rendered
 //script(type='text/javascript', src='http://localhost:35729/livereload.js')
+
+//chat
+script(type='text/javascript', src='https://cdn.firebase.com/js/client/2.4.0/firebase.js')
+script(type='text/javascript', src='/js/services/chat.js')
+script.
+  function send(chatMessage){
+  chat.sendMessage(chatMessage)
+  }
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
