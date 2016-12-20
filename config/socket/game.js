@@ -3,18 +3,18 @@ var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
 var guestNames = [
-  "Potato",
-  "Blister",
-  "Mustard",
-  "Flapjack",
-  "Toenail",
-  "Drip",
-  "Bagel",
-  "Pie",
-  "Spoon",
-  "Node",
-  "Spleen",
-  "Dangle"
+  'Potato',
+  'Blister',
+  'Mustard',
+  'Flapjack',
+  'Toenail',
+  'Drip',
+  'Bage',
+  'Pie',
+  'Spoon',
+  'Node',
+  'Spleen',
+  'Dangle'
 ];
 
 function Game(gameID, io) {

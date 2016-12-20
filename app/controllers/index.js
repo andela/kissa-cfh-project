@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
 /**
  * Redirect users to /#!/app (forcing Angular to reload the page)
  */
-exports.play = function(req, res) {
+exports.play = (req, res) => {
   if (Object.keys(req.query)[0] === 'custom') {
     res.redirect('/#!/app?custom');
   } else {
