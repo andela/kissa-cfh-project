@@ -40,10 +40,6 @@ describe('<Unit Test>', function() {
             });
         });
 
-        describe('');
-
-
-
         after(function(done) {
             done();
         });
