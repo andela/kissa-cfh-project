@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <div class="panel">
+        <i class="fa fa-2x fa-comments-o" size="30" aria-hidden="true"></i>
+        <span ng-show="chat.unreadMessageCount === 0" class="text-center">Kissa Chat</span>
+        <span ng-hide="chat.unreadMessageCount === 0" class="text-center">
+            <span class="badge badge-danger">{{chat.unreadMessageCount}}</span>&nbsp;New&nbsp;Message</span>
+        <i class="fa fa-2x minimize {{chat.isHidden ? 'fa-chevron-down' : 'fa-chevron-up'}}" ng-click="chat.toggle()" aria-hidden="true">
+</i>
+    </div>
+    <div ng-show="chat.isHidden" id="chatbox">
+        <span ng-repeat="message in chat.messageArray">
+            <span ng-if="chat.userName == message.senderName">
+                <span class="row msg_container base_sent">
+                    <div class="col-md-2 col-xs-2 avatar">
+                        <img ng-src="{{message.avatar}}" class="avatar-image">
+                    </div>
+                    <div class="col-xs-10 col-md-10">
+                        <div class="messages msg_sent">
+                            <p>{{message.textContent}}</p>
+                            <time>{{message.senderName}}&nbsp;&nbsp;{{message.time}}</time>
+                        </div>
+                    </div>
+                </span>
+        </span>
+        <span ng-if="chat.userName !== message.senderName">
+                <div class="row msg_container base_receive">
+                    <div class="col-xs-10 col-md-10">
+                        <div class="messages msg_receive">
+                            <p>{{message.textContent}}</p>
+                            <time>{{message.senderName}}&nbsp;&nbsp;{{message.time}}</time>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-xs-2 avatar">
+                        <img ng-src="{{message.avatar}}" class="avatar-image">
+                    </div>
+                    </span>
+    </div>
+    </span>
+    </span>
+    <span ng-if="chat.userName !== message.senderName" class="text-right">
+          <div class="text-right">
+            <b>&nbsp;&nbsp;&nbsp;{{message.senderName}} </b> 
+            <small class="text-muted">  {{message.time}}</small>
+          </div>
+              <p>{{message.textContent}}</p>
+          </span>
+    </span>
+    </span>
+</div>
+<div ng-show="chat.isHidden" class="chatinput">
+    <div class="inner-addon right-addon">
+        <span class="lead emoji-picker-container">
+        <input name="usermsg" type="text" id="usermsg" class="form-control" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed(event)" size="60"data-emojiable="true"/>
+        </span>
+    </div>
+    <button onclick=" angular.element(document.getElementById('usermsg')).scope().sendMessage(document.getElementById('usermsg').value);">send</button>
+</div>
+<script type="text/javascript" src="/emoji/lib/js/emoji-init.js"></script>
+</div>
