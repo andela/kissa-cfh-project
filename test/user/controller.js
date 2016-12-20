@@ -6,7 +6,7 @@ const users = require('../../app/controllers/users');
 
 const User = mongoose.model('User');
 
-let user = '';
+var user = '';
 
 describe('User Authentication', () => {
   beforeEach((done) => {
