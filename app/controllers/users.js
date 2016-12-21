@@ -110,7 +110,7 @@ exports.create = function (req, res) {
             const gameId = req.body.game;
             if (err) return next(err);
             if (gameId) return res.redirect(`/#!/app?game=${gameId}`);
-            return res.redirect('/#!/play-with');
+            return res.redirect('/#!/gametour');
           });
         });
       } else {

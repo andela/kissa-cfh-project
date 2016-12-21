@@ -9,7 +9,8 @@
     "underscore": "~1.5.2",
     "bootstrap-social": "^5.1.1",
     "components-font-awesome": "^4.7.0",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "intro.js": "^2.4.0"
   },
   "exportsOverride": {
     "bootstrap": {
