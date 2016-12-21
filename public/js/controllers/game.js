@@ -88,6 +88,12 @@ angular.module('mean.system')
       return game.czar === game.playerIndex;
     };
 
+    $scope.startNextRound = function() {
+      if ($scope.isCzar()) {
+        game.startNextRound();
+      } 
+    }
+
     $scope.isPlayer = function ($index) {
       return $index === game.playerIndex;
     };
@@ -155,7 +161,7 @@ angular.module('mean.system')
       const gameId = $location.search().game;
       const link = `/api/games/${gameId}/start`;
       const data = {
-        creator: game.players[0].id,
+        creator: game.players[0],
         friends: game.players
       }
       dataFactory.saveGameHistory(link, data)
@@ -169,33 +175,38 @@ angular.module('mean.system')
         });
     };
 
-    $scope.closeModal = function () {
-      $scope.modalInstance.close();
-    };
+    const gameID = $location.search().game;
+    const isCustom = $scope.isCustomGame();
 
     $scope.$watch('game.state', function () {
-      if (game.state === 'game ended' && $scope.isCustomGame()) {
-        const gameId = $location.search().game;
+      if (game.state === 'game ended' && isCustom && game.players[0].id === window.user._id) {
+        const gameId = gameID;
         const link = `/api/games/${gameId}/start`;
         const data = {
-          creator: game.players[0].id,
-          winner: game.players[game.gameWinner].id,
-          status: 'true',
-          rounds: game.round
+          creator: game.players[0],
+          winner: game.players[game.gameWinner],
+          status: true,
+          rounds: game.round,
+          friends: game.players
         }
         dataFactory.updateGameHistory(link, data)
           .success(function (response) {
-            $scope.model = 'Game updated';
+            $scope.model = response.message;
           })
           .error(function (response) {
-            $scope.message = 'Could not update game';
+            $scope.message = response.message;
           });
       }
     });
 
     $scope.abandonGame = function () {
+      $scope.chat.removeChatHistory();
       game.leaveGame();
       $location.path('/');
+    };
+
+    $scope.closeModal = function () {
+      $scope.modalInstance.close();
     };
 
     // Catches changes to round to update when no players pick card
@@ -285,12 +296,15 @@ angular.module('mean.system')
           }
           dataFactory.sendInvites(mode, form)
             .success(function (response) {
-              $scope.message = 'Invite has been sent';
               $scope.inviteList.push($scope.email);
+              $scope.message = 'Invite has been sent';
             })
             .error(function (response) {
               $scope.message = 'Could not send invite';
             });
+          $timeout(()=> {
+            $scope.message = '';
+          }, 4000);
         }
       }
     };
@@ -306,8 +320,11 @@ angular.module('mean.system')
         })
         .error(function (response) {
           $scope.friendMessage = response.message;
-        })
-    }
+        });
+      $timeout(()=> {
+        $scope.friendMessage = '';
+      }, 4000);
+    };
 
     function showModal(message, template) {
       $scope.animationsEnabled = true;

@@ -14,7 +14,6 @@ const agent = request.agent(app);
 let gameData;
 
 describe('Game Test', () => {
-  let userToken;
   before((done) => {
     User.remove().exec();
     Game.remove().exec();
@@ -25,7 +24,7 @@ describe('Game Test', () => {
       password: 'password'
     });
     gameData = {
-      creator: 'Victor',
+      creator: { username: 'Victor' },
       friends: ['mike', 'victor', 'israel']
     };
     user1.save();
@@ -54,8 +53,9 @@ describe('Game Test', () => {
     agent.put(`/api/games/${gameId}/start`)
     .type('form')
     .send({
-      winner: 'Victor',
-      status: 'true',
+      creator: { username: 'Victor' },
+      winner: { username: 'Victor' },
+      status: true,
       rounds: 10
     })
     .end((err, res) => {

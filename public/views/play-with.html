@@ -34,23 +34,69 @@
   <!-- /.container-fluid -->
 </nav>
 <div class="body" id="main-bod" ng-controller="IndexController">
-  <div class="choose-play-wrapper body">
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4">
-        <div class=" row play-as friend text-center">
-          <a href="/play?custom">
-          PLAY WITH FRIENDS
+  <div id="game-log-button" ng-controller="DashboardController">
+    <div class="choose-play-wrapper body game-log-wrapper">
+      <div class="row">
+        <div class="col-md-4">
+          <div ng-controller="GameController">
+            <div id="player-container" ng-repeat="player in game.players">
+              <div ng-show="isPlayer($index)" id="player-star" class="text-center">
+                <img ng-src="{{player.avatar}}"/>
+                <div id="player-name">
+                  <h4 class="player-name-log">Welcome, {{player.username | uppercase}}</h4>
+                </div>
+              </div>
+          </div>
+        </div>
+          <div class=" row play-as friend text-center">
+            <a href="/play?custom">
+            PLAY WITH FRIENDS
+            </a>
+          </div>
+          <div class=" row play-as stranger text-center">
+            <a href="/play">
+            PLAY WITH STRANGERS
+            </a>
+          </div>
+          <div class=" row play-as stranger text-center">
+            <a href="/gametour">
+              GAME TOUR
+            </a>
+          </div>
+          <a href="#" onclick="return false" ng-click="viewGameLog()">
+            <div class=" row play-as stranger text-center">
+              GAME HISTORY
+            </div>
           </a>
         </div>
-        <div class=" row play-as stranger text-center">
-          <a href="/play">
-          PLAY WITH STRANGERS
-          </a>
-        </div>
-        <div class=" row play-as friend text-center">
-          <a href="/gametour">
-            GAME TOUR
-          </a>
+
+        <div class="table-responsive col-md-8 game-log-table" ng-show="data">
+          <table class="table table-bordered game-log" ng-show="showGameLog">
+            <thead>
+              <tr class="success">
+                <th>Game id</th>
+                <th>Creator</th>
+                <th>Winner</th>
+                <th>Rounds</th>
+                <th>Completed</th>
+                <th>Date</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="(key, value) in data.result">
+                <td>{{value.game_id}}</td>
+                <td>{{value.creator.username}}</td>
+                <td>{{value.winner.username}}</td>
+                <td>{{value.rounds}}</td>
+                <td>{{value.completed}}</td>
+                <td>{{value.date_created | date}}</td>
+                <td style="cursor: pointer;" ng-click="singleLog(value._id)" class="text-center">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
