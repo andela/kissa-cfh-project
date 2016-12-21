@@ -10,7 +10,6 @@ const Game = mongoose.model('Game');
 const GameServices = {
   create(req, res) {
     const gameId = req.params.id;
-    if (req.user && req.user.id) {
       const game = new Game({
         game_id: gameId,
         creator: req.body.creator,
@@ -30,9 +29,6 @@ const GameServices = {
         }
         return res.status(200).json(game);
       });
-    } else {
-      return res.status(403).json({ message: 'you do not have permission to access this route' });
-    }
   },
   update(req, res) {
     const gameCreator = req.body.creator;
@@ -40,7 +36,6 @@ const GameServices = {
     const query = { $and: [
           { game_id: gameId }, { 'creator.id': gameCreator.id }
     ] };
-    if (req.user && req.user.id) {
       Game.update(query, {
         winner: req.body.winner,
         completed: req.body.status,
@@ -50,9 +45,6 @@ const GameServices = {
         if (err) return res.status(500).json({ message: 'An error occured while updating this data', error: err });
         return res.status(200).json({ message: 'Game updated sucessfully' });
       });
-    } else {
-      return res.status(403).json({ message: 'you do not have permission to access this route' });
-    }
   },
   gameDetails(req, res) {
     const userId = req.params.userid;
@@ -71,7 +63,6 @@ const GameServices = {
   },
   gameLog(req, res) {
     const userId = req.params.userid;
-    if (req.user && req.user.id) {
       Game.find({
         $or: [
           { 'creator.id': userId }, { 'friends.id': userId }
@@ -85,7 +76,6 @@ const GameServices = {
         }
         return res.status(200).json({ result });
       });
-    }
   }
 };
 
