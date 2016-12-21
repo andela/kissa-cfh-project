@@ -49,16 +49,6 @@ describe('Game Test', () => {
     });
   });
 
-  it('should not save game for a non-logged in user', (done) => {
-    const gameId = '1';
-    request(app).post(`/api/games/${gameId}/start`)
-    .send(gameData)
-    .end((err, res) => {
-      res.should.have.status(403);
-      done();
-    });
-  });
-
   it('should update game when the game is finished', (done) => {
     const gameId = 'BzGy12';
     agent.put(`/api/games/${gameId}/start`)

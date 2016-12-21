@@ -57,19 +57,17 @@ const GameServices = {
   gameDetails(req, res) {
     const userId = req.params.userid;
     const gameId = req.params.gameid;
-    if (req.user && req.user.id) {
-      Game.findOne({ _id: gameId })
-      .exec((err, result) => {
-        if (err) {
-          return res.status(500).json({
-            message: 'An error occured while trying to search for result'
-          });
-        }
-        return res.status(200).json({
-          result
+    Game.findOne({ _id: gameId })
+    .exec((err, result) => {
+      if (err) {
+        return res.status(500).json({
+          message: 'An error occured while trying to search for result'
         });
+      }
+      return res.status(200).json({
+        result
       });
-    }
+    });
   },
   gameLog(req, res) {
     const userId = req.params.userid;

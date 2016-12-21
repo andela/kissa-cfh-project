@@ -8,6 +8,7 @@ function Player(socket) {
   this.userID = null;
   this.color = null;
   this.id = null;
+  this.email = null;
 }
 
 module.exports = Player;
