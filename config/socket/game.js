@@ -225,9 +225,11 @@ Game.prototype.stateResults = function(self) {
 };
 
 Game.prototype.startNextRound = function (self) {
-  self.nextRoundTimeout = setTimeout(function () {
+  if (self.state === 'pick black card') {
     self.stateChoosing(self);
-  }, self.timeLimits.stateNextRound * 1000);
+  } else {
+    // Do nothing
+  }
 };
 
 Game.prototype.changeCzar = function (self) {
