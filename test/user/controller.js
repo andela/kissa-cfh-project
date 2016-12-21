@@ -63,3 +63,23 @@ describe('User Authentication', () => {
     });
   });
 });
+
+describe('Game Tour', () => {
+  afterEach((done) => {
+    done();
+  });
+  it('should redirect to game tour page', (done) => {
+    request(app).get('/gametour')
+      .expect(302)
+      .end((err, res) => {
+        done();
+      });
+  });
+  it('should redirect to login page when login is clicked', (done) => {
+    request(app).get('/gametour?custom')
+      .expect(302)
+      .end((err, res) => {
+        done();
+      });
+  });
+});

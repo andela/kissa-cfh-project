@@ -1,0 +1,165 @@
+</script>
+<div id="app-container" ng-controller="GameTourController">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container custom-container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+          Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand-custom" href="#">
+        <img alt="Brand" src="./img/cards-for-humanity.png" class="img-responsive" width="70">
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" landing>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li class="page-scroll" id='abandon-game-button' ng-click="abandonGame()">
+          <a href="/">ABANDON GAME</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<div class="play-wrapper">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-2 well text-center" id="inner-timer-container">
+          <!-- <timer></timer> -->
+          <span id="timer-status-round" ng-hide="game.state === 'winner has been chosen' || game.state === 'waiting for czar to decide'">
+            Time Remaining
+          </span>
+          <span id="timer-status-czar-choosing" ng-show="game.state === 'winner has been chosen'">
+            Next Round In
+          </span>
+          <span id="timer-status-czar-choosing" ng-show="game.state === 'waiting for czar to decide'">
+            Czar Choosing
+          </span>
+          <div id="time"><h1 style="font-size: 1em;">20</h1></div>
+        </div>
+        <div class="col-md-10 well">
+          <div class="col-md-12">
+            <div id="question-container-inner" ng-show="showQuestionContainer">
+              <div class="card longBlack" id="question-container">
+                <div id="question" ng-show="showQuestion">
+                  <span>What is the current question _______________________________ ?</span>
+                </div>
+            <div id="startGame" class="row text-center" ng-show="showAwaitingPlayers">
+                <div class="col-md-12" id="finding-players">Finding Players</div>
+                  <div class="col-md-4" id="player-count-container">
+                    <div id="player-count"> {{playerCount}} / 12 </div>
+                    <div id="the-word-players"> Players </div>
+                  </div>
+              <div class="col-md-4">
+                <div id="loading-container">
+                  <div id="loading-gif"><img width=40 ng-src="../img/loader.gif"/></div>
+                </div>
+              </div>
+              <div>
+                <div class="col-md-4" id="start-game-container">
+                  <div id='start-game-button' ng-show="showStartGameContainer">
+                    <button type="button" class="btn btn-success">Start Game</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+              <question></question>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 well ">
+            <div class="col-md-12">
+            <!-- <answers></answers> -->
+              <div id="cards" class='hand' ng-show="showAnswerCards">
+                <div ng-style="{'cursor':'pointer'}" class="card smallest col-md-15" id='answers' ng-click="pickCard(card)" ng-repeat="i in [0, 1, 2, 3, 4]" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}" ng-init="randomAnswers = ['My grey hair', 'TIA', 'Santa is older than metusalah', 'Lets go a fishing :)', 'This is quite harder than I expected']">
+                  <span> {{randomAnswers[i]}}</span>
+                </div>
+              </div>
+              <div id="info-container" ng-show="showHowToPlay">
+                <div id="inner-info text-center">
+                  <div id="lobby-how-to-play">How To Play</div>
+                  <ol id="oh-el">
+                    <li>Each player begins with, and will always have, 10 white answer cards.</li>
+                    <li>For each round, one player is randomly chosen as the Card Czar.</li>
+                    <li>Everyone else answers the black question card by clicking on the answer card they want to use.</li>
+                    <li>The Card Czar then picks a favorite answer, and whoever played that answer wins the round.</li>
+                    <li>*Want to adorn your avatar with a glorious crown? Donate to charity after the game!</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 well player-list spec" id="social-bar-container" ng-show="showSocialBar">
+        <div id="player0" ng-show="showFirstPlayer">
+          <div class="row player" style="background-color:{{colors[player.color]}}">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="../img/chosen/N05.png"/>
+              </div>
+              <div class="col-md-8 player-name">
+                Player1
+                <span class="label label-success" id='player-score'> 0/5</span>
+                <div class="player-is-player" id="player-star">
+                  <img width=32 src="../img/11.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="czar-container" class="row player-czar">
+            <span id='the-czar' ng-show="theCzar">Czar</span>
+          </div>
+        </div>
+        <div id = "">
+          <div id="player1" ng-show="showOtherPlayers">
+            <div class="row player" style="background-color:{{colors[player.color]}}">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="../img/chosen/E01.png"/>
+                </div>
+                <div class="col-md-8 player-name">
+                  Player2
+                  <span class="label label-success"> 0/5</span>
+                  <div class="player-is-player" ng-show="isPlayer($index)" id="player-star">
+                    <img width=32 src="../img/11.png"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="player1" ng-show="showOtherPlayers">
+            <div class="row player" style="background-color:{{colors[player.color]}}">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="../img/chosen/FD04.png"/>
+                </div>
+                <div class="col-md-8 player-name">
+                  Player3
+                  <span class="label label-success"> 0/5</span>
+                  <div class="player-is-player" ng-show="isPlayer($index)" id="player-star">
+                    <img width=32 src="../img/11.png"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <invites></invites>
+    </div>
+  </div>
+</div>

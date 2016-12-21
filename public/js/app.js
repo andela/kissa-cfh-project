@@ -17,6 +17,8 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
         templateUrl: '/views/choose-avatar.html'
       }).when('/play-with', {
         templateUrl: '/views/play-with.html'
+      }).when('/gametour', {
+        templateUrl: '/views/game-tour.html'
       }).otherwise({
         redirectTo: '/'
       });

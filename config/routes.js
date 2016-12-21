@@ -95,6 +95,7 @@ const routes = (app, passport) => {
   // Home route
   app.get('/play', index.play);
   app.get('/', index.render);
+  app.get('/gametour', index.gameTour);
 
   // Search Users api
   app.get('/api/search/users/:email', users.authenticate, search.users);
