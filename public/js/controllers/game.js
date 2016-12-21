@@ -88,6 +88,12 @@ angular.module('mean.system')
       return game.czar === game.playerIndex;
     };
 
+    $scope.startNextRound = function() {
+      if ($scope.isCzar()) {
+        game.startNextRound();
+      } 
+    }
+
     $scope.isPlayer = function ($index) {
       return $index === game.playerIndex;
     };
