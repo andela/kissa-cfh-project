@@ -95,7 +95,9 @@ angular.module('mean.system')
         }
         return this.unreadMessageCount;
       }
-
+      removeChatHistory(){
+        this.firebase.child(this.chatGroup).remove();
+      }
     }
     const chat = new Chat();
     return chat;

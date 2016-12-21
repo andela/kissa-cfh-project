@@ -15,12 +15,12 @@ const GameSchema = new Schema({
     required: true
   },
   creator: {
-    type: String,
+    type: Object,
     required: true
   },
   winner: {
-    type: String,
-    default: ''
+    type: Object,
+    default: {}
   },
   rounds: {
     type: Number,
@@ -32,7 +32,7 @@ const GameSchema = new Schema({
   },
   completed: {
     type: String,
-    default: ''
+    default: false
   },
   friends: Array,
 });
