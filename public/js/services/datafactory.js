@@ -16,14 +16,15 @@ angular.module('mean.system')
     
     dataFactory.updateGameHistory = function(route, form) {
       return $http({
-        method: 'POST',
+        method: 'PUT',
         url: route,
         headers: { 'Content-Type': 'application/json' },
         data: {
-          gameDataId: form.gameKey,
+          creator: form.creator,
           winner: form.winner,
           status: form.status,
-          rounds: form.rounds
+          rounds: form.rounds,
+          friends: form.friends
         }
       });
     };
@@ -79,6 +80,14 @@ angular.module('mean.system')
     };
 
     dataFactory.viewMessage = function(route) {
+      return $http.get(route);
+    };
+
+    dataFactory.getGameHistory = function(route) {
+      return $http.get(route);
+    };
+
+    dataFactory.getSingleHistory = function(route) {
       return $http.get(route);
     };
 

@@ -111,8 +111,8 @@ const routes = (app, passport) => {
   app.put('/api/games/:id/start', users.authenticate, game.update);
 
   // Get game history
-  app.get('/api/:userid/:gameid/history', users.authenticate, game.viewOne);
-  app.get('/api/:userid/games/history', users.authenticate, game.viewAll);
+  app.get('/api/games/history/:userid/:gameid', game.gameDetails);
+  app.get('/api/games/history/:userid', game.gameLog);
 
   // Invite users with nodemailer
   app.post('/api/users/email-invite', users.authenticate, invite.emailinvite);

@@ -757,3 +757,28 @@ body:after {
 .facebook-visit {
     padding: 0;
 }
+
+.game-log-wrapper {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 8%;
+}
+
+.player-star {
+  margin-bottom: 50px;
+}
+
+.player-name-log{
+  color: #FFF;
+}
+
+.game-log-table {
+  overflow-y: scroll;
+  max-height: 400px;
+  padding-right: 0;
+  padding-left: 5%;
+}
+
+.game-log {
+  background: #ccc;
+}
