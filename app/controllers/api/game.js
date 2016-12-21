@@ -13,7 +13,7 @@ const GameServices = {
     const game = new Game({
       game_id: gameId,
       creator: req.body.creator,
-      winner: {},
+      winner: {username: 'No winner'},
       rounds: 0,
       friends: req.body.friends,
       date_created: new Date(),
