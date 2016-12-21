@@ -535,6 +535,10 @@ body:after {
   padding: 0;
 }
 
+.player-list-holder{
+  max-height: 150px
+}
+
 .player-list .player-name {
   font-size: 1.2em;
   padding-top: 10%;
@@ -602,12 +606,17 @@ body:after {
   min-height: 50px;
   max-height: 70px;
   padding-top: 3%;
+  margin-top: -80px;
 }
 
 .play-wrapper .player-invited-friends {
   overflow-y: scroll;
-  max-height: 160px;
-  min-height: 160px;
+  max-height: 120px;
+  min-height: 120px;
+}
+
+.send-invite-input{
+  padding: 0;
 }
 
 .player-invited-friends li {
