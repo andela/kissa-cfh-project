@@ -541,6 +541,11 @@ body:after {
   font-weight: 400;
 }
 
+.invite-panel{
+max-height: 150px;
+min-height: 150px;
+}
+
 .player-czar {
   background-color: rgba(12, 12, 12, 0.2);
   margin-right: 0;
@@ -598,16 +603,21 @@ body:after {
   cursor: pointer;
 }
 
+.invite-input-box{
+  padding: 0;
+}
+
 .play-wrapper .invite-friend {
   min-height: 50px;
   max-height: 70px;
   padding-top: 3%;
+  margin-top: -80px;
 }
 
 .play-wrapper .player-invited-friends {
   overflow-y: scroll;
-  max-height: 160px;
-  min-height: 160px;
+  max-height: 130px;
+  min-height: 130px;
 }
 
 .player-invited-friends li {
