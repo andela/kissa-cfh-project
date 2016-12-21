@@ -14,7 +14,6 @@ const agent = request.agent(app);
 let gameData;
 
 describe('Game Test', () => {
-  let userToken;
   before((done) => {
     User.remove().exec();
     Game.remove().exec();

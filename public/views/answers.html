@@ -68,9 +68,9 @@
 <div class="row" id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
   <div class="col-md-10">
     <div id="czar-blank-inner">
-      You are the Card Czar.
+      <h3>You are the Card Czar.</h3>
       <br>
-      <span id="smaller-text">Players are choosing their answers. Prepare to select a winner.</span>
+      <p>Players are choosing their answers. Prepare to select a winner.</p>
     </div>
     <div id='charity-fact-container'>
       <div id='charity-fact-tagline'>Did you know?</div>
@@ -83,6 +83,7 @@
     </div>
   </div>
   <div ng-if="isCzar() && !winningCardPicked" ng-init="showPickCardAnimation=false" ng-mouseover="showPickCardAnimation=true" ng-mouseleave="showPickCardAnimation=false" class="col-md-2 card-deck">
+    <p style="color: #FFFFFF">click to draw next question<p>
     <div ng-click="startNextRound()" ng-show="showPickCardAnimation" class="one-black-card"></div>
   </div>
 </div>

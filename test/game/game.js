@@ -2,8 +2,6 @@
 /*  eslint-disable no-unused-vars */
 /*  eslint strict:0 */
 
-'use strict';
-
 const should = require('should');
 const io = require('socket.io-client');
 
@@ -79,13 +77,13 @@ describe('Game Server', () => {
     const expectStartGame = () => {
       client1.emit('startGame');
       client1.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client2.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client3.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       setTimeout(disconnect, 200);
     };
@@ -118,22 +116,22 @@ describe('Game Server', () => {
     const expectStartGame = () => {
       client1.emit('startGame');
       client1.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client2.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client3.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client4.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client5.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       client6.on('gameUpdate', (data) => {
-        data.state.should.equal('waiting for players to pick');
+        data.state.should.equal('pick black card');
       });
       setTimeout(disconnect, 200);
     };
